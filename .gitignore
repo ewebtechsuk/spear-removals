@@ -1,0 +1,47 @@
+# Server/core
+.htaccess
+web.config
+*.log
+*.sql
+*.tar
+*.zip
+*.gz
+*.rar
+*.7z
+
+# Secrets
+.env
+.env.*
+wp-config.php
+wp-config-*.php
+
+# WordPress core (track only wp-content)
+wp-admin/
+wp-includes/
+!wp-content/
+index.php
+
+# Caches & backups
+wp-content/cache/
+wp-content/upgrade/
+wp-content/wflogs/
+wp-content/ai1wm-backups/
+wp-content/backups-dup-pro/
+wp-content/updraft/
+
+# Media (optional to exclude)
+wp-content/uploads/
+wp-content/uploads-*/
+
+# Dependencies / IDE
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.swp
+*.swo
+.DS_Store
+.vscode/
+.idea/
