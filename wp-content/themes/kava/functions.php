@@ -1,6 +1,6 @@
 <?php
 
-use AllowDynamicProperties;
+use \AllowDynamicProperties;
 
 if ( ! class_exists( 'Kava_Theme_Setup' ) ) {
 
