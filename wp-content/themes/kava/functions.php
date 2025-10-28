@@ -1,4 +1,7 @@
 <?php
+
+use AllowDynamicProperties;
+
 if ( ! class_exists( 'Kava_Theme_Setup' ) ) {
 
 	/**
@@ -6,7 +9,8 @@ if ( ! class_exists( 'Kava_Theme_Setup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Kava_Theme_Setup {
+        #[AllowDynamicProperties]
+        class Kava_Theme_Setup {
 
 		/**
 		 * A reference to an instance of this class.
@@ -37,7 +41,15 @@ if ( ! class_exists( 'Kava_Theme_Setup' ) ) {
 		 *
 		 * @var array
 		 */
-		public $modules = array();
+                public $modules = array();
+
+                /**
+                 * Layout definitions assigned procedurally.
+                 *
+                 * @since 1.0.0
+                 * @var   array
+                 */
+                public $layout = array();
 
 		/**
 		 * Theme version

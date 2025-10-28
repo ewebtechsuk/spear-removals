@@ -37,17 +37,14 @@ $table_prefix = 'wp_';
 
 /* Add any custom values between this line and the “stop editing” line. */
 
-/**
- * For developers: WordPress debugging mode.
- * It’s strongly recommended that plugin/theme developers use WP_DEBUG in staging environments.
- * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
- */
-if ( ! defined( 'WP_DEBUG' ) ) {
-    define( 'WP_DEBUG', true );           // enable debug mode
-    define( 'WP_DEBUG_LOG', true );       // log to wp-content/debug.log
-    define( 'WP_DEBUG_DISPLAY', false );  // hide errors from users
-    @ini_set( 'display_errors', 0 );
-}
+// Enable WP debug mode and file logging
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+@ini_set( 'display_errors', 0 );
+
+// Optional: log queries (for performance/analysis)
+define( 'SAVEQUERIES', true );
 
 // File system method for updates & installs.
 define( 'FS_METHOD', 'direct' );
