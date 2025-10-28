@@ -1,7 +1,5 @@
 <?php
 
-use \AllowDynamicProperties;
-
 if ( ! class_exists( 'Kava_Theme_Setup' ) ) {
 
 	/**
@@ -9,7 +7,7 @@ if ( ! class_exists( 'Kava_Theme_Setup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-        #[AllowDynamicProperties]
+        #[\AllowDynamicProperties]
         class Kava_Theme_Setup {
 
 		/**
