@@ -1,0 +1,6202 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Hide My WP Ghost\n"
+"POT-Creation-Date: 2025-02-26 18:08+0200\n"
+"PO-Revision-Date: 2020-12-24 09:30+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: index.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: classes/Tools.php:155
+msgid ""
+"Your IP has been flagged for potential security violations. Please try again "
+"in a little while."
+msgstr ""
+
+#: classes/Tools.php:732
+msgid "Resume Security"
+msgstr ""
+
+#: classes/Tools.php:735
+msgid "Pause for 5 minutes"
+msgstr ""
+
+#: classes/Tools.php:738 controllers/SecurityCheck.php:283
+#: controllers/SecurityCheck.php:531 models/Menu.php:234 models/Menu.php:266
+#: models/Menu.php:276 view/Permalinks.php:1095
+msgid "Settings"
+msgstr ""
+
+#: classes/Tools.php:2260
+#, php-format
+msgid "CONNECTION ERROR! Make sure your website can access: %s"
+msgstr ""
+
+#: classes/Tools.php:2311
+msgid "New Login Data"
+msgstr ""
+
+#: classes/Tools.php:2312 controllers/Settings.php:896
+#, php-format
+msgid "Thank you for using %s!"
+msgstr ""
+
+#: classes/Tools.php:2314 controllers/Settings.php:898
+msgid "Your new site URLs are"
+msgstr ""
+
+#: classes/Tools.php:2315 controllers/Settings.php:899
+msgid "Admin URL"
+msgstr ""
+
+#: classes/Tools.php:2316 controllers/Settings.php:900 view/Permalinks.php:158
+#: view/Permalinks.php:163
+msgid "Login URL"
+msgstr ""
+
+#: classes/Tools.php:2318 controllers/Settings.php:902
+msgid "Note: If you can`t login to your site, just access this URL"
+msgstr ""
+
+#: classes/Tools.php:2321 controllers/Settings.php:905
+msgid "Best regards"
+msgstr ""
+
+#: classes/Tools.php:2325
+#, php-format
+msgid "From: %s <%s>"
+msgstr ""
+
+#: controllers/Brute.php:100
+msgid "You need to set a positive number of attempts."
+msgstr ""
+
+#: controllers/Brute.php:107
+msgid "You need to set a positive waiting time."
+msgstr ""
+
+#: controllers/Brute.php:122 controllers/Log.php:46
+#: controllers/Overview.php:677 controllers/Settings.php:400
+#: controllers/Settings.php:421 controllers/Settings.php:465
+#: controllers/Settings.php:521 controllers/Settings.php:557
+#: controllers/Settings.php:603 controllers/Templogin.php:203
+msgid "Saved"
+msgstr ""
+
+#: controllers/Brute.php:167
+msgid "Cnt"
+msgstr ""
+
+#: controllers/Brute.php:168
+msgid "IP"
+msgstr ""
+
+#: controllers/Brute.php:169
+msgid "Fail Attempts"
+msgstr ""
+
+#: controllers/Brute.php:170 controllers/Templogin.php:326
+msgid "Options"
+msgstr ""
+
+#: controllers/Brute.php:191
+msgid "No blacklisted ips"
+msgstr ""
+
+#: controllers/Connect.php:57
+msgid "ERROR! Please make sure you use a valid token to activate the plugin"
+msgstr ""
+
+#: controllers/Connect.php:61
+msgid "ERROR! Please make sure you use the right token to activate the plugin"
+msgstr ""
+
+#: controllers/Firewall.php:1051
+msgid "The process was blocked by the website’s firewall."
+msgstr ""
+
+#: controllers/Firewall.php:1051
+msgid "Blocked by "
+msgstr ""
+
+#: controllers/Overview.php:63 controllers/SecurityCheck.php:93
+#: controllers/Settings.php:163
+#, php-format
+msgid ""
+"Javascript is disabled on your browser! You need to activate the javascript "
+"in order to use %s plugin."
+msgstr ""
+
+#: controllers/Overview.php:71
+msgid "Secure WP Paths"
+msgstr ""
+
+#: controllers/Overview.php:72
+msgid "Customize & Secure all WordPress paths from hacker bots attacks."
+msgstr ""
+
+#: controllers/Overview.php:84
+msgid "Hide WP Common Paths"
+msgstr ""
+
+#: controllers/Overview.php:85
+msgid ""
+"Hide the old /wp-content, /wp-include paths once they are changed with the "
+"new ones."
+msgstr ""
+
+#: controllers/Overview.php:97
+msgid "Hide WP Common Files"
+msgstr ""
+
+#: controllers/Overview.php:98
+msgid ""
+"Hide wp-config.php, wp-config-sample.php, readme.html, license.txt, upgrade."
+"php and install.php files.."
+msgstr ""
+
+#: controllers/Overview.php:111
+msgid "2FA"
+msgstr ""
+
+#: controllers/Overview.php:112
+msgid ""
+"Add Two Factor security on login page with Code Scan or Email Code "
+"authentication."
+msgstr ""
+
+#: controllers/Overview.php:125
+msgid "Brute Force Protection"
+msgstr ""
+
+#: controllers/Overview.php:126
+msgid "Protects your website against brute force login attacks."
+msgstr ""
+
+#: controllers/Overview.php:138
+msgid "WooCommerce Safe Login"
+msgstr ""
+
+#: controllers/Overview.php:139
+msgid "Protects your WooCommerce shop against brute force login attacks."
+msgstr ""
+
+#: controllers/Overview.php:152 models/Menu.php:57 models/Menu.php:240
+#: view/Firewall.php:23
+msgid "Firewall"
+msgstr ""
+
+#: controllers/Overview.php:153
+msgid ""
+"Activate the firewall and prevent many types of SQL Injection and URL hacks."
+msgstr ""
+
+#: controllers/Overview.php:165 view/Firewall.php:288
+msgid "Country Blocking"
+msgstr ""
+
+#: controllers/Overview.php:166
+msgid ""
+"A feature designed to stops attacks from different countries, and to put an "
+"end to harmful activity that comes from specific regions."
+msgstr ""
+
+#: controllers/Overview.php:178 models/Menu.php:230 view/Templogin.php:25
+msgid "Temporary Logins"
+msgstr ""
+
+#: controllers/Overview.php:179 view/Templogin.php:60
+msgid ""
+"Create a temporary login URL with any user role to access the website "
+"dashboard without username and password for a limited period of time."
+msgstr ""
+
+#: controllers/Overview.php:191
+msgid "Magic Link Login"
+msgstr ""
+
+#: controllers/Overview.php:192
+msgid ""
+"Allow users to log in to the website using their email address and a unique "
+"login URL delivered via email."
+msgstr ""
+
+#: controllers/Overview.php:204
+msgid "WooCommerce Magic Link"
+msgstr ""
+
+#: controllers/Overview.php:205
+msgid ""
+"Allow users to log in to WooCommerce account using their email address and a "
+"unique login URL delivered via email."
+msgstr ""
+
+#: controllers/Overview.php:218
+msgid "XML-RPC Security"
+msgstr ""
+
+#: controllers/Overview.php:219
+msgid ""
+"Disable the external calls to xml-rpc.php file and prevent Brute Force "
+"attacks."
+msgstr ""
+
+#: controllers/Overview.php:231 models/Menu.php:194 models/Presets.php:109
+#: view/Mapping.php:25
+msgid "Text Mapping"
+msgstr ""
+
+#: controllers/Overview.php:232
+msgid "Customize the IDs and Class names in your website body."
+msgstr ""
+
+#: controllers/Overview.php:244 models/Menu.php:198 models/Presets.php:111
+#: view/Mapping.php:162
+msgid "URL Mapping"
+msgstr ""
+
+#: controllers/Overview.php:245
+msgid "Customize the CSS and JS URLs in your website body."
+msgstr ""
+
+#: controllers/Overview.php:257 models/Menu.php:202
+msgid "CDN Mapping"
+msgstr ""
+
+#: controllers/Overview.php:258
+msgid "Integration with other CDN plugins and custom CDN URLs."
+msgstr ""
+
+#: controllers/Overview.php:270
+msgid "User Events Log"
+msgstr ""
+
+#: controllers/Overview.php:271
+msgid "Track and Log the website events and receive security alerts by email."
+msgstr ""
+
+#: controllers/Overview.php:284
+msgid "Login & Logout Redirects"
+msgstr ""
+
+#: controllers/Overview.php:285
+msgid "Set Login & Logout Redirects based on User Roles."
+msgstr ""
+
+#: controllers/Overview.php:298 models/Menu.php:244 view/Firewall.php:110
+msgid "Header Security"
+msgstr ""
+
+#: controllers/Overview.php:299
+msgid "Add Headers Security against XSS and Code Injection Attacks."
+msgstr ""
+
+#: controllers/Overview.php:311
+msgid "Feed Security"
+msgstr ""
+
+#: controllers/Overview.php:312
+msgid "Change paths in RSS feed for all images."
+msgstr ""
+
+#: controllers/Overview.php:324
+msgid "Sitemap Security"
+msgstr ""
+
+#: controllers/Overview.php:325
+msgid ""
+"Change paths in Sitemap XML files and remove the plugin author and styles."
+msgstr ""
+
+#: controllers/Overview.php:337
+msgid "Robots Security"
+msgstr ""
+
+#: controllers/Overview.php:338
+msgid ""
+"Hide WordPress paths such as wp-admin, wp-content, and more from robots.txt "
+"file."
+msgstr ""
+
+#: controllers/Overview.php:350
+msgid "Admin Toolbar"
+msgstr ""
+
+#: controllers/Overview.php:351
+msgid "Hide Admin Toolbar for users roles to prevent dashboard access."
+msgstr ""
+
+#: controllers/Overview.php:363 view/Tweaks.php:470
+msgid "Disable Right-Click"
+msgstr ""
+
+#: controllers/Overview.php:364
+msgid "Disable the right-click action on your website."
+msgstr ""
+
+#: controllers/Overview.php:376
+msgid "Disable Copy/Paste"
+msgstr ""
+
+#: controllers/Overview.php:377
+msgid "Disable the copy/paste action on your website."
+msgstr ""
+
+#: controllers/Overview.php:390
+msgid "Wordfence Security"
+msgstr ""
+
+#: controllers/Overview.php:391
+msgid ""
+"Compatible with Wordfence Security plugin. Use them together for Malware "
+"Scan, Firewall, Brute Force protection."
+msgstr ""
+
+#: controllers/Overview.php:403
+msgid "All In One WP Security"
+msgstr ""
+
+#: controllers/Overview.php:404
+msgid ""
+"Compatible with All In One WP Security plugin. Use them together for Virus "
+"Scan, Firewall, Brute Force protection."
+msgstr ""
+
+#: controllers/Overview.php:416
+msgid "Sucuri Security"
+msgstr ""
+
+#: controllers/Overview.php:417
+msgid ""
+"Compatible with Sucuri Security plugin. Use them together for Virus Scan, "
+"Firewall, File Integrity Monitoring."
+msgstr ""
+
+#: controllers/Overview.php:429
+msgid "Solid Security"
+msgstr ""
+
+#: controllers/Overview.php:430
+msgid ""
+"Compatible with Solid Security plugin. Use them together for Site Scanner, "
+"File Change Detection, Brute Force Protection."
+msgstr ""
+
+#: controllers/Overview.php:443
+msgid "Autoptimize"
+msgstr ""
+
+#: controllers/Overview.php:444
+msgid ""
+"Fully compatible with Autoptimizer cache plugin. Works best with the the "
+"option Optimize/Aggregate CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:456
+msgid "Hummingbird"
+msgstr ""
+
+#: controllers/Overview.php:457
+msgid ""
+"Fully compatible with Hummingbird cache plugin. Works best with the the "
+"option Minify CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:469
+msgid "WP Super Cache"
+msgstr ""
+
+#: controllers/Overview.php:470
+msgid "Fully compatible with WP Super Cache cache plugin."
+msgstr ""
+
+#: controllers/Overview.php:482
+msgid "Cache Enabler"
+msgstr ""
+
+#: controllers/Overview.php:483
+msgid ""
+"Fully compatible with Cache Enabler plugin. Works best with the the option "
+"Minify CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:495
+msgid "WP Rocket"
+msgstr ""
+
+#: controllers/Overview.php:496
+msgid ""
+"Fully compatible with WP-Rocket cache plugin. Works best with the the option "
+"Minify/Combine CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:508
+msgid "WP Fastest Cache"
+msgstr ""
+
+#: controllers/Overview.php:509
+msgid ""
+"Fully compatible with WP Fastest Cache plugin. Works best with the the "
+"option Minify CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:521
+msgid "W3 Total Cache"
+msgstr ""
+
+#: controllers/Overview.php:522
+msgid ""
+"Fully compatible with W3 Total Cache plugin. Works best with the the option "
+"Minify CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:534
+msgid "LiteSpeed Cache"
+msgstr ""
+
+#: controllers/Overview.php:535
+msgid ""
+"Fully compatible with LiteSpeed Cache plugin. Works best with the the option "
+"Minify CSS and JS files."
+msgstr ""
+
+#: controllers/Overview.php:547
+msgid "JCH Optimize Cache"
+msgstr ""
+
+#: controllers/Overview.php:548
+msgid ""
+"Compatible with JCH Optimize Cache plugin. Works with all the options to "
+"optimize for CSS and JS."
+msgstr ""
+
+#: controllers/Overview.php:561 models/Menu.php:300 view/Brute.php:483
+msgid "WooCommerce"
+msgstr ""
+
+#: controllers/Overview.php:562
+msgid "Fully compatible with WooCommerce plugin."
+msgstr ""
+
+#: controllers/Overview.php:574
+msgid "Elementor"
+msgstr ""
+
+#: controllers/Overview.php:575
+msgid ""
+"Fully compatible with Elementor Website Builder plugin. Works best together "
+"with a cache plugin"
+msgstr ""
+
+#: controllers/Overview.php:587
+msgid "Oxygen"
+msgstr ""
+
+#: controllers/Overview.php:588
+msgid ""
+"Fully compatible with Oxygen Builder plugin. Works best together with a "
+"cache plugin."
+msgstr ""
+
+#: controllers/Overview.php:600
+msgid "Beaver Builder"
+msgstr ""
+
+#: controllers/Overview.php:601 controllers/Overview.php:614
+msgid ""
+"Fully compatible with Beaver Builder plugin. Works best together with a "
+"cache plugin."
+msgstr ""
+
+#: controllers/Overview.php:613
+msgid "WPBakery Page Builder"
+msgstr ""
+
+#: controllers/Overview.php:626
+msgid "Fusion Builder"
+msgstr ""
+
+#: controllers/Overview.php:627
+msgid ""
+"Fully compatible with Fusion Builder plugin by Avada. Works best together "
+"with a cache plugin."
+msgstr ""
+
+#: controllers/SecurityCheck.php:69
+msgid ""
+"You should check your website every week to see if there are any security "
+"changes."
+msgstr ""
+
+#: controllers/SecurityCheck.php:202
+msgid "PHP Version"
+msgstr ""
+
+#: controllers/SecurityCheck.php:206
+msgid ""
+"Using an old version of PHP makes your site slow and prone to hacker attacks "
+"due to known vulnerabilities that exist in versions of PHP that are no "
+"longer maintained. <br /><br />You need <strong>PHP 7.4</strong> or higher "
+"for your website."
+msgstr ""
+
+#: controllers/SecurityCheck.php:207
+msgid ""
+"Email your hosting company and tell them you'd like to switch to a newer "
+"version of PHP or move your site to a better hosting company."
+msgstr ""
+
+#: controllers/SecurityCheck.php:210
+msgid "Mysql Version"
+msgstr ""
+
+#: controllers/SecurityCheck.php:214
+msgid ""
+"Using an old version of MySQL makes your site slow and prone to hacker "
+"attacks due to known vulnerabilities that exist in versions of MySQL that "
+"are no longer maintained. <br /><br />You need <strong>Mysql 5.4</strong> or "
+"higher"
+msgstr ""
+
+#: controllers/SecurityCheck.php:215
+msgid ""
+"Email your hosting company and tell them you'd like to switch to a newer "
+"version of MySQL or move your site to a better hosting company"
+msgstr ""
+
+#: controllers/SecurityCheck.php:218
+msgid "WordPress Version"
+msgstr ""
+
+#: controllers/SecurityCheck.php:222
+#, php-format
+msgid ""
+"You should always update WordPress to the %slatest versions%s. These usually "
+"include the latest security fixes, and don't alter WP in any significant "
+"way. These should be applied as soon as WP releases them. <br /><br />When a "
+"new version of WordPress is available, you will receive an update message on "
+"your WordPress Admin screens. To update WordPress, click the link in this "
+"message."
+msgstr ""
+
+#: controllers/SecurityCheck.php:223
+msgid "There is a newer version of WordPress available ({version})."
+msgstr ""
+
+#: controllers/SecurityCheck.php:226
+msgid "WP Debug Mode"
+msgstr ""
+
+#: controllers/SecurityCheck.php:230
+msgid ""
+"Every good developer should turn on debugging before getting started on a "
+"new plugin or theme. In fact, the WordPress Codex 'highly recommends' that "
+"developers use WP_DEBUG. <br /><br />Unfortunately, many developers forget "
+"the debug mode, even when the website is live. Showing debug logs in the "
+"frontend will let hackers know a lot about your WordPress website."
+msgstr ""
+
+#: controllers/SecurityCheck.php:231
+msgid ""
+"Disable WP_DEBUG for live websites in wp-config.php <code>define('WP_DEBUG', "
+"false);</code>"
+msgstr ""
+
+#: controllers/SecurityCheck.php:235
+msgid "DB Debug Mode"
+msgstr ""
+
+#: controllers/SecurityCheck.php:239
+msgid ""
+"It's not safe to have Database Debug turned on. Make sure you don't use "
+"Database debug on live websites."
+msgstr ""
+
+#: controllers/SecurityCheck.php:240
+msgid ""
+"Turn off the debug plugins if your website is live. You can also add the "
+"option to hide the DB errors <code>global $wpdb; $wpdb->hide_errors();</"
+"code> in wp-config.php file"
+msgstr ""
+
+#: controllers/SecurityCheck.php:244
+msgid "Script Debug Mode"
+msgstr ""
+
+#: controllers/SecurityCheck.php:248
+msgid ""
+"Every good developer should turn on debugging before getting started on a "
+"new plugin or theme. In fact, the WordPress Codex 'highly recommends' that "
+"developers use SCRIPT_DEBUG. Unfortunately, many developers forget the debug "
+"mode even when the website is live. Showing debug logs in the frontend will "
+"let hackers know a lot about your WordPress website."
+msgstr ""
+
+#: controllers/SecurityCheck.php:249
+msgid ""
+"Disable SCRIPT_DEBUG for live websites in wp-config.php "
+"<code>define('SCRIPT_DEBUG', false);</code>"
+msgstr ""
+
+#: controllers/SecurityCheck.php:253
+msgid "display_errors PHP directive"
+msgstr ""
+
+#: controllers/SecurityCheck.php:257
+msgid ""
+"Displaying any kind of debug info in the frontend is extremely bad. If any "
+"PHP errors happen on your site they should be logged in a safe place and not "
+"displayed to visitors or potential attackers."
+msgstr ""
+
+#: controllers/SecurityCheck.php:258
+msgid ""
+"Edit wp-config.php and add <code>ini_set('display_errors', 0);</code> at the "
+"end of the file"
+msgstr ""
+
+#: controllers/SecurityCheck.php:261
+msgid "Backend under SSL"
+msgstr ""
+
+#: controllers/SecurityCheck.php:265
+msgid ""
+"SSL is an abbreviation used for Secure Sockets Layers, which are encryption "
+"protocols used on the internet to secure information exchange and provide "
+"certificate information.<br /><br />These certificates provide an assurance "
+"to the user about the identity of the website they are communicating with. "
+"SSL may also be called TLS or Transport Layer Security protocol. <br /><br /"
+">It's important to have a secure connection for the Admin Dashboard in "
+"WordPress."
+msgstr ""
+
+#: controllers/SecurityCheck.php:266
+#, php-format
+msgid "Learn how to set your website as %s. %sClick Here%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:269
+msgid "User 'admin' or 'administrator' as Administrator"
+msgstr ""
+
+#: controllers/SecurityCheck.php:273
+msgid ""
+"In the old days, the default WordPress admin username was 'admin' or "
+"'administrator'. Since usernames make up half of the login credentials, this "
+"made it easier for hackers to launch brute-force attacks. <br /><br /"
+">Thankfully, WordPress has since changed this and now requires you to select "
+"a custom username at the time of installing WordPress."
+msgstr ""
+
+#: controllers/SecurityCheck.php:274 view/SecurityCheck.php:256
+msgid ""
+"Change the user 'admin' or 'administrator' with another name to improve "
+"security."
+msgstr ""
+
+#: controllers/SecurityCheck.php:278
+msgid "Spammers can easily signup"
+msgstr ""
+
+#: controllers/SecurityCheck.php:282
+msgid ""
+"You shouldn't let users subscribe to your blog if you don't have an e-"
+"commerce, membership, or guest posting website. You will end up with spam "
+"registrations, and your website will be filled with spammy content and "
+"comments. We recommend using the Brute Force protection on the registration "
+"form."
+msgstr ""
+
+#: controllers/SecurityCheck.php:283
+#, php-format
+msgid ""
+"Change the signup path from %s %s > Change Paths > Custom Register URL %s "
+"then activate Brute Force on Sign up from %s %s > Brute Force > Settings %s "
+"or uncheck the option %s > %s > %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:283 controllers/SecurityCheck.php:531
+msgid "General"
+msgstr ""
+
+#: controllers/SecurityCheck.php:283
+msgid "Anyone can register"
+msgstr ""
+
+#: controllers/SecurityCheck.php:286
+msgid "Outdated Plugins"
+msgstr ""
+
+#: controllers/SecurityCheck.php:290
+msgid ""
+"WordPress and its plugins and themes are like any other software installed "
+"on your computer, and like any other application on your devices. "
+"Periodically, developers release updates which provide new features, or fix "
+"known bugs. <br /><br />These new features may not necessarily be something "
+"that you want. In fact, you may be perfectly satisfied with the "
+"functionality you currently have. Nevertheless, you are still likely to be "
+"concerned about bugs.<br /><br />Software bugs can come in many shapes and "
+"sizes. A bug could be very serious, such as preventing users from using a "
+"plugin, or it could be minor and only affect a certain part of a theme, for "
+"example. In some cases, bugs can cause serious security holes. <br /><br /"
+">Keeping plugins up to date is one of the most important and easiest ways to "
+"keep your site secure."
+msgstr ""
+
+#: controllers/SecurityCheck.php:291 controllers/SecurityCheck.php:299
+msgid ""
+"Go to the Dashboard > Plugins section and update all the plugins to the last "
+"version."
+msgstr ""
+
+#: controllers/SecurityCheck.php:294
+msgid "Not Recent Updates Released"
+msgstr ""
+
+#: controllers/SecurityCheck.php:298
+msgid ""
+"Plugins that have not been updated in the last 12 months can have real "
+"security problems. Make sure you use updated plugins from WordPress "
+"Directory."
+msgstr ""
+
+#: controllers/SecurityCheck.php:302
+msgid "Outdated Themes"
+msgstr ""
+
+#: controllers/SecurityCheck.php:306
+msgid ""
+"WordPress and its plugins and themes are like any other software installed "
+"on your computer, and like any other application on your devices. "
+"Periodically developers release updates which provide new features or fix "
+"known bugs. <br /><br />New features may be something that you do not "
+"necessarily want. In fact, you may be perfectly satisfied with the "
+"functionality you currently have. Nevertheless, you may still be concerned "
+"about bugs.<br /><br />Software bugs can come in many shapes and sizes. A "
+"bug could be very serious, such as preventing users from using a plugin, or "
+"it could be a minor bug that only affects a certain part of a theme, for "
+"example. In some cases, bugs can even cause serious security holes.<br /"
+"><br />Keeping themes up to date is one of the most important and easiest "
+"ways to keep your site secure."
+msgstr ""
+
+#: controllers/SecurityCheck.php:307
+msgid ""
+"Go to the Dashboard > Appearance section and update all the themes to the "
+"last version."
+msgstr ""
+
+#: controllers/SecurityCheck.php:310
+msgid "Database Prefix"
+msgstr ""
+
+#: controllers/SecurityCheck.php:314
+msgid ""
+"The WordPress database is like a brain for your entire WordPress site, "
+"because every single bit of information about your site is stored there, "
+"thus making it a hacker’s favorite target. <br /><br />Spammers and hackers "
+"run automated code for SQL injections.<br />Unfortunately, many people "
+"forget to change the database prefix when they install WordPress. <br />This "
+"makes it easier for hackers to plan a mass attack by targeting the default "
+"prefix <strong>wp_</strong>."
+msgstr ""
+
+#: controllers/SecurityCheck.php:315
+#, php-format
+msgid ""
+"%s protects your website from most SQL injections but, if possible, use a "
+"custom prefix for database tables to avoid SQL injections. %sRead more%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:319
+msgid "File Permissions"
+msgstr ""
+
+#: controllers/SecurityCheck.php:323
+msgid ""
+"File permissions in WordPress play a critical role in website security. "
+"Properly configuring these permissions ensures that unauthorized users "
+"cannot gain access to sensitive files and data. <br />Incorrect permissions "
+"can inadvertently open your website to attacks, making it vulnerable. <br /"
+">As a WordPress administrator, understanding and correctly setting file "
+"permissions are essential for safeguarding your site against potential "
+"threats."
+msgstr ""
+
+#: controllers/SecurityCheck.php:324 view/SecurityCheck.php:282
+#, php-format
+msgid ""
+"Even if the default paths are protected by %s after customization, we "
+"recommend setting the correct permissions for all directories and files on "
+"your website, use File Manager or FTP to check and change the permissions. "
+"%sRead more%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:328
+msgid "Salts and Security Keys valid"
+msgstr ""
+
+#: controllers/SecurityCheck.php:332
+msgid ""
+"Security keys are used to ensure better encryption of information stored in "
+"the user's cookies and hashed passwords. <br /><br />These make your site "
+"more difficult to hack, access and crack by adding random elements to the "
+"password. You don't have to remember these keys. In fact, once you set them "
+"you'll never see them again. Therefore, there's no excuse for not setting "
+"them properly."
+msgstr ""
+
+#: controllers/SecurityCheck.php:333
+msgid ""
+"Security keys are defined in wp-config.php as constants on lines. They "
+"should be as unique and as long as possible. <code>AUTH_KEY,SECURE_AUTH_KEY,"
+"LOGGED_IN_KEY,NONCE_KEY,AUTH_SALT,SECURE_AUTH_SALT,LOGGED_IN_SALT,"
+"NONCE_SALT</code>"
+msgstr ""
+
+#: controllers/SecurityCheck.php:337
+msgid "Security Keys Updated"
+msgstr ""
+
+#: controllers/SecurityCheck.php:341
+msgid ""
+"The security keys in wp-config.php should be renewed as often as possible."
+msgstr ""
+
+#: controllers/SecurityCheck.php:342
+#, php-format
+msgid ""
+"You can generate %snew Keys from here%s <code>AUTH_KEY,SECURE_AUTH_KEY,"
+"LOGGED_IN_KEY,NONCE_KEY,AUTH_SALT,SECURE_AUTH_SALT,LOGGED_IN_SALT,"
+"NONCE_SALT</code>"
+msgstr ""
+
+#: controllers/SecurityCheck.php:346
+msgid "WordPress Database Password"
+msgstr ""
+
+#: controllers/SecurityCheck.php:350
+msgid ""
+"There is no such thing as an \"unimportant password\"! The same goes for "
+"your WordPress database password. <br />Although most servers are configured "
+"so that the database can't be accessed from other hosts (or from outside the "
+"local network), that doesn't mean your database password should be \"12345\" "
+"or no password at all."
+msgstr ""
+
+#: controllers/SecurityCheck.php:351
+msgid ""
+"Choose a proper database password, at least 8 characters long with a "
+"combination of letters, numbers and special characters. After you change it, "
+"set the new password in the wp-config.php file <code>define('DB_PASSWORD', "
+"'NEW_DB_PASSWORD_GOES_HERE');</code>"
+msgstr ""
+
+#: controllers/SecurityCheck.php:354 controllers/SecurityCheck.php:371
+#: controllers/SecurityCheck.php:379
+#, php-format
+msgid "%s is visible in source code"
+msgstr ""
+
+#: controllers/SecurityCheck.php:358
+msgid ""
+"It's important to rename common WordPress paths, such as wp-content and wp-"
+"includes to prevent hackers from knowing that you have a WordPress website."
+msgstr ""
+
+#: controllers/SecurityCheck.php:359
+#, php-format
+msgid ""
+"Change the wp-content, wp-includes and other common paths with %s %s > "
+"Change Paths%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:362 controllers/SecurityCheck.php:387
+#, php-format
+msgid "%s path is accessible"
+msgstr ""
+
+#: controllers/SecurityCheck.php:366
+msgid ""
+"It's important to hide the common WordPress paths to prevent attacks on "
+"vulnerable plugins and themes. <br /> Also, it's important to hide the names "
+"of plugins and themes to make it impossible for bots to detect them."
+msgstr ""
+
+#: controllers/SecurityCheck.php:367
+#, php-format
+msgid "Switch on %s %s > Change Paths >  Hide WordPress Common Paths%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:375
+#, php-format
+msgid ""
+"Having the admin URL visible in the source code is awful because hackers "
+"will immediately know your secret admin path and start a Brute Force attack. "
+"The custom admin path should not appear in the ajax URL. <br /><br />Find "
+"solutions for %s how to hide the path from source code %s."
+msgstr ""
+
+#: controllers/SecurityCheck.php:376
+#, php-format
+msgid ""
+"Switch on %s %s > Change Paths > Hide wp-admin from ajax URL%s. Hide any "
+"reference to admin path from the installed plugins."
+msgstr ""
+
+#: controllers/SecurityCheck.php:383
+#, php-format
+msgid ""
+"Having the login URL visible in the source code is awful because hackers "
+"will immediately know your secret login path and start a Brute Force attack. "
+"<br /><br />The custom login path should be kept secret, and you should have "
+"Brute Force Protection activated for it. <br ><br />Find solutions for %s "
+"hiding the login path from source code here %s."
+msgstr ""
+
+#: controllers/SecurityCheck.php:384
+#, php-format
+msgid "%sHide the login path%s from theme menu or widget."
+msgstr ""
+
+#: controllers/SecurityCheck.php:391
+msgid ""
+"If your site allows user logins, you need your login page to be easy to find "
+"for your users. You also need to do other things to protect against "
+"malicious login attempts. <br /><br />However, obscurity is a valid security "
+"layer when used as part of a comprehensive security strategy, and if you "
+"want to cut down on the number of malicious login attempts. Making your "
+"login page difficult to find is one way to do that."
+msgstr ""
+
+#: controllers/SecurityCheck.php:392
+#, php-format
+msgid ""
+"Change the wp-login from %s %s > Change Paths > Custom login URL%s and "
+"Switch on %s %s > Brute Force Protection%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:395
+msgid "wp-config.php & wp-config-sample.php files are accessible"
+msgstr ""
+
+#: controllers/SecurityCheck.php:399
+msgid ""
+"One of the most important files in your WordPress installation is the wp-"
+"config.php file. <br />This file is located in the root directory of your "
+"WordPress installation and contains your website's base configuration "
+"details, such as database connection information."
+msgstr ""
+
+#: controllers/SecurityCheck.php:400
+#, php-format
+msgid "Switch on %s %s > Change Paths > Hide WordPress Common Files%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:404
+msgid "readme.html file is accessible"
+msgstr ""
+
+#: controllers/SecurityCheck.php:408
+msgid ""
+"It's important to hide or remove the readme.html file because it contains WP "
+"version details."
+msgstr ""
+
+#: controllers/SecurityCheck.php:409
+#, php-format
+msgid ""
+"Rename readme.html file or switch on %s %s > Change Paths > Hide WordPress "
+"Common Files%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:413
+msgid "install.php & upgrade.php files are accessible"
+msgstr ""
+
+#: controllers/SecurityCheck.php:417
+msgid ""
+"WordPress is well-known for its ease of installation. <br/>It's important to "
+"hide the wp-admin/install.php and wp-admin/upgrade.php files because there "
+"have already been a couple of security issues regarding these files."
+msgstr ""
+
+#: controllers/SecurityCheck.php:418
+#, php-format
+msgid ""
+"Rename wp-admin/install.php & wp-admin/upgrade.php files or switch on %s %s "
+"> Change Paths > Hide WordPress Common Paths%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:422
+msgid "Firewall against injections is loaded"
+msgstr ""
+
+#: controllers/SecurityCheck.php:426
+msgid ""
+"The most common way to hack a website is by accessing the domain and adding "
+"harmful queries in order to reveal information from files and database.<br /"
+"> These attacks are made on any website, WordPress or not, and if a call "
+"succeeds … it will probably be too late to save the website."
+msgstr ""
+
+#: controllers/SecurityCheck.php:427
+#, php-format
+msgid ""
+"Activate the firewall and select the firewall strength that works for your "
+"website %s %s > Change Paths > Firewall & Headers %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:431
+msgid "Versions in Source Code"
+msgstr ""
+
+#: controllers/SecurityCheck.php:435
+msgid ""
+"WordPress, plugins and themes add their version info to the source code, so "
+"anyone can see it. <br /><br />Hackers can easily find a website with "
+"vulnerable version plugins or themes, and target these with Zero-Day "
+"Exploits."
+msgstr ""
+
+#: controllers/SecurityCheck.php:436
+#, php-format
+msgid "Switch on %s %s > Tweaks > %s %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:436
+msgid "Hide Versions from Images, CSS and JS"
+msgstr ""
+
+#: controllers/SecurityCheck.php:440
+msgid "PHP register_globals is on"
+msgstr ""
+
+#: controllers/SecurityCheck.php:444
+msgid ""
+"This is one of the biggest security issues you can have on your site! If "
+"your hosting company has this directive enabled by default, switch to "
+"another company immediately!"
+msgstr ""
+
+#: controllers/SecurityCheck.php:445
+msgid ""
+"If you have access to php.ini file, set <code>register_globals = off</code> "
+"or contact the hosting company to set it off"
+msgstr ""
+
+#: controllers/SecurityCheck.php:448
+msgid "PHP expose_php is on"
+msgstr ""
+
+#: controllers/SecurityCheck.php:452
+msgid ""
+"Exposing the PHP version will make the job of attacking your site much "
+"easier."
+msgstr ""
+
+#: controllers/SecurityCheck.php:453
+msgid ""
+"If you have access to php.ini file, set <code>expose_php = off</code> or "
+"contact the hosting company to set it off"
+msgstr ""
+
+#: controllers/SecurityCheck.php:456
+msgid "PHP safe_mode is on"
+msgstr ""
+
+#: controllers/SecurityCheck.php:460
+msgid ""
+"PHP safe mode was one of the attempts to solve security problems of shared "
+"web hosting servers. <br /><br />It is still being used by some web hosting "
+"providers, however, nowadays this is regarded as improper. A systematic "
+"approach proves that it’s architecturally incorrect to try solving complex "
+"security issues at the PHP level, rather than at the web server and OS "
+"levels.<br /><br />Technically, safe mode is a PHP directive that restricts "
+"the way some built-in PHP functions operate. The main problem here is "
+"inconsistency. When turned on, PHP safe mode may prevent many legitimate PHP "
+"functions from working correctly. At the same time there exists a variety of "
+"methods to override safe mode limitations using PHP functions that aren’t "
+"restricted, so if a hacker has already got in – safe mode is useless."
+msgstr ""
+
+#: controllers/SecurityCheck.php:461
+msgid ""
+"If you have access to php.ini file, set <code>safe_mode = off</code> or "
+"contact the hosting company to set it off"
+msgstr ""
+
+#: controllers/SecurityCheck.php:464
+msgid "PHP allow_url_include is on"
+msgstr ""
+
+#: controllers/SecurityCheck.php:468
+msgid ""
+"Having this PHP directive enabled will leave your site exposed to cross-site "
+"attacks (XSS). <br /><br />There's absolutely no valid reason to enable this "
+"directive, and using any PHP code that requires it is very risky."
+msgstr ""
+
+#: controllers/SecurityCheck.php:469
+msgid ""
+"If you have access to php.ini file, set <code>allow_url_include = off</code> "
+"or contact the hosting company to set it off"
+msgstr ""
+
+#: controllers/SecurityCheck.php:472
+msgid "Plugins/Themes editor disabled"
+msgstr ""
+
+#: controllers/SecurityCheck.php:476
+msgid ""
+"The plugins and themes file editor is a very convenient tool because it "
+"enables you to make quick changes without the need to use FTP. <br /><br /"
+">Unfortunately, it's also a security issue because it not only shows the PHP "
+"source code, it also enables attackers to inject malicious code into your "
+"site if they manage to gain access to admin."
+msgstr ""
+
+#: controllers/SecurityCheck.php:477
+msgid ""
+"Disable DISALLOW_FILE_EDIT for live websites in wp-config.php "
+"<code>define('DISALLOW_FILE_EDIT', true);</code>"
+msgstr ""
+
+#: controllers/SecurityCheck.php:481
+#, php-format
+msgid "Folder %s is browsable"
+msgstr ""
+
+#: controllers/SecurityCheck.php:485
+msgid ""
+"Allowing anyone to view all files in the Uploads folder with a browser will "
+"allow them to easily download all your uploaded files. It's a security and a "
+"copyright issue."
+msgstr ""
+
+#: controllers/SecurityCheck.php:486
+#, php-format
+msgid ""
+"Learn how to disable %sDirectory Browsing%s or switch on %s %s > Change "
+"Paths > Disable Directory Browsing%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:490
+msgid "Windows Live Writer is on"
+msgstr ""
+
+#: controllers/SecurityCheck.php:494
+msgid ""
+"If you're not using Windows Live Writer there's really no valid reason to "
+"have its link in the page header, because this tells the whole world you're "
+"using WordPress."
+msgstr ""
+
+#: controllers/SecurityCheck.php:495
+#, php-format
+msgid "Switch on %s %s > Tweaks > Hide WLW Manifest scripts%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:499
+msgid "XML-RPC access is on"
+msgstr ""
+
+#: controllers/SecurityCheck.php:503
+msgid ""
+"WordPress XML-RPC is a specification that aims to standardize communications "
+"between different systems. It uses HTTP as the transport mechanism and XML "
+"as encoding mechanism to enable a wide range of data to be transmitted. <br /"
+"><br />The two biggest assets of the API are its extendibility and its "
+"security. XML-RPC authenticates using basic authentication. It sends the "
+"username and password with each request, which is a big no-no in security "
+"circles."
+msgstr ""
+
+#: controllers/SecurityCheck.php:504
+#, php-format
+msgid "Switch on %s %s > Change Paths > Disable XML-RPC access%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:508
+msgid "RDS is visible"
+msgstr ""
+
+#: controllers/SecurityCheck.php:512
+msgid ""
+"If you're not using any Really Simple Discovery services such as pingbacks, "
+"there's no need to advertise that endpoint (link) in the header. Please note "
+"that for most sites this is not a security issue because they \"want to be "
+"discovered\", but if you want to hide the fact that you're using WP, this is "
+"the way to go."
+msgstr ""
+
+#: controllers/SecurityCheck.php:513
+#, php-format
+msgid "Switch on %s %s > Change Paths > Hide RSD Endpoint%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:517
+msgid "Author URL by ID access"
+msgstr ""
+
+#: controllers/SecurityCheck.php:521
+msgid ""
+"Usernames (unlike passwords) are not secret. By knowing someone's username, "
+"you can't log in to their account. You also need the password. <br /><br /"
+">However, by knowing the username, you are one step closer to logging in "
+"using the username to brute-force the password, or to gain access in a "
+"similar way. <br /><br />That's why it's advisable to keep the list of "
+"usernames private, at least to some degree. By default, by accessing siteurl."
+"com/?author={id} and looping through IDs from 1 you can get a list of "
+"usernames, because WP will redirect you to siteurl.com/author/user/ if the "
+"ID exists in the system."
+msgstr ""
+
+#: controllers/SecurityCheck.php:522
+#, php-format
+msgid "Switch on %s %s > Change Paths > Hide Author ID URL%s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:526
+msgid "Default WordPress Tagline"
+msgstr ""
+
+#: controllers/SecurityCheck.php:530
+msgid ""
+"The WordPress site tagline is a short phrase located under the site title, "
+"similar to a subtitle or advertising slogan. The goal of a tagline is to "
+"convey the essence of your site to visitors. <br /><br />If you don't change "
+"the default tagline it will be very easy to detect that your website was "
+"actually built with WordPress"
+msgstr ""
+
+#: controllers/SecurityCheck.php:531
+#, php-format
+msgid "Change the Tagline in %s > %s > %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:531
+msgid "Tagline"
+msgstr ""
+
+#: controllers/SecurityCheck.php:578
+msgid "Done!"
+msgstr ""
+
+#: controllers/SecurityCheck.php:676 controllers/SecurityCheck.php:741
+msgid "Don't forget to reload the Nginx service."
+msgstr ""
+
+#: controllers/SecurityCheck.php:682
+msgid "Great! The new paths are loading correctly."
+msgstr ""
+
+#: controllers/SecurityCheck.php:690
+#, php-format
+msgid "You can now turn off '%s' option."
+msgstr ""
+
+#: controllers/SecurityCheck.php:690 view/Advanced.php:50
+msgid "Prevent Broken Website Layout"
+msgstr ""
+
+#: controllers/SecurityCheck.php:701
+#, php-format
+msgid "You can now turn on '%s' option."
+msgstr ""
+
+#: controllers/SecurityCheck.php:701 view/blocks/ChangeCacheFiles.php:8
+msgid "Change Paths in Cached Files"
+msgstr ""
+
+#: controllers/SecurityCheck.php:708
+msgid ""
+"Error! The new paths are not loading correctly. Clear all cache and try "
+"again."
+msgstr ""
+
+#: controllers/SecurityCheck.php:739 controllers/SecurityCheck.php:798
+#: controllers/SecurityCheck.php:838 controllers/SecurityCheck.php:862
+#: controllers/SecurityCheck.php:884 controllers/SecurityCheck.php:935
+#: controllers/SecurityCheck.php:955 controllers/SecurityCheck.php:983
+msgid "Saved! You can run the test again."
+msgstr ""
+
+#: controllers/SecurityCheck.php:741
+msgid "Learn How"
+msgstr ""
+
+#: controllers/SecurityCheck.php:755 controllers/SecurityCheck.php:771
+#: controllers/SecurityCheck.php:810 controllers/SecurityCheck.php:845
+#: controllers/SecurityCheck.php:868 controllers/SecurityCheck.php:891
+msgid "Could not fix it. You need to change it manually."
+msgstr ""
+
+#: controllers/SecurityCheck.php:900
+msgid "Invalid username."
+msgstr ""
+
+#: controllers/SecurityCheck.php:907
+msgid "A user already exists with that username."
+msgstr ""
+
+#: controllers/SecurityCheck.php:974
+msgid "Saved! This task will be ignored on future tests."
+msgstr ""
+
+#: controllers/SecurityCheck.php:1036 controllers/SecurityCheck.php:1041
+#: controllers/SecurityCheck.php:1061 controllers/SecurityCheck.php:1075
+#: controllers/SecurityCheck.php:1090 controllers/SecurityCheck.php:1106
+#: controllers/SecurityCheck.php:1340 controllers/SecurityCheck.php:1504
+#: controllers/SecurityCheck.php:1524 controllers/SecurityCheck.php:1533
+#: controllers/SecurityCheck.php:1540 controllers/SecurityCheck.php:1572
+#: controllers/SecurityCheck.php:1576 controllers/SecurityCheck.php:1600
+#: controllers/SecurityCheck.php:1608 controllers/SecurityCheck.php:1613
+#: controllers/SecurityCheck.php:1639 controllers/SecurityCheck.php:1644
+#: controllers/SecurityCheck.php:1656 controllers/SecurityCheck.php:1670
+#: controllers/SecurityCheck.php:1685 controllers/SecurityCheck.php:1700
+#: controllers/SecurityCheck.php:1713 controllers/SecurityCheck.php:1736
+#: controllers/SecurityCheck.php:1760 controllers/SecurityCheck.php:1770
+#: controllers/SecurityCheck.php:1791 controllers/SecurityCheck.php:1820
+#: controllers/SecurityCheck.php:1835 controllers/SecurityCheck.php:1860
+#: controllers/SecurityCheck.php:1895 controllers/SecurityCheck.php:1923
+#: controllers/SecurityCheck.php:1959 controllers/SecurityCheck.php:1985
+#: controllers/SecurityCheck.php:2007 controllers/SecurityCheck.php:2014
+#: controllers/SecurityCheck.php:2043 controllers/SecurityCheck.php:2060
+#: controllers/SecurityCheck.php:2074 models/Presets.php:206
+msgid "No"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1041 controllers/SecurityCheck.php:1061
+#: controllers/SecurityCheck.php:1075 controllers/SecurityCheck.php:1090
+#: controllers/SecurityCheck.php:1106 controllers/SecurityCheck.php:1340
+#: controllers/SecurityCheck.php:1409 controllers/SecurityCheck.php:1504
+#: controllers/SecurityCheck.php:1524 controllers/SecurityCheck.php:1533
+#: controllers/SecurityCheck.php:1576 controllers/SecurityCheck.php:1613
+#: controllers/SecurityCheck.php:1644 controllers/SecurityCheck.php:1656
+#: controllers/SecurityCheck.php:1670 controllers/SecurityCheck.php:1685
+#: controllers/SecurityCheck.php:1700 controllers/SecurityCheck.php:1713
+#: controllers/SecurityCheck.php:1720 controllers/SecurityCheck.php:1765
+#: controllers/SecurityCheck.php:1791 controllers/SecurityCheck.php:1820
+#: controllers/SecurityCheck.php:1835 controllers/SecurityCheck.php:1853
+#: controllers/SecurityCheck.php:1895 controllers/SecurityCheck.php:1923
+#: controllers/SecurityCheck.php:1959 controllers/SecurityCheck.php:1985
+#: controllers/SecurityCheck.php:2007 controllers/SecurityCheck.php:2014
+#: controllers/SecurityCheck.php:2043 controllers/SecurityCheck.php:2060
+#: controllers/SecurityCheck.php:2074 models/Presets.php:206
+msgid "Yes"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1179
+#, php-format
+msgid "%s plugin(s) are outdated: %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1179
+msgid "All plugins are up to date"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1213
+#, php-format
+msgid "%s theme(s) are outdated: %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1213
+msgid "Themes are up to date"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1264
+#, php-format
+msgid ""
+"%s plugin(s) have NOT been updated by their developers in the past 12 "
+"months: %s"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1264
+msgid "All plugins have been updated by their developers in the past 12 months"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1298
+msgid "All plugins are compatible"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1366
+msgid "Reset"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1439
+#, php-format
+msgid "%s days since last update"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1439
+msgid "Updated"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1442
+msgid "Renew"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1459
+msgid "Empty"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1464
+#, php-format
+msgid "only %d chars"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1469
+msgid "too simple"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1474
+msgid "Good"
+msgstr ""
+
+#: controllers/SecurityCheck.php:1526
+msgid ""
+"Change the wp-config.php file permission to Read-Only using File Manager."
+msgstr ""
+
+#: controllers/SecurityCheck.php:2071
+msgid "Just another WordPress site"
+msgstr ""
+
+#: controllers/SecurityCheck.php:2097
+#, php-format
+msgid "%s don't have the correct permission."
+msgstr ""
+
+#: controllers/SecurityCheck.php:2097
+msgid "All files have the correct permissions."
+msgstr ""
+
+#: controllers/Settings.php:97
+#, php-format
+msgid ""
+"Local & NGINX detected. In case you didn't add the code in the NGINX config "
+"already, please add the following line. %s"
+msgstr ""
+
+#: controllers/Settings.php:97
+msgid "Learn how to setup on Local & Nginx"
+msgstr ""
+
+#: controllers/Settings.php:99
+#, php-format
+msgid ""
+"NGINX detected. In case you didn't add the code in the NGINX config already, "
+"please add the following line. %s"
+msgstr ""
+
+#: controllers/Settings.php:99
+msgid "Learn how to setup on Nginx server"
+msgstr ""
+
+#: controllers/Settings.php:105 view/Backup.php:68 view/Backup.php:77
+msgid "Restore Settings"
+msgstr ""
+
+#: controllers/Settings.php:106
+msgid "Do you want to restore the last saved settings?"
+msgstr ""
+
+#: controllers/Settings.php:149
+msgid ""
+"There is a configuration error in the plugin. Please Save the settings again "
+"and follow the instruction."
+msgstr ""
+
+#: controllers/Settings.php:302
+#, php-format
+msgid ""
+"New Plugin/Theme detected! Update %s settings to hide it. %sClick here%s"
+msgstr ""
+
+#: controllers/Settings.php:319
+#, php-format
+msgid ""
+"Your %s %s license expired on %s %s. To keep your website security up to "
+"date please make sure you have a valid subscription on %s"
+msgstr ""
+
+#: controllers/Settings.php:338
+msgid "ignore alert"
+msgstr ""
+
+#: controllers/Settings.php:596
+msgid "Path not allowed. Avoid paths like plugins and themes."
+msgstr ""
+
+#: controllers/Settings.php:694
+msgid "The list of plugins and themes was updated with success!"
+msgstr ""
+
+#: controllers/Settings.php:745
+msgid "Paths changed in the existing cache files"
+msgstr ""
+
+#: controllers/Settings.php:797
+msgid "Great! The preset was loaded."
+msgstr ""
+
+#: controllers/Settings.php:803
+msgid "Error! The preset could not be restored."
+msgstr ""
+
+#: controllers/Settings.php:828
+msgid "Great! The initial values are restored."
+msgstr ""
+
+#: controllers/Settings.php:868
+msgid "Great! The backup is restored."
+msgstr ""
+
+#: controllers/Settings.php:872 controllers/Settings.php:875
+msgid "Error! The backup is not valid."
+msgstr ""
+
+#: controllers/Settings.php:878
+msgid "Error! No backup to restore."
+msgstr ""
+
+#: controllers/Settings.php:924
+msgid "Can't download the plugin."
+msgstr ""
+
+#: controllers/Templogin.php:105
+msgid "Could not login with this user."
+msgstr ""
+
+#: controllers/Templogin.php:105 controllers/Templogin.php:229
+#: models/Menu.php:71 models/Menu.php:72 view/Templogin.php:157
+msgid "Temporary Login"
+msgstr ""
+
+#: controllers/Templogin.php:170
+msgid "Sorry, you are not allowed to access this page."
+msgstr ""
+
+#: controllers/Templogin.php:210
+msgid "Empty email address"
+msgstr ""
+
+#: controllers/Templogin.php:212
+msgid "Invalid email address"
+msgstr ""
+
+#: controllers/Templogin.php:214 models/Templogin.php:200
+#: models/Templogin.php:203
+msgid "Email address already exists"
+msgstr ""
+
+#: controllers/Templogin.php:223
+msgid "User successfully created."
+msgstr ""
+
+#: controllers/Templogin.php:241
+msgid "Could not detect the user"
+msgstr ""
+
+#: controllers/Templogin.php:253
+msgid "User successfully updated."
+msgstr ""
+
+#: controllers/Templogin.php:266
+msgid "User successfully disabled."
+msgstr ""
+
+#: controllers/Templogin.php:268
+msgid "User could not be disabled."
+msgstr ""
+
+#: controllers/Templogin.php:275
+msgid "User successfully activated."
+msgstr ""
+
+#: controllers/Templogin.php:277
+msgid "User could not be activated."
+msgstr ""
+
+#: controllers/Templogin.php:303
+msgid "User successfully deleted."
+msgstr ""
+
+#: controllers/Templogin.php:305
+msgid "User could not be deleted."
+msgstr ""
+
+#: controllers/Templogin.php:322
+msgid "User"
+msgstr ""
+
+#: controllers/Templogin.php:323
+msgid "Role"
+msgstr ""
+
+#: controllers/Templogin.php:324
+msgid "Last Access"
+msgstr ""
+
+#: controllers/Templogin.php:325
+msgid "Expires"
+msgstr ""
+
+#: controllers/Templogin.php:356
+msgid "Lock user"
+msgstr ""
+
+#: controllers/Templogin.php:363
+msgid "Reactivate user for 1 day"
+msgstr ""
+
+#: controllers/Templogin.php:367
+msgid "Edit user"
+msgstr ""
+
+#: controllers/Templogin.php:372
+msgid "Do you want to delete temporary user?"
+msgstr ""
+
+#: controllers/Templogin.php:372
+msgid "Delete user"
+msgstr ""
+
+#: controllers/Templogin.php:375
+msgid "Copy Link"
+msgstr ""
+
+#: controllers/Templogin.php:384
+msgid "after first access"
+msgstr ""
+
+#: controllers/Templogin.php:406
+msgid "No temporary logins."
+msgstr ""
+
+#: controllers/Templogin.php:407
+msgid "Create New Temporary Login"
+msgstr ""
+
+#: models/Brute.php:191
+msgid "IP Blocked by "
+msgstr ""
+
+#: models/Compatibility.php:623 view/SecurityCheck.php:231
+#, php-format
+msgid "First, you need to activate the %sSafe Mode%s or %sGhost Mode%s in %s"
+msgstr ""
+
+#: models/Compatibility.php:628
+msgid "Update Now"
+msgstr ""
+
+#: models/Compatibility.php:640
+#, php-format
+msgid ""
+"CDN Enabled detected. Please include %s and %s paths in CDN Enabler Settings"
+msgstr ""
+
+#: models/Compatibility.php:647
+#, php-format
+msgid "CDN Enabler detected! Learn how to configure it with %s %sClick here%s"
+msgstr ""
+
+#: models/Compatibility.php:656
+#, php-format
+msgid ""
+"WP Super Cache CDN detected. Please include %s and %s paths in WP Super "
+"Cache > CDN > Include directories"
+msgstr ""
+
+#: models/Compatibility.php:664
+#, php-format
+msgid ""
+"Ultimate Affiliate Pro detected. The plugin doesn't support custom %s paths "
+"as it doesn't use WordPress functions to call the Ajax URL"
+msgstr ""
+
+#: models/Compatibility.php:671
+#, php-format
+msgid ""
+"Indeed Ultimate Membership Pro detected. The plugin doesn't support custom "
+"%s paths as it doesn't use WordPress functions to call the Ajax URL"
+msgstr ""
+
+#: models/Compatibility.php:677
+#, php-format
+msgid ""
+"%s does not work without mode_rewrite. Please activate the rewrite module in "
+"Apache. %sMore details%s"
+msgstr ""
+
+#: models/Compatibility.php:682
+#, php-format
+msgid ""
+"You need to activate the URL Rewrite for IIS to be able to change the "
+"permalink structure to friendly URL (without index.php). %sMore details%s"
+msgstr ""
+
+#: models/Compatibility.php:684
+msgid ""
+"You need to set the permalink structure to friendly URL (without index.php)."
+msgstr ""
+
+#: models/Compatibility.php:689
+#, php-format
+msgid ""
+"Inmotion detected. %sPlease read how to make the plugin compatible with "
+"Inmotion Nginx Cache%s"
+msgstr ""
+
+#: models/Compatibility.php:693
+#, php-format
+msgid ""
+"Bitnami detected. %sPlease read how to make the plugin compatible with AWS "
+"hosting%s"
+msgstr ""
+
+#: models/Compatibility.php:697
+#, php-format
+msgid ""
+"Cloud Panel detected. %sPlease read how to make the plugin compatible with "
+"Cloud Panel hosting%s"
+msgstr ""
+
+#: models/Compatibility.php:726
+#, php-format
+msgid ""
+"To hide the Avada library, please add the Avada FUSION_LIBRARY_URL in wp-"
+"config.php file after $table_prefix line: %s"
+msgstr ""
+
+#: models/Compatibility.php:738
+#, php-format
+msgid ""
+"%s rules are not saved in the config file and this may affect the website "
+"loading speed."
+msgstr ""
+
+#: models/Compatibility.php:747
+#, php-format
+msgid ""
+"Godaddy detected! To avoid CSS errors, make sure you switch off the CDN from "
+"%s"
+msgstr ""
+
+#: models/Compatibility.php:751
+#, php-format
+msgid ""
+"BulletProof plugin! Make sure you save the settings in %s after activating "
+"Root Folder BulletProof Mode in BulletProof plugin."
+msgstr ""
+
+#: models/Compatibility.php:755
+#, php-format
+msgid ""
+"Activate 'Must Use Plugin Loading' from 'Plugin Loading Hook' to be able to "
+"connect to your dashboard directly from managewp.com. %s click here %s"
+msgstr ""
+
+#: models/Compatibility.php:761
+msgid "Close Error"
+msgstr ""
+
+#: models/Compatibility.php:762
+#, php-format
+msgid ""
+"Attention! Some URLs passed through the config file rules and were loaded "
+"through WordPress rewrite which may slow down your website. %s Please follow "
+"this tutorial to fix the issue: %s"
+msgstr ""
+
+#: models/Compatibility.php:766 models/Compatibility.php:770
+#, php-format
+msgid "Google reCaptcha V3 is not working with the current login form of %s ."
+msgstr ""
+
+#: models/ListTable.php:20
+msgid "log"
+msgstr ""
+
+#: models/ListTable.php:21
+msgid "logs"
+msgstr ""
+
+#: models/ListTable.php:30
+msgid "See the last days actions on this website ..."
+msgstr ""
+
+#: models/ListTable.php:42
+msgid "Filter"
+msgstr ""
+
+#: models/ListTable.php:83
+msgid "No log found."
+msgstr ""
+
+#: models/ListTable.php:148
+msgid "User Action"
+msgstr ""
+
+#: models/ListTable.php:148
+msgid "Location"
+msgstr ""
+
+#: models/ListTable.php:148
+msgid "Details"
+msgstr ""
+
+#: models/ListTable.php:148
+msgid "Date"
+msgstr ""
+
+#: models/ListTable.php:234
+msgid "All Actions"
+msgstr ""
+
+#: models/ListTable.php:252
+msgid "All Websites"
+msgstr ""
+
+#: models/Menu.php:26 models/Menu.php:27
+msgid "Overview"
+msgstr ""
+
+#: models/Menu.php:33 models/Menu.php:34 view/blocks/ChangeCacheFiles.php:70
+#: view/blocks/ChangeFiles.php:20
+msgid "Change Paths"
+msgstr ""
+
+#: models/Menu.php:40 models/Menu.php:41
+msgid "Tweaks"
+msgstr ""
+
+#: models/Menu.php:47
+msgid "Mapping"
+msgstr ""
+
+#: models/Menu.php:48
+msgid "Text & URL Mapping"
+msgstr ""
+
+#: models/Menu.php:58
+msgid "Headers & Firewall"
+msgstr ""
+
+#: models/Menu.php:64 models/Menu.php:65 view/Brute.php:53
+msgid "Brute Force"
+msgstr ""
+
+#: models/Menu.php:79
+msgid "2FA Login"
+msgstr ""
+
+#: models/Menu.php:80
+msgid "Two-factor authentication"
+msgstr ""
+
+#: models/Menu.php:87 models/Menu.php:88 view/Log.php:112
+msgid "Events Log"
+msgstr ""
+
+#: models/Menu.php:95 models/Menu.php:96 view/blocks/SecurityCheck.php:13
+msgid "Security Check"
+msgstr ""
+
+#: models/Menu.php:102 models/Menu.php:103
+msgid "Backup/Restore"
+msgstr ""
+
+#: models/Menu.php:109
+msgid "Advanced"
+msgstr ""
+
+#: models/Menu.php:110
+msgid "Advanced Settings"
+msgstr ""
+
+#: models/Menu.php:130 models/Menu.php:131
+msgid "My Account"
+msgstr ""
+
+#: models/Menu.php:156
+msgid "Level of Security"
+msgstr ""
+
+#: models/Menu.php:160 view/Permalinks.php:328
+msgid "Admin Security"
+msgstr ""
+
+#: models/Menu.php:164 view/Permalinks.php:403
+msgid "Login Security"
+msgstr ""
+
+#: models/Menu.php:168 view/Permalinks.php:622
+msgid "Ajax Security"
+msgstr ""
+
+#: models/Menu.php:172 view/Permalinks.php:584
+msgid "User Security"
+msgstr ""
+
+#: models/Menu.php:176 view/Permalinks.php:668
+msgid "WP Core Security"
+msgstr ""
+
+#: models/Menu.php:180
+msgid "Plugins Security"
+msgstr ""
+
+#: models/Menu.php:184 view/Permalinks.php:949
+msgid "Themes Security"
+msgstr ""
+
+#: models/Menu.php:188
+msgid "API Security"
+msgstr ""
+
+#: models/Menu.php:208 view/Tweaks.php:36
+msgid "Redirects"
+msgstr ""
+
+#: models/Menu.php:212 view/Tweaks.php:178
+msgid "Feed & Sitemap"
+msgstr ""
+
+#: models/Menu.php:216 view/Tweaks.php:256
+msgid "Change Options"
+msgstr ""
+
+#: models/Menu.php:220 view/Tweaks.php:296
+msgid "Hide Options"
+msgstr ""
+
+#: models/Menu.php:224 view/Tweaks.php:454
+msgid "Disable Options"
+msgstr ""
+
+#: models/Menu.php:248 view/Firewall.php:278
+msgid "Geo Security"
+msgstr ""
+
+#: models/Menu.php:252 view/Firewall.php:373 view/Permalinks.php:199
+msgid "Whitelist"
+msgstr ""
+
+#: models/Menu.php:256 view/Firewall.php:437
+msgid "Blacklist"
+msgstr ""
+
+#: models/Menu.php:262
+msgid "Blocked IPs Report"
+msgstr ""
+
+#: models/Menu.php:272 view/Log.php:17
+msgid "Events Log Report"
+msgstr ""
+
+#: models/Menu.php:283 view/Advanced.php:24
+msgid "Rollback Settings"
+msgstr ""
+
+#: models/Menu.php:287
+msgid "Compatibility"
+msgstr ""
+
+#: models/Menu.php:291 view/Advanced.php:183
+msgid "Email Notification"
+msgstr ""
+
+#: models/Prefix.php:81
+msgid ""
+"Unable to update the <code>wp-config.php</code> file in order to update the "
+"Database Prefix."
+msgstr ""
+
+#: models/Prefix.php:168
+#, php-format
+msgid "Could not rename table %1$s. You may have to rename the table manually."
+msgstr ""
+
+#: models/Prefix.php:199
+msgid "Could not update prefix references in options table."
+msgstr ""
+
+#: models/Prefix.php:224
+msgid "Could not update prefix references in usermeta table."
+msgstr ""
+
+#: models/Presets.php:23
+msgid "Minimal (No Config Rewrites)"
+msgstr ""
+
+#: models/Presets.php:24
+msgid "Safe Mode + Firewall + Compatibility Settings"
+msgstr ""
+
+#: models/Presets.php:25
+msgid "Safe Mode + Firewall + Brute Force + Events Log + Two factor"
+msgstr ""
+
+#: models/Presets.php:26
+msgid "Ghost Mode + Firewall + Brute Force + Events Log + Two factor"
+msgstr ""
+
+#: models/Presets.php:40 view/Permalinks.php:346
+msgid "Custom Admin Path"
+msgstr ""
+
+#: models/Presets.php:42 view/Permalinks.php:361
+msgid "Hide \"wp-admin\""
+msgstr ""
+
+#: models/Presets.php:44 view/Permalinks.php:456
+msgid "Custom Login Path"
+msgstr ""
+
+#: models/Presets.php:46 view/Permalinks.php:435 view/Permalinks.php:481
+msgid "Hide \"login\" Path"
+msgstr ""
+
+#: models/Presets.php:48 view/Permalinks.php:447 view/Permalinks.php:492
+msgid "Hide the New Login Path"
+msgstr ""
+
+#: models/Presets.php:50 view/Permalinks.php:628
+msgid "Custom admin-ajax Path"
+msgstr ""
+
+#: models/Presets.php:52 view/Permalinks.php:642
+msgid "Hide wp-admin from Ajax URL"
+msgstr ""
+
+#: models/Presets.php:54 view/Permalinks.php:656
+msgid "Change Paths in Ajax Calls"
+msgstr ""
+
+#: models/Presets.php:56 view/Permalinks.php:673
+msgid "Custom wp-content Path"
+msgstr ""
+
+#: models/Presets.php:58 view/Permalinks.php:683
+msgid "Custom wp-includes Path"
+msgstr ""
+
+#: models/Presets.php:60 view/Permalinks.php:694
+msgid "Custom uploads Path"
+msgstr ""
+
+#: models/Presets.php:62 view/Permalinks.php:592
+msgid "Custom author Path"
+msgstr ""
+
+#: models/Presets.php:64 view/Permalinks.php:608
+msgid "Hide Author ID URL"
+msgstr ""
+
+#: models/Presets.php:66 view/Permalinks.php:833
+msgid "Custom plugins Path"
+msgstr ""
+
+#: models/Presets.php:68 view/Permalinks.php:846
+msgid "Hide Plugin Names"
+msgstr ""
+
+#: models/Presets.php:70 view/Permalinks.php:955
+msgid "Custom themes Path"
+msgstr ""
+
+#: models/Presets.php:72 view/Permalinks.php:969
+msgid "Hide Theme Names"
+msgstr ""
+
+#: models/Presets.php:74 view/Permalinks.php:994
+msgid "Custom theme style name"
+msgstr ""
+
+#: models/Presets.php:76 view/Permalinks.php:710
+msgid "Custom comment Path"
+msgstr ""
+
+#: models/Presets.php:78 view/Permalinks.php:724
+msgid "Hide WordPress Common Paths"
+msgstr ""
+
+#: models/Presets.php:80 view/Permalinks.php:764
+msgid "Hide WordPress Common Files"
+msgstr ""
+
+#: models/Presets.php:83 view/Firewall.php:33
+msgid "Firewall Against Script Injection"
+msgstr ""
+
+#: models/Presets.php:85 view/Firewall.php:44
+msgid "Firewall Strength"
+msgstr ""
+
+#: models/Presets.php:87 view/Firewall.php:83
+msgid "Remove Unsafe Headers"
+msgstr ""
+
+#: models/Presets.php:89 view/Firewall.php:96
+msgid "Block Theme Detectors Crawlers"
+msgstr ""
+
+#: models/Presets.php:91 view/Firewall.php:120
+msgid "Add Security Headers for XSS and Code Injection Attacks"
+msgstr ""
+
+#: models/Presets.php:93
+msgid "Hide Version from Images, CSS and JS in WordPress"
+msgstr ""
+
+#: models/Presets.php:95 view/Tweaks.php:353
+msgid "Random Static Number"
+msgstr ""
+
+#: models/Presets.php:97 view/Tweaks.php:365
+msgid "Hide IDs from META Tags"
+msgstr ""
+
+#: models/Presets.php:99 view/Tweaks.php:379
+msgid "Hide WordPress DNS Prefetch META Tags"
+msgstr ""
+
+#: models/Presets.php:101 view/Tweaks.php:391
+msgid "Hide WordPress Generator META Tags"
+msgstr ""
+
+#: models/Presets.php:103 view/Tweaks.php:403
+msgid "Hide HTML Comments"
+msgstr ""
+
+#: models/Presets.php:105
+msgid "Hide Embed scripts"
+msgstr ""
+
+#: models/Presets.php:107
+msgid "Hide WLW Manifest scripts"
+msgstr ""
+
+#: models/Presets.php:113 view/Brute.php:62
+msgid "Use Brute Force Protection"
+msgstr ""
+
+#: models/Presets.php:115 view/Brute.php:110
+msgid "Wrong Username Protection"
+msgstr ""
+
+#: models/Presets.php:117 view/Log.php:70
+msgid "Log Users Events"
+msgstr ""
+
+#: models/Presets.php:176 view/Firewall.php:50
+msgid "Minimal"
+msgstr ""
+
+#: models/Presets.php:178 view/Firewall.php:51
+msgid "Medium"
+msgstr ""
+
+#: models/Presets.php:180 view/Firewall.php:52
+msgid "7G Firewall"
+msgstr ""
+
+#: models/Presets.php:182 view/Firewall.php:53
+msgid "8G Firewall"
+msgstr ""
+
+#: models/Rewrite.php:789
+msgid "Okay, I set it up"
+msgstr ""
+
+#: models/Rewrite.php:799
+#, php-format
+msgid ""
+"IIS detected. You need to update your %s file by adding the following lines "
+"after &lt;rules&gt; tag: %s"
+msgstr ""
+
+#: models/Rewrite.php:843 models/Rewrite.php:991
+#, php-format
+msgid ""
+"Config file is not writable. Create the file if not exists or copy to %s "
+"file the following lines: %s"
+msgstr ""
+
+#: models/Rewrite.php:881
+#, php-format
+msgid ""
+"WpEngine detected. Add the redirects in the WpEngine Redirect rules panel %s."
+msgstr ""
+
+#: models/Rewrite.php:881 models/Rewrite.php:918
+msgid "Learn How To Add the Code"
+msgstr ""
+
+#: models/Rewrite.php:918
+#, php-format
+msgid ""
+"Flywheel detected. Add the redirects in the Flywheel Redirect rules panel %s."
+msgstr ""
+
+#: models/Rewrite.php:1054
+#, php-format
+msgid ""
+"Config file is not writable. You have to added it manually at the beginning "
+"of the %s file: %s"
+msgstr ""
+
+#: models/Rewrite.php:1562
+msgctxt "password strength"
+msgid "Password strength unknown"
+msgstr ""
+
+#: models/Rewrite.php:1563
+msgctxt "password strength"
+msgid "Very weak"
+msgstr ""
+
+#: models/Rewrite.php:1564
+msgctxt "password strength"
+msgid "Weak"
+msgstr ""
+
+#: models/Rewrite.php:1565
+msgctxt "password strength"
+msgid "Medium"
+msgstr ""
+
+#: models/Rewrite.php:1566
+msgctxt "password strength"
+msgid "Strong"
+msgstr ""
+
+#: models/Rewrite.php:1567
+msgctxt "password mismatch"
+msgid "Mismatch"
+msgstr ""
+
+#: models/Rewrite.php:2433
+msgid "404 Not Found"
+msgstr ""
+
+#: models/Rewrite.php:2433
+msgid "Page Not Found"
+msgstr ""
+
+#: models/Rewrite.php:2433
+#, php-format
+msgid "The requested URL %s was not found on this server."
+msgstr ""
+
+#: models/Rewrite.php:2451
+msgid "403 Forbidden"
+msgstr ""
+
+#: models/Rewrite.php:2451
+msgid "Forbidden"
+msgstr ""
+
+#: models/Rewrite.php:2451
+#, php-format
+msgid "You don't have the permission to access %s on this server."
+msgstr ""
+
+#: models/Rewrite.php:3408
+msgid ""
+"There has been a critical error on your website. Please check your site "
+"admin email inbox for instructions."
+msgstr ""
+
+#: models/Rewrite.php:3410
+msgid "There has been a critical error on your website."
+msgstr ""
+
+#: models/Settings.php:95
+msgid ""
+"You can't set both ADMIN and LOGIN with the same name. Please use different "
+"names"
+msgstr ""
+
+#: models/Settings.php:300
+#, php-format
+msgid ""
+"Config file is not writable. Create the file if not exists or copy to %s "
+"file with the following lines: %s"
+msgstr ""
+
+#: models/Settings.php:356
+#, php-format
+msgid "Global class name detected: %s. Read this article first: %s"
+msgstr ""
+
+#: models/Settings.php:366
+msgid ""
+"Error: You entered the same text twice in the Text Mapping. We removed the "
+"duplicates to prevent any redirect errors."
+msgstr ""
+
+#: models/Settings.php:439
+msgid ""
+"Error: You entered the same URL twice in the URL Mapping. We removed the "
+"duplicates to prevent any redirect errors."
+msgstr ""
+
+#: models/Settings.php:487
+#, php-format
+msgid ""
+"Invalid name detected: %s. You need to use another name to avoid WordPress "
+"errors."
+msgstr ""
+
+#: models/Settings.php:514
+#, php-format
+msgid ""
+"Short name detected: %s. You need to use unique paths with more than 4 chars "
+"to avoid WordPress errors."
+msgstr ""
+
+#: models/Settings.php:520
+#, php-format
+msgid ""
+"Invalid name detected: %s. Add only the final path name to avoid WordPress "
+"errors."
+msgstr ""
+
+#: models/Settings.php:526
+#, php-format
+msgid ""
+"Invalid name detected: %s. The name can't start with / to avoid WordPress "
+"errors."
+msgstr ""
+
+#: models/Settings.php:532
+#, php-format
+msgid ""
+"Invalid name detected: %s. The name can't end with / to avoid WordPress "
+"errors."
+msgstr ""
+
+#: models/Settings.php:541
+#, php-format
+msgid ""
+"Invalid name detected: %s. The paths can't end with . to avoid WordPress "
+"errors."
+msgstr ""
+
+#: models/Settings.php:572
+#, php-format
+msgid ""
+"Weak name detected: %s. You need to use another name to increase your "
+"website security."
+msgstr ""
+
+#: models/Templogin.php:17
+msgid "One Hour"
+msgstr ""
+
+#: models/Templogin.php:19
+msgid "Three Hours"
+msgstr ""
+
+#: models/Templogin.php:20
+msgid "One Day"
+msgstr ""
+
+#: models/Templogin.php:22
+msgid "Three Days"
+msgstr ""
+
+#: models/Templogin.php:23
+msgid "One Week"
+msgstr ""
+
+#: models/Templogin.php:24
+msgid "One Month"
+msgstr ""
+
+#: models/Templogin.php:26
+msgid "Six Months"
+msgstr ""
+
+#: models/Templogin.php:27
+msgid "One Year"
+msgstr ""
+
+#: models/Templogin.php:122
+msgid "Not yet logged in"
+msgstr ""
+
+#: models/Templogin.php:138
+msgid "Super Admin"
+msgstr ""
+
+#: models/Templogin.php:266
+msgid "User could not be added"
+msgstr ""
+
+#: models/Templogin.php:489 models/Templogin.php:519
+msgid "Expired"
+msgstr ""
+
+#: models/Templogin.php:512
+#, php-format
+msgid "%d %s ago"
+msgstr ""
+
+#: models/Templogin.php:514
+#, php-format
+msgid "%d %s remaining"
+msgstr ""
+
+#: models/bruteforce/Abstract.php:99
+#, php-format
+msgid "You got %d attempts left before lockout."
+msgstr ""
+
+#: models/bruteforce/Comments.php:45
+msgid "&laquo; Back"
+msgstr ""
+
+#: models/bruteforce/Google.php:59 models/bruteforce/GoogleV2.php:66
+#: models/bruteforce/GoogleV3.php:71
+#, php-format
+msgid "%sIncorrect ReCaptcha%s. Please try again."
+msgstr ""
+
+#: models/bruteforce/GoogleV2.php:42 models/bruteforce/GoogleV3.php:46
+msgid "The secret parameter is missing."
+msgstr ""
+
+#: models/bruteforce/GoogleV2.php:43 models/bruteforce/GoogleV3.php:47
+msgid "The secret parameter is invalid or malformed."
+msgstr ""
+
+#: models/bruteforce/GoogleV2.php:44 models/bruteforce/GoogleV3.php:48
+#: models/bruteforce/GoogleV3.php:51
+msgid "The response parameter is invalid or malformed."
+msgstr ""
+
+#: models/bruteforce/GoogleV2.php:45 models/bruteforce/GoogleV3.php:49
+msgid "Empty ReCaptcha. Please complete reCaptcha."
+msgstr ""
+
+#: models/bruteforce/GoogleV2.php:46 models/bruteforce/GoogleV3.php:50
+msgid "Invalid ReCaptcha. Please complete reCaptcha."
+msgstr ""
+
+#: models/bruteforce/Math.php:47
+#, php-format
+msgid "%sYou failed to correctly answer the math problem.%s Please try again."
+msgstr ""
+
+#: models/bruteforce/Math.php:71
+msgid "Prove your humanity:"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Andorra"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "United Arab Emirates"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Afghanistan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Anguilla"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Albania"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Armenia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Angola"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Antarctica"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Argentina"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "American Samoa"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Austria"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Australia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Aruba"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Aland Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Azerbaijan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Barbados"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bangladesh"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Belgium"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Burkina Faso"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bulgaria"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bahrain"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Burundi"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Benin"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Bartelemey"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bermuda"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bolivia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bonaire, Saint Eustatius and Saba"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Brazil"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bahamas"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bhutan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Bouvet Island"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Botswana"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Belarus"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Belize"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Canada"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Congo, The Democratic Republic of the"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Central African Republic"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Congo"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Switzerland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cote dIvoire"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cook Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Chile"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cameroon"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "China"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Colombia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Costa Rica"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cuba"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cape Verde"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Curacao"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Christmas Island"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cyprus"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Czech Republic"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Germany"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Djibouti"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Denmark"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Dominica"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Dominican Republic"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Algeria"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Ecuador"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Estonia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Egypt"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Western Sahara"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Eritrea"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Spain"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Ethiopia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Europe"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Finland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Fiji"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Micronesia, Federated States of"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Faroe Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "France"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Gabon"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "United Kingdom"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Grenada"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Georgia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "French Guiana"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guernsey"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Ghana"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Gibraltar"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Greenland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Gambia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guinea"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guadeloupe"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Greece"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guatemala"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guam"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Guyana"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Hong Kong"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Honduras"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Croatia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Haiti"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Hungary"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Indonesia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Ireland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Israel"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Isle of Man"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "India"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Iraq"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Iran, Islamic Republic of"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Iceland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Italy"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Jersey"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Jamaica"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Jordan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Japan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Kenya"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cambodia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Kiribati"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Comoros"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "North Korea"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "South Korea"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Kuwait"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Cayman Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Kazakhstan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Lao Peoples Democratic Republic"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Lebanon"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Lucia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Liechtenstein"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Sri Lanka"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Liberia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Lesotho"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Lithuania"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Luxembourg"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Latvia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Morocco"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Monaco"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Moldova, Republic of"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Montenegro"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Martin"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Madagascar"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Marshall Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "North Macedonia, Republic of"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mali"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Myanmar"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mongolia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Macao"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Martinique"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mauritania"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Montserrat"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Malta"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mauritius"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Maldives"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Malawi"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mexico"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Malaysia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mozambique"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Namibia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "New Caledonia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Niger"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Norfolk Island"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Nigeria"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Nicaragua"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Netherlands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Norway"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Nepal"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Nauru"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Niue"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "New Zealand"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Oman"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Panama"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Peru"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "French Polynesia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Papua New Guinea"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Philippines"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Pakistan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Poland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Pitcairn"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Puerto Rico"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Palestinian Territory"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Portugal"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Palau"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Paraguay"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Qatar"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Reunion"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Romania"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Serbia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Russian Federation"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Rwanda"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saudi Arabia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Solomon Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Seychelles"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Sudan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Sweden"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Singapore"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Helena"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Slovenia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Slovakia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Sierra Leone"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "San Marino"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Senegal"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Somalia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Suriname"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Sao Tome and Principe"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "El Salvador"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Sint Maarten"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Swaziland"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Chad"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "French Southern Territories"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Togo"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Thailand"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Tajikistan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Tokelau"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Timor-Leste"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Turkmenistan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Tunisia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Tonga"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Turkey"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Tuvalu"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Taiwan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Tanzania, United Republic of"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Ukraine"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Uganda"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "United States"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Uruguay"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Uzbekistan"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Holy See (Vatican City State)"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Venezuela"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Virgin Islands, British"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Virgin Islands, U.S."
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Vietnam"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Vanuatu"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Samoa"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Kosovo"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Yemen"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Mayotte"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "South Africa"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Zambia"
+msgstr ""
+
+#: models/geoip/GeoLocator.php:96
+msgid "Zimbabwe"
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:56
+msgid "View details"
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:79
+#, php-format
+msgid "More information about %s"
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:130
+msgid "Check for updates"
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:219
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:221
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr ""
+
+#: update/v5p4/Plugin/Ui.php:227
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr ""
+
+#: update/v5p4/Vcs/PluginUpdateChecker.php:113
+msgid "There is no changelog available."
+msgstr ""
+
+#: view/Advanced.php:30
+msgid "Custom Safe URL Param"
+msgstr ""
+
+#: view/Advanced.php:31
+msgid "eg. disable_url, safe_url"
+msgstr ""
+
+#: view/Advanced.php:39
+msgid ""
+"The Safe URL will deactivate all the custom paths. Use it only if you can't "
+"login."
+msgstr ""
+
+#: view/Advanced.php:41
+msgid "Safe URL:"
+msgstr ""
+
+#: view/Advanced.php:52 view/Advanced.php:110 view/Advanced.php:157
+#: view/Firewall.php:68
+msgid "recommended"
+msgstr ""
+
+#: view/Advanced.php:55
+msgid ""
+"If the rewrite rules are not loading correctly in the config file, do not "
+"load the plugin and do not change the paths."
+msgstr ""
+
+#: view/Advanced.php:67
+msgid "Compatibility Settings"
+msgstr ""
+
+#: view/Advanced.php:73
+msgid "Server Type"
+msgstr ""
+
+#: view/Advanced.php:78
+msgid "Autodetect"
+msgstr ""
+
+#: view/Advanced.php:79
+msgid "Apache"
+msgstr ""
+
+#: view/Advanced.php:80
+msgid "IIS Windows"
+msgstr ""
+
+#: view/Advanced.php:81
+msgid "Nginx"
+msgstr ""
+
+#: view/Advanced.php:82
+msgid "LiteSpeed"
+msgstr ""
+
+#: view/Advanced.php:83
+msgid "SiteGround"
+msgstr ""
+
+#: view/Advanced.php:84
+msgid "Cloud Panel"
+msgstr ""
+
+#: view/Advanced.php:85
+msgid "Flywheel"
+msgstr ""
+
+#: view/Advanced.php:86
+msgid "Local by Flywheel"
+msgstr ""
+
+#: view/Advanced.php:87
+msgid "Inmotion"
+msgstr ""
+
+#: view/Advanced.php:88
+msgid "WP Engine"
+msgstr ""
+
+#: view/Advanced.php:89
+msgid "AWS Bitnami"
+msgstr ""
+
+#: view/Advanced.php:90
+msgid "Godaddy"
+msgstr ""
+
+#: view/Advanced.php:95
+msgid ""
+"Choose the type of server you are using to get the most suitable "
+"configuration for your server."
+msgstr ""
+
+#: view/Advanced.php:96
+msgid ""
+"Only change this option if the plugin fails to identify the server type "
+"correctly."
+msgstr ""
+
+#: view/Advanced.php:104
+msgid "Plugin Loading Hook"
+msgstr ""
+
+#: view/Advanced.php:108 view/Advanced.php:117
+msgid "Must Use Plugin Loading"
+msgstr ""
+
+#: view/Advanced.php:109 view/Advanced.php:121
+msgid "Priority Loading"
+msgstr ""
+
+#: view/Advanced.php:110 view/Advanced.php:124
+msgid "Normal Loading"
+msgstr ""
+
+#: view/Advanced.php:111 view/Advanced.php:127
+msgid "Late Loading"
+msgstr ""
+
+#: view/Advanced.php:117
+msgid "Load the plugin as a Must Use plugin."
+msgstr ""
+
+#: view/Advanced.php:118
+msgid "Compatibility with Manage WP plugin"
+msgstr ""
+
+#: view/Advanced.php:118
+msgid "Compatibility with Token Based Login plugins"
+msgstr ""
+
+#: view/Advanced.php:121
+msgid "Load before all plugins are loaded. On \"plugins_loaded\" hook."
+msgstr ""
+
+#: view/Advanced.php:124
+msgid "Load when the plugins are initialized. On \"init\" hook."
+msgstr ""
+
+#: view/Advanced.php:127
+msgid "Load after all plugins are loaded. On \"template_redirects\" hook."
+msgstr ""
+
+#: view/Advanced.php:129
+msgid "(multiple options are available)"
+msgstr ""
+
+#: view/Advanced.php:140
+msgid "Clean Login Page"
+msgstr ""
+
+#: view/Advanced.php:143
+msgid ""
+"Cancel the login hooks from other plugins and themes to prevent unwanted "
+"login redirects."
+msgstr ""
+
+#: view/Advanced.php:144
+msgid ""
+"(useful when the theme is adding wrong admin redirects or infinite redirects)"
+msgstr ""
+
+#: view/Advanced.php:155
+msgid "Add Rewrites in WordPress Rules Section"
+msgstr ""
+
+#: view/Advanced.php:159
+msgid ""
+"This option will add rewrite rules to the .htaccess file in the WordPress "
+"rewrite rules area between the comments # BEGIN WordPress and # END "
+"WordPress."
+msgstr ""
+
+#: view/Advanced.php:160
+msgid ""
+"Some plugins may remove custom rewrite rules from the .htaccess file, "
+"especially if it's writable, which can affect the functionality of custom "
+"paths.."
+msgstr ""
+
+#: view/Advanced.php:173
+msgid "Notification Settings"
+msgstr ""
+
+#: view/Advanced.php:186
+msgid "Send me an email with the changed admin and login URLs"
+msgstr ""
+
+#: view/Advanced.php:193
+msgid "Email Address"
+msgstr ""
+
+#: view/Advanced.php:213 view/Brute.php:529 view/Firewall.php:518
+#: view/Log.php:99 view/Mapping.php:288 view/Mapping.php:292
+#: view/Permalinks.php:1178 view/Permalinks.php:1182 view/Templogin.php:145
+#: view/Tweaks.php:766
+msgid "Save"
+msgstr ""
+
+#: view/Backup.php:14
+msgid "Preset Security"
+msgstr ""
+
+#: view/Backup.php:18
+msgid "Select a preset security settings we've tested on most websites."
+msgstr ""
+
+#: view/Backup.php:24
+msgid "Select Preset"
+msgstr ""
+
+#: view/Backup.php:34
+msgid "Paths & Options"
+msgstr ""
+
+#: view/Backup.php:52
+msgid "Load Preset"
+msgstr ""
+
+#: view/Backup.php:58
+msgid "Backup/Restore Settings"
+msgstr ""
+
+#: view/Backup.php:61
+msgid ""
+"Click Backup and the download will start automatically. You can use the "
+"Backup for all your websites."
+msgstr ""
+
+#: view/Backup.php:67 view/Backup.php:120
+msgid "Backup Settings"
+msgstr ""
+
+#: view/Backup.php:83
+msgid "Upload the file with the saved plugin settings"
+msgstr ""
+
+#: view/Backup.php:91
+msgid "Restore Backup"
+msgstr ""
+
+#: view/Backup.php:103 view/Backup.php:110
+msgid "Reset Settings"
+msgstr ""
+
+#: view/Backup.php:106
+msgid "Rollback all the plugin settings to initial values."
+msgstr ""
+
+#: view/Backup.php:121
+#, php-format
+msgid ""
+"It's important to %s save your settings every time you change them %s. You "
+"can use the backup to configure other websites you own."
+msgstr ""
+
+#: view/Brute.php:12
+msgid "Blocked IPs"
+msgstr ""
+
+#: view/Brute.php:24
+msgid "Unlock all"
+msgstr ""
+
+#: view/Brute.php:36
+msgid "Activate the \"Brute Force\" option to see the user IP blocked report"
+msgstr ""
+
+#: view/Brute.php:37
+msgid "Activate Brute Force Protection"
+msgstr ""
+
+#: view/Brute.php:65
+msgid "Protects your website against Brute Force login attacks."
+msgstr ""
+
+#: view/Brute.php:75
+msgid "Lost Password Form Protection"
+msgstr ""
+
+#: view/Brute.php:76
+msgid "Activate the Brute Force protection on lost password form."
+msgstr ""
+
+#: view/Brute.php:87 view/Brute.php:513
+msgid "Sign Up Form Protection"
+msgstr ""
+
+#: view/Brute.php:88
+msgid "Activate the Brute Force protection on sign up form."
+msgstr ""
+
+#: view/Brute.php:99
+msgid "Comment Form Protection"
+msgstr ""
+
+#: view/Brute.php:100
+msgid "Activate the Brute Force protection on website comment form."
+msgstr ""
+
+#: view/Brute.php:111
+msgid "Immediately block incorrect usernames on login form."
+msgstr ""
+
+#: view/Brute.php:133
+msgid "Math reCAPTCHA"
+msgstr ""
+
+#: view/Brute.php:135
+msgid "Google reCAPTCHA"
+msgstr ""
+
+#: view/Brute.php:137
+msgid "Google reCAPTCHA V2"
+msgstr ""
+
+#: view/Brute.php:139
+msgid "Google reCAPTCHA V3"
+msgstr ""
+
+#: view/Brute.php:147
+#, php-format
+msgid "%sClick here%s to create or view keys for Google reCAPTCHA."
+msgstr ""
+
+#: view/Brute.php:151 view/Brute.php:269 view/Brute.php:382
+msgid "Site Key"
+msgstr ""
+
+#: view/Brute.php:152
+#, php-format
+msgid "Site keys for %s Google reCaptcha %s."
+msgstr ""
+
+#: view/Brute.php:160
+msgid "Project ID"
+msgstr ""
+
+#: view/Brute.php:161
+#, php-format
+msgid "Project ID for %s Google Enterprise %s."
+msgstr ""
+
+#: view/Brute.php:169
+msgid "Api Key"
+msgstr ""
+
+#: view/Brute.php:170
+#, php-format
+msgid "Api key from %s Google API Console %s."
+msgstr ""
+
+#: view/Brute.php:182
+msgid "Use Checkbox Challenge"
+msgstr ""
+
+#: view/Brute.php:183
+#, php-format
+msgid ""
+"Verifies users by requiring them to check %s I'm not a robot %s checkbox."
+msgstr ""
+
+#: view/Brute.php:184
+#, php-format
+msgid ""
+"%s Important! %s Enable this option only if it is already activated in the "
+"%s Google reCAPTCHA Key %s settings."
+msgstr ""
+
+#: view/Brute.php:191 view/Brute.php:305
+msgid "reCaptcha Language"
+msgstr ""
+
+#: view/Brute.php:198 view/Brute.php:312
+msgid "Auto Detect"
+msgstr ""
+
+#: view/Brute.php:199 view/Brute.php:313
+msgid "English"
+msgstr ""
+
+#: view/Brute.php:200 view/Brute.php:314
+msgid "Arabic"
+msgstr ""
+
+#: view/Brute.php:201 view/Brute.php:315
+msgid "Bulgarian"
+msgstr ""
+
+#: view/Brute.php:202 view/Brute.php:316
+msgid "Catalan Valencian"
+msgstr ""
+
+#: view/Brute.php:203 view/Brute.php:317
+msgid "Czech"
+msgstr ""
+
+#: view/Brute.php:204 view/Brute.php:318
+msgid "Danish"
+msgstr ""
+
+#: view/Brute.php:205 view/Brute.php:319
+msgid "German"
+msgstr ""
+
+#: view/Brute.php:206 view/Brute.php:320
+msgid "Greek"
+msgstr ""
+
+#: view/Brute.php:207 view/Brute.php:321
+msgid "British English"
+msgstr ""
+
+#: view/Brute.php:208 view/Brute.php:322
+msgid "Spanish"
+msgstr ""
+
+#: view/Brute.php:209 view/Brute.php:323
+msgid "Persian"
+msgstr ""
+
+#: view/Brute.php:210 view/Brute.php:324
+msgid "French"
+msgstr ""
+
+#: view/Brute.php:211 view/Brute.php:325
+msgid "Canadian French"
+msgstr ""
+
+#: view/Brute.php:212 view/Brute.php:326
+msgid "Hindi"
+msgstr ""
+
+#: view/Brute.php:213 view/Brute.php:327
+msgid "Croatian"
+msgstr ""
+
+#: view/Brute.php:214 view/Brute.php:328
+msgid "Hungarian"
+msgstr ""
+
+#: view/Brute.php:215 view/Brute.php:329
+msgid "Indonesian"
+msgstr ""
+
+#: view/Brute.php:216 view/Brute.php:330
+msgid "Italian"
+msgstr ""
+
+#: view/Brute.php:217 view/Brute.php:331
+msgid "Hebrew"
+msgstr ""
+
+#: view/Brute.php:218 view/Brute.php:332
+msgid "Jananese"
+msgstr ""
+
+#: view/Brute.php:219 view/Brute.php:333
+msgid "Korean"
+msgstr ""
+
+#: view/Brute.php:220 view/Brute.php:334
+msgid "Lithuanian"
+msgstr ""
+
+#: view/Brute.php:221 view/Brute.php:335
+msgid "Latvian"
+msgstr ""
+
+#: view/Brute.php:222 view/Brute.php:336
+msgid "Dutch"
+msgstr ""
+
+#: view/Brute.php:223 view/Brute.php:337
+msgid "Norwegian"
+msgstr ""
+
+#: view/Brute.php:224 view/Brute.php:338
+msgid "Polish"
+msgstr ""
+
+#: view/Brute.php:225 view/Brute.php:339
+msgid "Portuguese"
+msgstr ""
+
+#: view/Brute.php:226 view/Brute.php:340
+msgid "Romanian"
+msgstr ""
+
+#: view/Brute.php:227 view/Brute.php:341
+msgid "Russian"
+msgstr ""
+
+#: view/Brute.php:228 view/Brute.php:342
+msgid "Slovak"
+msgstr ""
+
+#: view/Brute.php:229 view/Brute.php:343
+msgid "Slovene"
+msgstr ""
+
+#: view/Brute.php:230 view/Brute.php:344
+msgid "Serbian"
+msgstr ""
+
+#: view/Brute.php:231 view/Brute.php:345
+msgid "Swedish"
+msgstr ""
+
+#: view/Brute.php:232 view/Brute.php:346
+msgid "Thai"
+msgstr ""
+
+#: view/Brute.php:233 view/Brute.php:347
+msgid "Turkish"
+msgstr ""
+
+#: view/Brute.php:234 view/Brute.php:348
+msgid "Ukrainian"
+msgstr ""
+
+#: view/Brute.php:235 view/Brute.php:349
+msgid "Vietnamese"
+msgstr ""
+
+#: view/Brute.php:236 view/Brute.php:350
+msgid "Simplified Chinese"
+msgstr ""
+
+#: view/Brute.php:237 view/Brute.php:351
+msgid "Traditional Chinese"
+msgstr ""
+
+#: view/Brute.php:248 view/Brute.php:451
+msgid "reCAPTCHA Test"
+msgstr ""
+
+#: view/Brute.php:250 view/Brute.php:364 view/Brute.php:403
+msgid "Next Steps"
+msgstr ""
+
+#: view/Brute.php:252 view/Brute.php:366 view/Brute.php:405
+#, php-format
+msgid "Run %sreCAPTCHA Test%s and login inside the popup."
+msgstr ""
+
+#: view/Brute.php:253 view/Brute.php:367 view/Brute.php:406
+msgid "If you're able to login, you've set reCAPTCHA correctly."
+msgstr ""
+
+#: view/Brute.php:254 view/Brute.php:368 view/Brute.php:407
+msgid ""
+"If the reCAPTCHA displays any error, please make sure you fix them before "
+"moving forward."
+msgstr ""
+
+#: view/Brute.php:255 view/Brute.php:369 view/Brute.php:408
+msgid ""
+"Do not logout from your account until you are confident that reCAPTCHA is "
+"working and you will be able to login again."
+msgstr ""
+
+#: view/Brute.php:256 view/Brute.php:370 view/Brute.php:409
+msgid "If you can't configure reCAPTCHA, switch to Math reCaptcha protection."
+msgstr ""
+
+#: view/Brute.php:265
+#, php-format
+msgid "%sClick here%s to create or view keys for Google reCAPTCHA v2."
+msgstr ""
+
+#: view/Brute.php:270 view/Brute.php:383
+#, php-format
+msgid "Site keys for %sGoogle reCaptcha%s."
+msgstr ""
+
+#: view/Brute.php:278 view/Brute.php:391
+msgid "Secret Key"
+msgstr ""
+
+#: view/Brute.php:279 view/Brute.php:392
+#, php-format
+msgid "Secret keys for %sGoogle reCAPTCHA%s."
+msgstr ""
+
+#: view/Brute.php:287
+msgid "reCaptcha Theme"
+msgstr ""
+
+#: view/Brute.php:294
+msgid "light"
+msgstr ""
+
+#: view/Brute.php:295
+msgid "dark"
+msgstr ""
+
+#: view/Brute.php:362
+msgid "reCAPTCHA V2 Test"
+msgstr ""
+
+#: view/Brute.php:378
+#, php-format
+msgid "%sClick here%s to create or view keys for Google reCAPTCHA v3."
+msgstr ""
+
+#: view/Brute.php:401
+msgid "reCAPTCHA V3 Test"
+msgstr ""
+
+#: view/Brute.php:420
+msgid "Max Fail Attempts"
+msgstr ""
+
+#: view/Brute.php:421
+msgid "Block IP on login page"
+msgstr ""
+
+#: view/Brute.php:429
+msgid "Ban Duration"
+msgstr ""
+
+#: view/Brute.php:430
+msgid "No. of seconds"
+msgstr ""
+
+#: view/Brute.php:438
+msgid "Lockout Message"
+msgstr ""
+
+#: view/Brute.php:439
+msgid "Show message instead of login form"
+msgstr ""
+
+#: view/Brute.php:465
+msgid "Manage whitelist & blacklist IP addresses"
+msgstr ""
+
+#: view/Brute.php:470
+#, php-format
+msgid "Use the %s shortcode to integrate it with other login forms."
+msgstr ""
+
+#: view/Brute.php:473
+msgid "Learn how to use the shortcode"
+msgstr ""
+
+#: view/Brute.php:490 view/Mapping.php:31 view/Mapping.php:168
+#: view/Mapping.php:243 view/Tweaks.php:184 view/Tweaks.php:300
+#: view/Tweaks.php:460
+#, php-format
+msgid "First, you need to activate the %sSafe Mode%s or %sGhost Mode%s"
+msgstr ""
+
+#: view/Brute.php:501
+msgid "WooCommerce Support"
+msgstr ""
+
+#: view/Brute.php:502
+msgid "Activate the Brute Force protection on WooCommerce login forms."
+msgstr ""
+
+#: view/Brute.php:514
+msgid "Activate the Brute Force protection on WooCommerce sign up forms."
+msgstr ""
+
+#: view/Brute.php:543
+msgid "Brute Force Login Protection"
+msgstr ""
+
+#: view/Brute.php:544
+#, php-format
+msgid ""
+"Protects your website against Brute Force login attacks using %s A common "
+"threat web developers face is a password-guessing attack known as a Brute "
+"Force attack. A Brute Force attack is an attempt to discover a password by "
+"systematically trying every possible combination of letters, numbers, and "
+"symbols until you discover the one correct combination that works."
+msgstr ""
+
+#: view/Brute.php:550 view/Log.php:120 view/Overview.php:63
+msgid "Features"
+msgstr ""
+
+#: view/Brute.php:552
+msgid "Limit the number of allowed login attempts using normal login form."
+msgstr ""
+
+#: view/Brute.php:553
+msgid "Math & Google reCaptcha verification while logging in."
+msgstr ""
+
+#: view/Brute.php:554
+msgid "Manually block/unblock IP addresses."
+msgstr ""
+
+#: view/Brute.php:555
+msgid "Manually whitelist trusted IP addresses."
+msgstr ""
+
+#: view/Brute.php:556
+msgid "Option to inform user about remaining attempts on login page."
+msgstr ""
+
+#: view/Brute.php:557
+msgid "Custom message to show to blocked users."
+msgstr ""
+
+#: view/Connect.php:17
+msgid "Activate Your Plugin"
+msgstr ""
+
+#: view/Connect.php:22
+msgid "Licence Token"
+msgstr ""
+
+#: view/Connect.php:23
+#, php-format
+msgid "Enter the 32 chars token from Order/Licence on %s"
+msgstr ""
+
+#: view/Connect.php:34
+msgid "Activate"
+msgstr ""
+
+#: view/Connect.php:43
+msgid "Activation Help"
+msgstr ""
+
+#: view/Connect.php:45
+#, php-format
+msgid ""
+"Once you bought the plugin, you will receive the %s credentials for your "
+"account by email."
+msgstr ""
+
+#: view/Connect.php:48
+#, php-format
+msgid "Please visit %s to check your purchase and to get the license token."
+msgstr ""
+
+#: view/Connect.php:51
+#, php-format
+msgid ""
+"By activating, you agree to our %s Terms of Use %s and %sPrivacy Policy%s"
+msgstr ""
+
+#: view/Connect.php:55
+#, php-format
+msgid "%sNOTE:%s If you didn't receive the credentials, please access %s."
+msgstr ""
+
+#: view/Dashboard.php:84 view/SecurityCheck.php:41
+#, php-format
+msgid ""
+"Your website security %sis extremely weak%s. %sMany hacking doors are "
+"available."
+msgstr ""
+
+#: view/Dashboard.php:87 view/SecurityCheck.php:44
+#, php-format
+msgid ""
+"Your website security %sis very weak%s. %sMany hacking doors are available."
+msgstr ""
+
+#: view/Dashboard.php:90 view/SecurityCheck.php:47
+#, php-format
+msgid ""
+"Your website security is still weak. %sSome of the main hacking doors are "
+"still available."
+msgstr ""
+
+#: view/Dashboard.php:93 view/SecurityCheck.php:50
+#, php-format
+msgid ""
+"Your website security is getting better. %sJust make sure you complete all "
+"the security tasks."
+msgstr ""
+
+#: view/Dashboard.php:96 view/SecurityCheck.php:53
+#, php-format
+msgid ""
+"Your website security is strong. %sKeep checking the security every week."
+msgstr ""
+
+#: view/Dashboard.php:120
+msgid "Last 30 days Security Stats"
+msgstr ""
+
+#: view/Dashboard.php:128
+msgid "Brute Force IPs Blocked"
+msgstr ""
+
+#: view/Dashboard.php:134
+msgid "Alert Emails Sent"
+msgstr ""
+
+#: view/Dashboard.php:140
+msgid "Activate Events Log"
+msgstr ""
+
+#: view/Dashboard.php:153
+msgid "Urgent Security Actions Required"
+msgstr ""
+
+#: view/Dashboard.php:169
+msgid "Run Full Security Check"
+msgstr ""
+
+#: view/Firewall.php:36
+msgid ""
+"Most WordPress installations are hosted on the popular Apache, Nginx and IIS "
+"web servers."
+msgstr ""
+
+#: view/Firewall.php:37
+msgid ""
+"A thorough set of rules can prevent many types of SQL Injection and URL "
+"hacks from being interpreted."
+msgstr ""
+
+#: view/Firewall.php:45
+#, php-format
+msgid "Learn more about %s 7G firewall %s."
+msgstr ""
+
+#: view/Firewall.php:46
+#, php-format
+msgid "Learn more about %s 8G firewall %s."
+msgstr ""
+
+#: view/Firewall.php:63
+msgid "Firewall Location"
+msgstr ""
+
+#: view/Firewall.php:64
+msgid "Where to add the firewall rules."
+msgstr ""
+
+#: view/Firewall.php:68
+msgid "On website initialization"
+msgstr ""
+
+#: view/Firewall.php:69
+msgid "In .htaccess file"
+msgstr ""
+
+#: view/Firewall.php:86
+msgid "Remove PHP version, Server info, Server Signature from header."
+msgstr ""
+
+#: view/Firewall.php:99
+msgid "Block known Users-Agents from popular Theme Detectors."
+msgstr ""
+
+#: view/Firewall.php:124
+msgid "Add Strict-Transport-Security header"
+msgstr ""
+
+#: view/Firewall.php:125 view/Firewall.php:128 view/Firewall.php:131
+#: view/Firewall.php:134
+msgid "more details"
+msgstr ""
+
+#: view/Firewall.php:127
+msgid "Add Content-Security-Policy header"
+msgstr ""
+
+#: view/Firewall.php:130
+msgid "Add X-XSS-Protection header"
+msgstr ""
+
+#: view/Firewall.php:133
+msgid "Add X-Content-Type-Options header"
+msgstr ""
+
+#: view/Firewall.php:190 view/Firewall.php:220 view/Mapping.php:66
+#: view/Mapping.php:79 view/Mapping.php:201 view/Mapping.php:214
+#: view/Mapping.php:258 view/Mapping.php:267 view/Permalinks.php:905
+#: view/Permalinks.php:920 view/Permalinks.php:1031 view/Permalinks.php:1046
+msgid "Remove"
+msgstr ""
+
+#: view/Firewall.php:194 view/Firewall.php:224
+msgid "default"
+msgstr ""
+
+#: view/Firewall.php:244
+msgid "Add Security Header"
+msgstr ""
+
+#: view/Firewall.php:261
+msgid ""
+"Changing the predefined security headers may affect the website funtionality."
+msgstr ""
+
+#: view/Firewall.php:262
+msgid "Make sure you know what you do when changing the headers."
+msgstr ""
+
+#: view/Firewall.php:264
+msgid "Test your website headers with"
+msgstr ""
+
+#: view/Firewall.php:291
+msgid ""
+"Geographic Security is a feature designed to stops attacks from different "
+"countries, and to put an end to harmful activity that comes from specific "
+"regions."
+msgstr ""
+
+#: view/Firewall.php:298
+msgid "Block Countries"
+msgstr ""
+
+#: view/Firewall.php:299
+msgid "Choose the countries where access to the website should be restricted."
+msgstr ""
+
+#: view/Firewall.php:321
+msgid "Select all"
+msgstr ""
+
+#: view/Firewall.php:329
+msgid "Block Specific Paths"
+msgstr ""
+
+#: view/Firewall.php:330
+msgid "Add paths that will be blocked for the selected countries."
+msgstr ""
+
+#: view/Firewall.php:331
+msgid "Leave it blank to block all paths for the selected countries."
+msgstr ""
+
+#: view/Firewall.php:341
+msgid "e.g. /post-type/ will block all path starting with /post-type/"
+msgstr ""
+
+#: view/Firewall.php:349
+msgid "Selected Countries"
+msgstr ""
+
+#: view/Firewall.php:350
+msgid ""
+"Here is the list of select counties where your website will be restricted.."
+msgstr ""
+
+#: view/Firewall.php:379 view/Permalinks.php:205
+msgid "Whitelist IPs"
+msgstr ""
+
+#: view/Firewall.php:380
+msgid "Add IP addresses that can pass plugin security."
+msgstr ""
+
+#: view/Firewall.php:390 view/Permalinks.php:216
+#, php-format
+msgid ""
+"You can white-list a single IP address like 192.168.0.1 or a range of 245 "
+"IPs like 192.168.0.*. Find your IP with %s"
+msgstr ""
+
+#: view/Firewall.php:394 view/Permalinks.php:220
+#, php-format
+msgid "To whitelist your website IP address, add: %s"
+msgstr ""
+
+#: view/Firewall.php:401 view/Permalinks.php:227
+msgid "Whitelist Paths"
+msgstr ""
+
+#: view/Firewall.php:402 view/Permalinks.php:228
+msgid "Add paths that can pass plugin security"
+msgstr ""
+
+#: view/Firewall.php:412
+msgid "e.g. /cart/ will whitelist all path starting with /cart/"
+msgstr ""
+
+#: view/Firewall.php:418 view/Permalinks.php:245
+msgid "Whitelist Options"
+msgstr ""
+
+#: view/Firewall.php:419 view/Permalinks.php:246
+msgid ""
+"Chose what to do when accessing from whitelist IP addresses and whitelisted "
+"paths."
+msgstr ""
+
+#: view/Firewall.php:423 view/Permalinks.php:250
+msgid "Allow Hidden Paths"
+msgstr ""
+
+#: view/Firewall.php:424 view/Permalinks.php:251
+msgid "Show Default Paths & Allow Hidden Paths"
+msgstr ""
+
+#: view/Firewall.php:425 view/Permalinks.php:252
+msgid "Show Defaults Paths & Allow Everything"
+msgstr ""
+
+#: view/Firewall.php:443
+msgid "Blacklist IPs"
+msgstr ""
+
+#: view/Firewall.php:444
+msgid ""
+"Add  IP addresses that should always be blocked from accessing this website."
+msgstr ""
+
+#: view/Firewall.php:454
+msgid ""
+"You can ban a single IP address like 192.168.0.1 or a range of 245 IPs like "
+"192.168.0.*. These IPs will not be able to access the login page."
+msgstr ""
+
+#: view/Firewall.php:460
+msgid "Block User Agents"
+msgstr ""
+
+#: view/Firewall.php:461
+msgid "e.g. acapbot"
+msgstr ""
+
+#: view/Firewall.php:462
+msgid "e.g. gigabot"
+msgstr ""
+
+#: view/Firewall.php:463
+msgid "e.g. alexibot"
+msgstr ""
+
+#: view/Firewall.php:478
+msgid "Block Referrer"
+msgstr ""
+
+#: view/Firewall.php:479
+msgid "e.g. xanax.com"
+msgstr ""
+
+#: view/Firewall.php:480
+msgid "e.g. badsite.com"
+msgstr ""
+
+#: view/Firewall.php:495
+msgid "Block Hostnames"
+msgstr ""
+
+#: view/Firewall.php:496
+msgid "e.g. *.colocrossing.com"
+msgstr ""
+
+#: view/Firewall.php:497
+msgid "e.g. kanagawa.com"
+msgstr ""
+
+#: view/Firewall.php:507
+msgid "Resolving hostnames may affect the website loading speed."
+msgstr ""
+
+#: view/Log.php:35
+msgid "Go to Events Log Panel"
+msgstr ""
+
+#: view/Log.php:37
+msgid "Search in user events log and manage the email alerts"
+msgstr ""
+
+#: view/Log.php:45
+msgid ""
+"Activate the \"Log Users Events\" option to see the user activity log for "
+"this website"
+msgstr ""
+
+#: view/Log.php:46
+msgid "Activate Log Users Events"
+msgstr ""
+
+#: view/Log.php:62
+msgid "Events Log Settings"
+msgstr ""
+
+#: view/Log.php:73
+msgid "Track and log events that happen on your WordPress site"
+msgstr ""
+
+#: view/Log.php:80
+msgid "Log User Roles"
+msgstr ""
+
+#: view/Log.php:81
+msgid "Don't select any role if you want to log all user roles"
+msgstr ""
+
+#: view/Log.php:113
+msgid "Monitor everything that happens on your WordPress site!"
+msgstr ""
+
+#: view/Log.php:114
+msgid ""
+"All the logs are saved on Cloud for 30 days and the report is available if "
+"your website is attacked."
+msgstr ""
+
+#: view/Log.php:115
+msgid ""
+"Please be aware that if you do not consent to storing data on our Cloud, we "
+"kindly request that you refrain from activating this feature."
+msgstr ""
+
+#: view/Log.php:122
+msgid "Monitor, track and log events on your website."
+msgstr ""
+
+#: view/Log.php:123
+msgid "Know what the other users are doing on your website."
+msgstr ""
+
+#: view/Log.php:124
+msgid "You can set to receive security alert emails and prevent data loss."
+msgstr ""
+
+#: view/Log.php:125
+msgid "Compatible with all themes and plugins."
+msgstr ""
+
+#: view/Mapping.php:36
+msgid "Text Mapping only Classes, IDs, JS variables"
+msgstr ""
+
+#: view/Mapping.php:37
+msgid ""
+"After adding the classes, verify the frontend to ensure that your theme is "
+"not affected."
+msgstr ""
+
+#: view/Mapping.php:92
+msgid "Add New Text"
+msgstr ""
+
+#: view/Mapping.php:98
+msgid "Add common WordPress classes in text mapping"
+msgstr ""
+
+#: view/Mapping.php:103
+msgid "Add"
+msgstr ""
+
+#: view/Mapping.php:120
+msgid "Text Mapping in CSS and JS files including cached files"
+msgstr ""
+
+#: view/Mapping.php:122 view/Mapping.php:141 view/Permalinks.php:886
+#: view/Permalinks.php:1012 view/Permalinks.php:1117 view/Tweaks.php:367
+#: view/Tweaks.php:549
+msgid "not recommended"
+msgstr ""
+
+#: view/Mapping.php:126
+msgid ""
+"Change the text in all CSS and JS files, including those in cached files "
+"generated by cache plugins."
+msgstr ""
+
+#: view/Mapping.php:127
+msgid ""
+"Enabling this option may slow down the website, as CSS and JS files will "
+"load dynamically instead of through rewrites, allowing the text within them "
+"to be modified as needed."
+msgstr ""
+
+#: view/Mapping.php:139
+msgid "Optimize CSS and JS files"
+msgstr ""
+
+#: view/Mapping.php:144
+msgid "Cache CSS, JS and Images to increase the frontend loading speed."
+msgstr ""
+
+#: view/Mapping.php:145
+#, php-format
+msgid "Check the website loading speed with %sPingdom Tool%s"
+msgstr ""
+
+#: view/Mapping.php:173
+msgid "Add a list of URLs you want to replace with new ones."
+msgstr ""
+
+#: view/Mapping.php:174
+msgid ""
+"Be sure to include only internal URLs, and use relative paths whenever "
+"possible."
+msgstr ""
+
+#: view/Mapping.php:176
+msgid "Example:"
+msgstr ""
+
+#: view/Mapping.php:178 view/Mapping.php:187
+msgid "from"
+msgstr ""
+
+#: view/Mapping.php:182 view/Mapping.php:191
+msgid "to"
+msgstr ""
+
+#: view/Mapping.php:185
+msgid "or"
+msgstr ""
+
+#: view/Mapping.php:226
+msgid "Add New URL"
+msgstr ""
+
+#: view/Mapping.php:237
+msgid "CDN URL Mapping"
+msgstr ""
+
+#: view/Mapping.php:248
+msgid "Add the CDN URLs you're using in the cache plugin. "
+msgstr ""
+
+#: view/Mapping.php:249
+msgid ""
+"Note that this option won't activate the CDN for your website, but it will "
+"update the custom paths if you've already set a CDN URL with another plugin."
+msgstr ""
+
+#: view/Mapping.php:276
+msgid "Add New CDN URL"
+msgstr ""
+
+#: view/Overview.php:45
+msgid "Security Status"
+msgstr ""
+
+#: view/Overview.php:74
+msgid "Search"
+msgstr ""
+
+#: view/Overview.php:78
+msgid "Could not found anything based on your search."
+msgstr ""
+
+#: view/Overview.php:113
+msgid "start feature setup"
+msgstr ""
+
+#: view/Overview.php:117
+msgid "see feature"
+msgstr ""
+
+#: view/Overview.php:147
+msgid "already active"
+msgstr ""
+
+#: view/Overview.php:151
+msgid "activate feature"
+msgstr ""
+
+#: view/Overview.php:161
+msgid "help"
+msgstr ""
+
+#: view/Permalinks.php:34
+msgid "Levels of security"
+msgstr ""
+
+#: view/Permalinks.php:41 view/Permalinks.php:55
+msgid "Deactivated"
+msgstr ""
+
+#: view/Permalinks.php:45 view/Permalinks.php:56
+msgid "Safe mode"
+msgstr ""
+
+#: view/Permalinks.php:49 view/Permalinks.php:57
+msgid "Ghost mode"
+msgstr ""
+
+#: view/Permalinks.php:172
+msgid "More options"
+msgstr ""
+
+#: view/Permalinks.php:172
+msgid "Load Security Presets"
+msgstr ""
+
+#: view/Permalinks.php:179
+msgid "Simulate CMS"
+msgstr ""
+
+#: view/Permalinks.php:183
+msgid "No CMS Simulation"
+msgstr ""
+
+#: view/Permalinks.php:184
+msgid "Drupal 8"
+msgstr ""
+
+#: view/Permalinks.php:185
+msgid "Drupal 9"
+msgstr ""
+
+#: view/Permalinks.php:186
+msgid "Drupal 10"
+msgstr ""
+
+#: view/Permalinks.php:187
+msgid "Drupal 11"
+msgstr ""
+
+#: view/Permalinks.php:188
+msgid "Joomla 3"
+msgstr ""
+
+#: view/Permalinks.php:189
+msgid "Joomla 4"
+msgstr ""
+
+#: view/Permalinks.php:190
+msgid "Joomla 5"
+msgstr ""
+
+#: view/Permalinks.php:206
+msgid "Add IPs that can pass plugin security"
+msgstr ""
+
+#: view/Permalinks.php:229
+msgid "e.g. /cart/"
+msgstr ""
+
+#: view/Permalinks.php:230
+msgid "e.g. /checkout/"
+msgstr ""
+
+#: view/Permalinks.php:263
+msgid "Help & FAQs"
+msgstr ""
+
+#: view/Permalinks.php:295
+msgid "More Help"
+msgstr ""
+
+#: view/Permalinks.php:300
+msgid "Troubleshooting"
+msgstr ""
+
+#: view/Permalinks.php:318
+#, php-format
+msgid ""
+"Copy the %s SAFE URL %s and use it to deactivate all the custom paths if you "
+"can't login."
+msgstr ""
+
+#: view/Permalinks.php:333
+#, php-format
+msgid ""
+"Your admin URL is changed by another plugin/theme in %s. To activate this "
+"option, disable the custom admin in the other plugin or deativate it."
+msgstr ""
+
+#: view/Permalinks.php:337
+#, php-format
+msgid ""
+"Your admin URL can't be changed on %s hosting because of the %s security "
+"terms."
+msgstr ""
+
+#: view/Permalinks.php:340
+#, php-format
+msgid ""
+"The constant ADMIN_COOKIE_PATH is defined in wp-config.php by another "
+"plugin. You can't change %s unless you remove the line "
+"define('ADMIN_COOKIE_PATH', ...);."
+msgstr ""
+
+#: view/Permalinks.php:347
+msgid "eg. adm, back"
+msgstr ""
+
+#: view/Permalinks.php:362
+msgid "Hide /wp-admin path from visitors."
+msgstr ""
+
+#: view/Permalinks.php:372
+msgid "Hide \"wp-admin\" From Non-Admin Users"
+msgstr ""
+
+#: view/Permalinks.php:373
+msgid "Hide /wp-admin path from non-administrator users."
+msgstr ""
+
+#: view/Permalinks.php:383
+msgid "Hide the New Admin Path"
+msgstr ""
+
+#: view/Permalinks.php:384
+msgid ""
+"Hide the new admin path from visitors. Show the new admin path only for "
+"logged users."
+msgstr ""
+
+#: view/Permalinks.php:390
+msgid ""
+"Some themes don't work with custom Admin and Ajax paths. In case of ajax "
+"errors, switch back to wp-admin and admin-ajax.php."
+msgstr ""
+
+#: view/Permalinks.php:394 view/Permalinks.php:570
+msgid "Manage Login and Logout Redirects"
+msgstr ""
+
+#: view/Permalinks.php:408
+#, php-format
+msgid ""
+"Your login URL is changed by another plugin/theme in %s. To activate this "
+"option, disable the custom login in the other plugin or deativate it."
+msgstr ""
+
+#: view/Permalinks.php:421 view/Permalinks.php:470
+msgid "Hide \"wp-login.php\""
+msgstr ""
+
+#: view/Permalinks.php:422 view/Permalinks.php:471
+msgid "Hide /wp-login.php path from visitors."
+msgstr ""
+
+#: view/Permalinks.php:436 view/Permalinks.php:482
+msgid "Hide /login path from visitors."
+msgstr ""
+
+#: view/Permalinks.php:448 view/Permalinks.php:493
+msgid ""
+"Hide the new login path from visitors. Show the new login path only for "
+"direct access."
+msgstr ""
+
+#: view/Permalinks.php:457
+msgid "eg. login or signin"
+msgstr ""
+
+#: view/Permalinks.php:511
+msgid "Hide Language Switcher"
+msgstr ""
+
+#: view/Permalinks.php:512
+msgid "Hide the language switcher option on the login page"
+msgstr ""
+
+#: view/Permalinks.php:523
+msgid "Custom Lost Password Path"
+msgstr ""
+
+#: view/Permalinks.php:524
+msgid "eg. lostpass or forgotpass"
+msgstr ""
+
+#: view/Permalinks.php:534
+msgid "Custom Register Path"
+msgstr ""
+
+#: view/Permalinks.php:535
+msgid "eg. newuser or register"
+msgstr ""
+
+#: view/Permalinks.php:546
+msgid "Custom Logout Path"
+msgstr ""
+
+#: view/Permalinks.php:547
+msgid "eg. logout or disconnect"
+msgstr ""
+
+#: view/Permalinks.php:558
+msgid "Custom Activation Path"
+msgstr ""
+
+#: view/Permalinks.php:559
+msgid "eg. multisite activation link"
+msgstr ""
+
+#: view/Permalinks.php:574
+msgid "Manage Brute Force Protection"
+msgstr ""
+
+#: view/Permalinks.php:593
+msgid "eg. profile, usr, writer"
+msgstr ""
+
+#: view/Permalinks.php:611
+msgid "Don't let URLs like domain.com?author=1 show the user login name"
+msgstr ""
+
+#: view/Permalinks.php:612
+msgid "Hide user discoverability from API calls, sitemaps, oEmbed, and more."
+msgstr ""
+
+#: view/Permalinks.php:629
+msgid "eg. ajax, json"
+msgstr ""
+
+#: view/Permalinks.php:645
+#, php-format
+msgid "Show /%s instead of /%s"
+msgstr ""
+
+#: view/Permalinks.php:646
+msgid "(works only with the custom admin-ajax path to avoid infinite loops)"
+msgstr ""
+
+#: view/Permalinks.php:659
+msgid ""
+"This will prevent from showing the old paths when an image or font is called "
+"through ajax"
+msgstr ""
+
+#: view/Permalinks.php:674
+msgid "eg. core, inc, include"
+msgstr ""
+
+#: view/Permalinks.php:684
+msgid "eg. lib, library"
+msgstr ""
+
+#: view/Permalinks.php:695
+msgid "eg. images, files"
+msgstr ""
+
+#: view/Permalinks.php:704
+#, php-format
+msgid ""
+"You already defined a different wp-content/uploads directory in wp-config."
+"php %s"
+msgstr ""
+
+#: view/Permalinks.php:711
+msgid "eg. comments, discussion"
+msgstr ""
+
+#: view/Permalinks.php:727
+msgid ""
+"Hide the old /wp-content, /wp-include paths once they are changed with the "
+"new ones"
+msgstr ""
+
+#: view/Permalinks.php:734
+msgid "Hide File Extensions"
+msgstr ""
+
+#: view/Permalinks.php:735
+msgid "Select the file extensions you want to hide on old paths"
+msgstr ""
+
+#: view/Permalinks.php:767
+msgid ""
+"Hide wp-config.php , wp-config-sample.php, readme.html, license.txt, upgrade."
+"php and install.php files"
+msgstr ""
+
+#: view/Permalinks.php:774
+msgid "Hide Common Files"
+msgstr ""
+
+#: view/Permalinks.php:775
+msgid "Select the files you want to hide on old paths"
+msgstr ""
+
+#: view/Permalinks.php:811
+msgid "Disable Directory Browsing"
+msgstr ""
+
+#: view/Permalinks.php:814
+#, php-format
+msgid "Don't let hackers see any directory content. See %sUploads Directory%s"
+msgstr ""
+
+#: view/Permalinks.php:815
+#, php-format
+msgid ""
+"Normally, the option to block visitors from browsing server directories is "
+"activated by the host through server configuration, and activating it twice "
+"in the config file may cause errors, so it's best to first check if the "
+"%sUploads Directory%s is visible."
+msgstr ""
+
+#: view/Permalinks.php:827
+msgid "Plugins Settings"
+msgstr ""
+
+#: view/Permalinks.php:834
+msgid "eg. modules"
+msgstr ""
+
+#: view/Permalinks.php:849
+msgid "Give random names to each plugin"
+msgstr ""
+
+#: view/Permalinks.php:858
+msgid "Hide All The Plugins"
+msgstr ""
+
+#: view/Permalinks.php:861
+msgid "Hide both active and deactivated plugins"
+msgstr ""
+
+#: view/Permalinks.php:870
+msgid "Hide WordPress Old Plugins Path"
+msgstr ""
+
+#: view/Permalinks.php:873
+msgid ""
+"Hide the old /wp-content/plugins path once it's changed with the new one"
+msgstr ""
+
+#: view/Permalinks.php:884 view/Permalinks.php:1010
+msgid "Show Advanced Options"
+msgstr ""
+
+#: view/Permalinks.php:888
+msgid "Manually customize each plugin name and overwrite the random name"
+msgstr ""
+
+#: view/Permalinks.php:927
+msgid "Customize Plugin Names"
+msgstr ""
+
+#: view/Permalinks.php:956
+msgid "eg. aspect, templates, styles"
+msgstr ""
+
+#: view/Permalinks.php:972
+msgid "Give random names to each theme (works in WP multisite)"
+msgstr ""
+
+#: view/Permalinks.php:982
+msgid "Hide WordPress Old Themes Path"
+msgstr ""
+
+#: view/Permalinks.php:985
+msgid "Hide the old /wp-content/themes path once it's changed with the new one"
+msgstr ""
+
+#: view/Permalinks.php:995
+msgid "eg. main.css,  theme.css, design.css"
+msgstr ""
+
+#: view/Permalinks.php:1014
+msgid "Manually customize each theme name and overwrite the random name"
+msgstr ""
+
+#: view/Permalinks.php:1053
+msgid "Customize Theme Names"
+msgstr ""
+
+#: view/Permalinks.php:1081
+msgid "API Settings"
+msgstr ""
+
+#: view/Permalinks.php:1087
+msgid "Custom wp-json Path"
+msgstr ""
+
+#: view/Permalinks.php:1088
+msgid "eg. json, api, call"
+msgstr ""
+
+#: view/Permalinks.php:1095
+#, php-format
+msgid ""
+"Update the settings on %s to refresh the paths after changing REST API path."
+msgstr ""
+
+#: view/Permalinks.php:1095
+msgid "Permalinks"
+msgstr ""
+
+#: view/Permalinks.php:1103
+msgid "Hide REST API URL link"
+msgstr ""
+
+#: view/Permalinks.php:1106
+msgid "Hide wp-json & ?rest_route link tag from website header"
+msgstr ""
+
+#: view/Permalinks.php:1115
+msgid "Disable REST API Access"
+msgstr ""
+
+#: view/Permalinks.php:1119
+msgid "Disable REST API access for not logged in users"
+msgstr ""
+
+#: view/Permalinks.php:1120
+msgid ""
+"The REST API is crucial for many plugins as it allows them to interact with "
+"the WordPress database and perform various actions programmatically."
+msgstr ""
+
+#: view/Permalinks.php:1129
+msgid "Disable \"rest_route\" Param Access"
+msgstr ""
+
+#: view/Permalinks.php:1132
+msgid "Disable REST API access using the parameter 'rest_route'"
+msgstr ""
+
+#: view/Permalinks.php:1141
+msgid "Disable XML-RPC Access"
+msgstr ""
+
+#: view/Permalinks.php:1144
+msgid ""
+"Disable the access to /xmlrpc.php to prevent Brute force attacks via XML-RPC"
+msgstr ""
+
+#: view/Permalinks.php:1145
+msgid "Remove pingback link tag from the website header."
+msgstr ""
+
+#: view/Permalinks.php:1154
+msgid "Disable RSD Endpoint from XML-RPC"
+msgstr ""
+
+#: view/Permalinks.php:1157
+msgid ""
+"Disable the RSD (Really Simple Discovery) support for XML-RPC & remove RSD "
+"tag from header"
+msgstr ""
+
+#: view/Permalinks.php:1202
+msgid "Safe Mode"
+msgstr ""
+
+#: view/Permalinks.php:1211
+msgid "Safe Mode will set these predefined paths"
+msgstr ""
+
+#: view/Permalinks.php:1220 view/Permalinks.php:1274
+msgid "Login Path"
+msgstr ""
+
+#: view/Permalinks.php:1221 view/Permalinks.php:1276
+msgid "Core Contents Path"
+msgstr ""
+
+#: view/Permalinks.php:1222 view/Permalinks.php:1277
+msgid "Core Includes Path"
+msgstr ""
+
+#: view/Permalinks.php:1223 view/Permalinks.php:1278
+msgid "Uploads Path"
+msgstr ""
+
+#: view/Permalinks.php:1224 view/Permalinks.php:1279
+msgid "Author Path"
+msgstr ""
+
+#: view/Permalinks.php:1225 view/Permalinks.php:1280
+msgid "Plugins Path"
+msgstr ""
+
+#: view/Permalinks.php:1226 view/Permalinks.php:1281
+msgid "Themes Path"
+msgstr ""
+
+#: view/Permalinks.php:1227 view/Permalinks.php:1282
+msgid "Comments Path"
+msgstr ""
+
+#: view/Permalinks.php:1230 view/Permalinks.php:1285
+#, php-format
+msgid "Note! %sPaths are NOT physically change%s on your server."
+msgstr ""
+
+#: view/Permalinks.php:1233
+msgid ""
+"The Safe Mode will add the rewrites rules in the config file to hide the old "
+"paths from hackers."
+msgstr ""
+
+#: view/Permalinks.php:1239 view/Permalinks.php:1297
+#, php-format
+msgid "Click %sContinue%s to set the predefined paths."
+msgstr ""
+
+#: view/Permalinks.php:1240 view/Permalinks.php:1298
+#, php-format
+msgid "After, click %sSave%s to apply the changes."
+msgstr ""
+
+#: view/Permalinks.php:1243 view/Permalinks.php:1301 view/SecurityCheck.php:237
+#: view/Templogin.php:299 view/Templogin.php:453
+msgid "Cancel"
+msgstr ""
+
+#: view/Permalinks.php:1244 view/Permalinks.php:1302 view/SecurityCheck.php:238
+msgid "Continue"
+msgstr ""
+
+#: view/Permalinks.php:1256 view/SecurityCheck.php:224
+#: view/blocks/ChangeCacheFiles.php:59 view/blocks/ChangeFiles.php:9
+msgid "Ghost Mode"
+msgstr ""
+
+#: view/Permalinks.php:1264
+msgid "Ghost Mode will set these predefined paths"
+msgstr ""
+
+#: view/Permalinks.php:1273
+msgid "Admin Path"
+msgstr ""
+
+#: view/Permalinks.php:1275
+msgid "Ajax URL"
+msgstr ""
+
+#: view/Permalinks.php:1288
+msgid ""
+"The Ghost Mode will add the rewrites rules in the config file to hide the "
+"old paths from hackers."
+msgstr ""
+
+#: view/Permalinks.php:1291
+#, php-format
+msgid "If you notice any functionality issue please select the %sSafe Mode%s."
+msgstr ""
+
+#: view/SecurityCheck.php:24
+msgid "WordPress Security Check"
+msgstr ""
+
+#: view/SecurityCheck.php:61 view/SecurityCheck.php:95
+msgid "Start Scan"
+msgstr ""
+
+#: view/SecurityCheck.php:76
+msgid "Passed"
+msgstr ""
+
+#: view/SecurityCheck.php:77
+msgid "Failed"
+msgstr ""
+
+#: view/SecurityCheck.php:83
+msgid ""
+"Congratulations! You completed all the security tasks. Make sure you check "
+"your site once a week."
+msgstr ""
+
+#: view/SecurityCheck.php:101
+msgid "Last check:"
+msgstr ""
+
+#: view/SecurityCheck.php:104
+#, php-format
+msgid ""
+"According to %sGoogle latest stats%s, over %s 30k websites are hacked every "
+"day %s and %s over 30&#37; of them are made in WordPress %s. %s It's better "
+"to prevent an attack than to spend a lot of money and time to recover your "
+"data after an attack not to mention the situation when your clients' data "
+"are stolen."
+msgstr ""
+
+#: view/SecurityCheck.php:113
+msgid "Name"
+msgstr ""
+
+#: view/SecurityCheck.php:114
+msgid "Value"
+msgstr ""
+
+#: view/SecurityCheck.php:115
+msgid "Valid"
+msgstr ""
+
+#: view/SecurityCheck.php:116
+msgid "Action"
+msgstr ""
+
+#: view/SecurityCheck.php:139
+msgid "Info"
+msgstr ""
+
+#: view/SecurityCheck.php:143 view/SecurityCheck.php:314
+msgid "Fix it"
+msgstr ""
+
+#: view/SecurityCheck.php:146
+msgid "Undo"
+msgstr ""
+
+#: view/SecurityCheck.php:158
+msgid "Are you sure you want to ignore this task in the future?"
+msgstr ""
+
+#: view/SecurityCheck.php:159
+msgid "Ignore security task"
+msgstr ""
+
+#: view/SecurityCheck.php:196
+msgid "Show completed tasks"
+msgstr ""
+
+#: view/SecurityCheck.php:197
+msgid "Hide completed tasks"
+msgstr ""
+
+#: view/SecurityCheck.php:199
+msgid "Show ignored tasks"
+msgstr ""
+
+#: view/SecurityCheck.php:250
+msgid "Admin Username"
+msgstr ""
+
+#: view/SecurityCheck.php:257
+msgid ""
+"If you are connected with the admin user, you will have to re-login after "
+"the change."
+msgstr ""
+
+#: view/SecurityCheck.php:265
+msgid "Change"
+msgstr ""
+
+#: view/SecurityCheck.php:276
+msgid "Fix Permissions"
+msgstr ""
+
+#: view/SecurityCheck.php:285
+msgid "WordPress Default Permissions"
+msgstr ""
+
+#: view/SecurityCheck.php:287
+msgid "Directories"
+msgstr ""
+
+#: view/SecurityCheck.php:288
+msgid "Files"
+msgstr ""
+
+#: view/SecurityCheck.php:289
+msgid "Config"
+msgstr ""
+
+#: view/SecurityCheck.php:302
+msgid "Quick Fix"
+msgstr ""
+
+#: view/SecurityCheck.php:303
+msgid "Fix permission for the main directories and files (~ 5 sec)"
+msgstr ""
+
+#: view/SecurityCheck.php:309
+msgid "Complete Fix"
+msgstr ""
+
+#: view/SecurityCheck.php:310
+msgid "Fix permission for all directories and files (~ 1 min)"
+msgstr ""
+
+#: view/Templogin.php:33
+msgid "Activate Temporary Logins"
+msgstr ""
+
+#: view/Templogin.php:48
+msgid "Temporary Login Settings"
+msgstr ""
+
+#: view/Templogin.php:57
+msgid "Use Temporary Logins"
+msgstr ""
+
+#: view/Templogin.php:71
+msgid "Default User Role"
+msgstr ""
+
+#: view/Templogin.php:72
+msgid "Default user role for which the temporary login will be created."
+msgstr ""
+
+#: view/Templogin.php:94
+msgid "Default Redirect After Login"
+msgstr ""
+
+#: view/Templogin.php:95
+msgid "Redirect temporary users to a custom page after login."
+msgstr ""
+
+#: view/Templogin.php:99 view/Templogin.php:255 view/Templogin.php:409
+msgid "Dashboard"
+msgstr ""
+
+#: view/Templogin.php:114
+msgid "Default Temporary Expire Time"
+msgstr ""
+
+#: view/Templogin.php:115
+msgid ""
+"Select how long the temporary login will be available after the first user "
+"access."
+msgstr ""
+
+#: view/Templogin.php:133
+msgid "Delete Temporary Users on Plugin Uninstall"
+msgstr ""
+
+#: view/Templogin.php:147
+msgid "Add New Temporary Login"
+msgstr ""
+
+#: view/Templogin.php:158
+#, php-format
+msgid ""
+"Create a temporary login URL with any user role to access the website "
+"dashboard without username and password for a limited period of time. %s "
+"This is useful when you need to give admin access to a developer for support "
+"or for performing routine tasks."
+msgstr ""
+
+#: view/Templogin.php:172
+msgid "Edit User"
+msgstr ""
+
+#: view/Templogin.php:186 view/Templogin.php:340
+msgid "First Name"
+msgstr ""
+
+#: view/Templogin.php:195 view/Templogin.php:349
+msgid "Last Name"
+msgstr ""
+
+#: view/Templogin.php:208 view/Templogin.php:362
+msgid "Website"
+msgstr ""
+
+#: view/Templogin.php:209 view/Templogin.php:363
+msgid "Set the website you want this user to be created for."
+msgstr ""
+
+#: view/Templogin.php:227 view/Templogin.php:381 view/Tweaks.php:85
+msgid "User Role"
+msgstr ""
+
+#: view/Templogin.php:228 view/Templogin.php:382
+msgid "Set the current user role."
+msgstr ""
+
+#: view/Templogin.php:250 view/Templogin.php:404
+msgid "Redirect After Login"
+msgstr ""
+
+#: view/Templogin.php:251 view/Templogin.php:405
+msgid "Redirect user to a custom page after login."
+msgstr ""
+
+#: view/Templogin.php:270 view/Templogin.php:424
+msgid "Expire Time"
+msgstr ""
+
+#: view/Templogin.php:271 view/Templogin.php:425
+msgid ""
+"How long the temporary login will be available after the user first access."
+msgstr ""
+
+#: view/Templogin.php:286 view/Templogin.php:440
+msgid "Language"
+msgstr ""
+
+#: view/Templogin.php:287 view/Templogin.php:441
+msgid "Load custom language is WordPress local language is installed."
+msgstr ""
+
+#: view/Templogin.php:298
+msgid "Save User"
+msgstr ""
+
+#: view/Templogin.php:319
+msgid "Add New Temporary Login User"
+msgstr ""
+
+#: view/Templogin.php:331
+msgid "Email"
+msgstr ""
+
+#: view/Templogin.php:452
+msgid "Create"
+msgstr ""
+
+#: view/Tweaks.php:42
+msgid "Redirect Hidden Paths"
+msgstr ""
+
+#: view/Tweaks.php:46
+msgid "Front page"
+msgstr ""
+
+#: view/Tweaks.php:47
+msgid "404 page"
+msgstr ""
+
+#: view/Tweaks.php:48
+msgid "404 HTML Error"
+msgstr ""
+
+#: view/Tweaks.php:49
+msgid "403 HTML Error"
+msgstr ""
+
+#: view/Tweaks.php:61
+msgid ""
+"Redirect the protected paths /wp-admin, /wp-login to a Page or trigger an "
+"HTML Error."
+msgstr ""
+
+#: view/Tweaks.php:62
+msgid ""
+"You can create a new page and come back to choose to redirect to that page."
+msgstr ""
+
+#: view/Tweaks.php:70
+msgid "Do Login & Logout Redirects"
+msgstr ""
+
+#: view/Tweaks.php:73
+msgid "Add redirects for the logged users based on user roles."
+msgstr ""
+
+#: view/Tweaks.php:81
+msgid "Default"
+msgstr ""
+
+#: view/Tweaks.php:99 view/Tweaks.php:130
+msgid "Login Redirect URL"
+msgstr ""
+
+#: view/Tweaks.php:100 view/Tweaks.php:131
+msgid "eg."
+msgstr ""
+
+#: view/Tweaks.php:110 view/Tweaks.php:141
+msgid "Logout Redirect URL"
+msgstr ""
+
+#: view/Tweaks.php:111 view/Tweaks.php:142
+msgid "eg. /logout or"
+msgstr ""
+
+#: view/Tweaks.php:120 view/Tweaks.php:151
+#, php-format
+msgid ""
+"Make sure the redirect URLs exist on your website. %sThe User Role redirect "
+"URL has higher priority than the Default redirect URL."
+msgstr ""
+
+#: view/Tweaks.php:127
+msgid "redirects"
+msgstr ""
+
+#: view/Tweaks.php:165
+msgid "Redirect Logged Users To Dashboard"
+msgstr ""
+
+#: view/Tweaks.php:168
+msgid "Automatically redirect the logged in users to the admin dashboard."
+msgstr ""
+
+#: view/Tweaks.php:194
+msgid "Hide Feed & Sitemap Link Tags"
+msgstr ""
+
+#: view/Tweaks.php:197
+msgid "Hide the /feed and /sitemap.xml link Tags"
+msgstr ""
+
+#: view/Tweaks.php:206
+msgid "Change Paths in RSS feed"
+msgstr ""
+
+#: view/Tweaks.php:209
+#, php-format
+msgid "Check the %s RSS feed %s and make sure the image paths are changed."
+msgstr ""
+
+#: view/Tweaks.php:218
+msgid "Change Paths in Sitemaps XML"
+msgstr ""
+
+#: view/Tweaks.php:221
+#, php-format
+msgid "Check the %s Sitemap XML %s and make sure the image paths are changed."
+msgstr ""
+
+#: view/Tweaks.php:230
+msgid "Remove Plugins Authors & Style in Sitemap XML"
+msgstr ""
+
+#: view/Tweaks.php:233
+msgid ""
+"To improve your website's security, consider removing authors and styles "
+"that point to WordPress in your sitemap XML."
+msgstr ""
+
+#: view/Tweaks.php:242
+msgid "Hide Paths in Robots.txt"
+msgstr ""
+
+#: view/Tweaks.php:245
+#, php-format
+msgid "Hide WordPress common paths from %s Robots.txt %s file."
+msgstr ""
+
+#: view/Tweaks.php:260
+#, php-format
+msgid "First, you need to activate the %sSafe Mode%s or %sGhost Mode%s."
+msgstr ""
+
+#: view/Tweaks.php:270
+msgid "Change Paths for Logged Users"
+msgstr ""
+
+#: view/Tweaks.php:273
+msgid "Change WordPress paths while you're logged in."
+msgstr ""
+
+#: view/Tweaks.php:282
+msgid "Change Relative URLs to Absolute URLs"
+msgstr ""
+
+#: view/Tweaks.php:285
+#, php-format
+msgid "Convert links like /wp-content/* into  %s/wp-content/*."
+msgstr ""
+
+#: view/Tweaks.php:310
+msgid "Hide Admin Toolbar"
+msgstr ""
+
+#: view/Tweaks.php:313
+msgid "Hide the admin toolbar for logged users while in frontend."
+msgstr ""
+
+#: view/Tweaks.php:318 view/Tweaks.php:498 view/Tweaks.php:565
+#: view/Tweaks.php:619 view/Tweaks.php:683 view/Tweaks.php:737
+msgid "Select User Roles"
+msgstr ""
+
+#: view/Tweaks.php:319
+msgid "User roles for who to hide the admin toolbar"
+msgstr ""
+
+#: view/Tweaks.php:341
+msgid "Hide Version from Images, CSS and JS"
+msgstr ""
+
+#: view/Tweaks.php:344
+msgid "Hide all versions from the end of any Image, CSS and JavaScript files."
+msgstr ""
+
+#: view/Tweaks.php:356
+msgid ""
+"Add a random static number to prevent frontend caching while the user is "
+"logged in."
+msgstr ""
+
+#: view/Tweaks.php:369
+msgid ""
+"Hide the IDs from all &lt;links&gt;, &lt;style&gt;, &lt;scripts&gt; META Tags"
+msgstr ""
+
+#: view/Tweaks.php:370
+msgid ""
+"Hiding the ID from meta tags in WordPress can potentially impact the caching "
+"process of plugins that rely on identifying the meta tags."
+msgstr ""
+
+#: view/Tweaks.php:382
+msgid "Hide the DNS Prefetch that points to WordPress"
+msgstr ""
+
+#: view/Tweaks.php:394
+msgid "Hide the WordPress Generator META tags"
+msgstr ""
+
+#: view/Tweaks.php:406
+msgid "Hide the HTML Comments left by the themes and plugins"
+msgstr ""
+
+#: view/Tweaks.php:415
+msgid "Hide Emojicons"
+msgstr ""
+
+#: view/Tweaks.php:418
+msgid "Don't load Emoji Icons if you don't use them"
+msgstr ""
+
+#: view/Tweaks.php:427
+msgid "Hide Embed Scripts"
+msgstr ""
+
+#: view/Tweaks.php:430
+msgid "Don't load oEmbed service if you don't use oEmbed videos"
+msgstr ""
+
+#: view/Tweaks.php:439
+msgid "Hide WLW Manifest Scripts"
+msgstr ""
+
+#: view/Tweaks.php:442
+msgid ""
+"Don't load WLW if you didn't configure Windows Live Writer for your site"
+msgstr ""
+
+#: view/Tweaks.php:473
+msgid "Disable the right-click functionality on your website"
+msgstr ""
+
+#: view/Tweaks.php:479
+msgid "Disable Click Message"
+msgstr ""
+
+#: view/Tweaks.php:480 view/Tweaks.php:535 view/Tweaks.php:601
+#: view/Tweaks.php:655 view/Tweaks.php:719
+msgid "Leave it blank if you don't want to display any message"
+msgstr ""
+
+#: view/Tweaks.php:492
+msgid "Disable Right-Click for Logged Users"
+msgstr ""
+
+#: view/Tweaks.php:499
+msgid "User roles for who to disable the Right-Click"
+msgstr ""
+
+#: view/Tweaks.php:524
+msgid "Disable Inspect Element"
+msgstr ""
+
+#: view/Tweaks.php:527
+msgid "Disable the inspect element view on your website"
+msgstr ""
+
+#: view/Tweaks.php:534
+msgid "Disable Inspect Element Message"
+msgstr ""
+
+#: view/Tweaks.php:548
+msgid "Blank Screen On Debugging"
+msgstr ""
+
+#: view/Tweaks.php:550
+msgid "Show blank screen when Inspect Element is active on browser."
+msgstr ""
+
+#: view/Tweaks.php:551
+msgid "This may not work with all new mobile devices."
+msgstr ""
+
+#: view/Tweaks.php:559
+msgid "Disable Inspect Element for Logged Users"
+msgstr ""
+
+#: view/Tweaks.php:566
+msgid "User roles for who to disable the inspect element"
+msgstr ""
+
+#: view/Tweaks.php:591
+msgid "Disable View Source"
+msgstr ""
+
+#: view/Tweaks.php:594
+msgid "Disable the source-code view on your website"
+msgstr ""
+
+#: view/Tweaks.php:600
+msgid "Disable View Source Message"
+msgstr ""
+
+#: view/Tweaks.php:613
+msgid "Disable View Source for Logged Users"
+msgstr ""
+
+#: view/Tweaks.php:620
+msgid "User roles for who to disable the view source"
+msgstr ""
+
+#: view/Tweaks.php:645
+msgid "Disable Copy"
+msgstr ""
+
+#: view/Tweaks.php:648
+msgid "Disable copy function on your website"
+msgstr ""
+
+#: view/Tweaks.php:654
+msgid "Disable Copy/Paste Message"
+msgstr ""
+
+#: view/Tweaks.php:668
+msgid "Disable Paste"
+msgstr ""
+
+#: view/Tweaks.php:669
+msgid "Disable paste function on your website"
+msgstr ""
+
+#: view/Tweaks.php:677
+msgid "Disable Copy/Paste for Logged Users"
+msgstr ""
+
+#: view/Tweaks.php:684
+msgid "User roles for who to disable the copy/paste"
+msgstr ""
+
+#: view/Tweaks.php:709
+msgid "Disable Drag/Drop Images"
+msgstr ""
+
+#: view/Tweaks.php:712
+msgid "Disable image drag & drop on your website"
+msgstr ""
+
+#: view/Tweaks.php:718
+msgid "Disable Drag/Drop Message"
+msgstr ""
+
+#: view/Tweaks.php:731
+msgid "Disable Drag/Drop for Logged Users"
+msgstr ""
+
+#: view/Tweaks.php:738
+msgid "User roles for who to disable the drag/drop"
+msgstr ""
+
+#: view/blocks/ChangeCacheFiles.php:29
+msgid "Custom Cache Directory"
+msgstr ""
+
+#: view/blocks/ChangeCacheFiles.php:36
+msgid "Set Custom Cache Directory"
+msgstr ""
+
+#: view/blocks/ChangeCacheFiles.php:41
+msgid "Change the WordPress common paths in the cached files."
+msgstr ""
+
+#: view/blocks/ChangeCacheFiles.php:42 view/blocks/ChangeCacheFiles.php:66
+#: view/blocks/ChangeFiles.php:16
+msgid ""
+"Note! The plugin will use WP cron to change the paths in background once the "
+"cache files are created."
+msgstr ""
+
+#: view/blocks/ChangeCacheFiles.php:47
+msgid "Change Paths Now"
+msgstr ""
+
+#: view/blocks/ChangeCacheFiles.php:65 view/blocks/ChangeFiles.php:15
+msgid "Click to run the process to change the paths in the cache files."
+msgstr ""
+
+#: view/blocks/Debug.php:7
+msgid "Debug Mode"
+msgstr ""
+
+#: view/blocks/Debug.php:16
+msgid "Save Debug Log"
+msgstr ""
+
+#: view/blocks/Debug.php:17
+msgid "Activate info and logs for debugging."
+msgstr ""
+
+#: view/blocks/Debug.php:24
+msgid "Download Debug"
+msgstr ""
+
+#: view/blocks/FrontendCheck.php:8
+msgid "Check Frontend Paths"
+msgstr ""
+
+#: view/blocks/FrontendCheck.php:11
+msgid "Check if the website paths are working correctly."
+msgstr ""
+
+#: view/blocks/FrontendCheck.php:19 view/blocks/FrontendLoginCheck.php:19
+msgid "Frontend Test"
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:23
+msgid "Login Test"
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:74
+#, php-format
+msgid "Run %s Frontend Test %s to check if the new paths are working."
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:75
+#, php-format
+msgid "Run %s Login Test %s and log in inside the popup."
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:76
+msgid "If you're able to log in, you've set the new paths correctly."
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:77
+msgid ""
+"Do not log out from this browser until you are confident that the Log in "
+"page is working and you will be able to login again."
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:78
+#, php-format
+msgid ""
+"If you can't configure %s, switch to Deactivated Mode and %scontact us%s."
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:89
+#, php-format
+msgid "Your login URL is: %s"
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:93
+#, php-format
+msgid ""
+"Your login URL will be: %s In case you can't login, use the safe URL: %s"
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:102
+msgid "Yes, it's working"
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:109
+msgid "No, abort"
+msgstr ""
+
+#: view/blocks/FrontendLoginCheck.php:118
+msgid "Frontend Login Test"
+msgstr ""
+
+#: view/blocks/GoogleEnterprise.php:7
+msgid "Google reCaptcha Enterprise"
+msgstr ""
+
+#: view/blocks/GoogleEnterprise.php:28
+msgid ""
+"Switch between Google reCaptcha Classic and Google reCaptcha Enterprise "
+"based on your Google Console setup."
+msgstr ""
+
+#: view/blocks/Install.php:11 view/blocks/Install.php:23
+msgid "Advanced Pack"
+msgstr ""
+
+#: view/blocks/Install.php:14
+msgid ""
+"This amazing feature isn't included in the basic plugin. Want to unlock it? "
+"Simply install or activate the Advanced Pack and enjoy the new security "
+"features."
+msgstr ""
+
+#: view/blocks/Install.php:15
+msgid "Let's take your security to the next level!"
+msgstr ""
+
+#: view/blocks/Install.php:23
+msgid "Install/Activate"
+msgstr ""
+
+#: view/blocks/Install.php:27
+msgid ""
+"(* the plugin has no extra cost, gets installed / activated automatically "
+"inside WP when you click the button, and uses the same account)"
+msgstr ""
+
+#: view/blocks/SecurityCheck.php:7
+msgid "Check Your Website"
+msgstr ""
+
+#: view/blocks/SecurityCheck.php:10
+msgid "Check if your website is secured with the current settings."
+msgstr ""
+
+#: view/blocks/SecurityCheck.php:16
+msgid ""
+"Make sure you save the settings and empty the cache before checking your "
+"website with our tool."
+msgstr ""
+
+#: view/blocks/SecurityCheck.php:20
+msgid "Learn more about"
+msgstr ""
+
+#. translators: 1: Deprecated function name, 2: Version number, 3: Alternative function name.
+#: view/wplogin/js/password-strength-meter.js:66
+#, javascript-format
+msgid ""
+"%1$s is deprecated since version %2$s! Use %3$s instead. Please consider "
+"writing more inclusive code."
+msgstr ""
+
+#: view/wplogin/js/user-profile.js:52
+msgid "Confirm use of weak password"
+msgstr ""
+
+#: view/wplogin/js/user-profile.js:83
+msgid "Show password"
+msgstr ""
+
+#: view/wplogin/js/user-profile.js:83
+msgid "Hide password"
+msgstr ""
+
+#: view/wplogin/js/user-profile.js:86
+msgid "Show"
+msgstr ""
+
+#: view/wplogin/js/user-profile.js:86
+msgid "Hide"
+msgstr ""
+
+#: view/wplogin/js/user-profile.js:482
+msgid "Your new password has not been saved."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Ghost"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://hidemywpghost.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"#1 Hack Prevention Security Solution: Hide WP CMS, 7G/8G Firewall, Brute "
+"Force Protection, 2FA, GEO Security, Temporary Logins, Alerts & more."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Hide My WP Ghost"
+msgstr ""

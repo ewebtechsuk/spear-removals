@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'hug.reed/jet-form-builder-stripe-gateway',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '365726bc206ad11456199b3ce8610f18b6cdee13',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'crocoblock/jfb-addon-core' => array(
+            'pretty_version' => '1.1.11',
+            'version' => '1.1.11.0',
+            'reference' => '2b19cea7150be5ad1bcec9971b8194bf61b08e21',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../crocoblock/jfb-addon-core',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'crocoblock/jfb-addon-core-dev' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '39ab4f0b9cff78ff721eaea2207f2842ac99441f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../crocoblock/jfb-addon-core-dev',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'hug.reed/jet-form-builder-stripe-gateway' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '365726bc206ad11456199b3ce8610f18b6cdee13',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

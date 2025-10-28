@@ -1,0 +1,34 @@
+{
+	"name": "hug.reed/jet-form-builder-stripe-gateway",
+	"description": "Premium addon for JetFormBuilder & JetEngine",
+	"minimum-stability": "dev",
+	"type": "project",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "hug.reed",
+			"email": "sanko200065@gmail.com"
+		}
+	],
+	"require": {
+		"crocoblock/jfb-addon-core": "^1.0",
+		"crocoblock/jfb-addon-core-dev": "^1.0"
+	},
+	"config": {
+		"jfb-core": {
+			"replace-namespace": {
+				"patterns": [
+					"/^.+\\.(php|lock)$/i",
+					"/^.+installed\\.json$/i"
+				],
+				"search": "JFBCore",
+				"replace": "JetStripeGatewayCore"
+			}
+		}
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"DevCoreJFB\\ScriptsManager::init"
+		]
+	}
+}

@@ -1,0 +1,5 @@
+2025-10-27T23:13:26+00:00 INFO Automatic database update triggered.
+2025-10-27T23:13:26+00:00 INFO Scheduling database updates (from 10.0.4)...
+2025-10-27T23:13:26+00:00 INFO   [10.2.0] Scheduled 'wc_update_1020_add_old_refunded_order_items_to_product_lookup_table'.
+2025-10-27T23:13:26+00:00 INFO   [10.3.0] Scheduled 'wc_update_1030_add_comments_date_type_index'.
+2025-10-27T23:13:26+00:00 INFO Database updates scheduled.
