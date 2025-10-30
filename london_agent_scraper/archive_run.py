@@ -10,7 +10,7 @@ import hashlib
 import json
 import shutil
 from pathlib import Path
-from typing import Optional
+from typing import Dict, Optional
 
 
 SCRIPT_DIR = Path(__file__).parent
@@ -80,9 +80,34 @@ def copy_if_exists(source: Path, destination: Path) -> bool:
     return True
 
 
-def main() -> None:
-    args = parse_args()
+def build_manifest(
+    run_date: str,
+    copied_files: Dict[str, Optional[str]],
+    row_counts: Dict[str, Optional[int]],
+    notes: str,
+) -> dict:
+    archived_at_utc = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+    archived_at_local = archived_at_utc.astimezone().replace(microsecond=0)
 
+    manifest = {
+        "scrape_date": run_date,
+        "archived_at_utc": archived_at_utc.isoformat().replace("+00:00", "Z"),
+        "archived_at_local": archived_at_local.isoformat(),
+        "config_company_websites_sha256": file_sha256(
+            SCRIPT_DIR / "config_company_websites.json"
+        ),
+        "raw_csv_path": copied_files.get("raw"),
+        "cleaned_csv_path": copied_files.get("cleaned"),
+        "invalid_csv_path": copied_files.get("invalid"),
+        "raw_row_count": row_counts.get("raw"),
+        "cleaned_row_count": row_counts.get("cleaned"),
+        "invalid_row_count": row_counts.get("invalid"),
+        "notes": notes,
+    }
+    return manifest
+
+
+def archive_run(args: argparse.Namespace) -> Path:
     run_date = args.run_date
     archive_base = args.archive_dir
     archive_dir = archive_base / run_date
@@ -94,8 +119,8 @@ def main() -> None:
 
     archive_dir.mkdir(parents=True, exist_ok=True)
 
-    copied_files: dict[str, Optional[str]] = {}
-    row_counts: dict[str, Optional[int]] = {}
+    copied_files: Dict[str, Optional[str]] = {}
+    row_counts: Dict[str, Optional[int]] = {}
 
     for label, path in DEFAULT_FILES.items():
         dest = archive_dir / path.name
@@ -103,26 +128,17 @@ def main() -> None:
         copied_files[label] = str(dest) if copied else None
         row_counts[label] = count_rows(path) if copied else None
 
-    archived_at = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
-
-    manifest = {
-        "scrape_date": run_date,
-        "archived_at_utc": archived_at.isoformat().replace("+00:00", "Z"),
-        "config_company_websites_sha256": file_sha256(
-            SCRIPT_DIR / "config_company_websites.json"
-        ),
-        "raw_csv_path": copied_files.get("raw"),
-        "cleaned_csv_path": copied_files.get("cleaned"),
-        "invalid_csv_path": copied_files.get("invalid"),
-        "raw_row_count": row_counts.get("raw"),
-        "cleaned_row_count": row_counts.get("cleaned"),
-        "invalid_row_count": row_counts.get("invalid"),
-        "notes": args.notes,
-    }
+    manifest = build_manifest(run_date, copied_files, row_counts, args.notes)
 
     manifest_path = archive_dir / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
+    return archive_dir
+
+
+def main() -> None:
+    args = parse_args()
+    archive_dir = archive_run(args)
     print(f"Archived scraper outputs to {archive_dir}")
 
 
