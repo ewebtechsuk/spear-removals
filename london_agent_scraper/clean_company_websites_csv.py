@@ -6,10 +6,12 @@ from __future__ import annotations
 import argparse
 import csv
 import re
+import sys
 from pathlib import Path
 from typing import Iterable, Tuple
 
 EMAIL_PATTERN = re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
+ZERO_WIDTH_RE = re.compile(r"[\u200b-\u200d\ufeff]")
 PLACEHOLDER_DOMAINS = {
     "example.com",
     "example.net",
@@ -24,6 +26,36 @@ UNLIKELY_TLDS = {
     "svg",
     "webp",
 }
+
+_DENY_KEYWORDS = (
+    "press",
+    "media",
+    "recruitment",
+    "careers",
+    "jobs",
+    "privacy",
+    "background",
+)
+_DENY_LITERAL = ("replytoaddress",)
+_DENY_PATTERNS = (
+    re.compile(r"no[-_]?reply"),
+    re.compile(r"do[-_]?not[-_]?reply"),
+)
+_PREFERRED_KEYWORDS = (
+    "info",
+    "contact",
+    "enquiries",
+    "enquiry",
+    "sales",
+    "lettings",
+    "customercare",
+    "customerservice",
+    "customer-care",
+    "customer-service",
+    "office",
+    "hello",
+)
+INVALID_RATIO_THRESHOLD = 0.30
 
 
 def parse_args() -> argparse.Namespace:
@@ -73,6 +105,8 @@ def normalise(value: str) -> str:
     # Angle brackets occasionally wrap mailto links – drop them for validation
     cleaned = cleaned.strip("<>")
 
+    cleaned = ZERO_WIDTH_RE.sub("", cleaned)
+
     return cleaned
 
 
@@ -96,6 +130,53 @@ def email_is_valid(email: str) -> bool:
     return True
 
 
+def _split_local_part(local_part: str) -> list[str]:
+    tokens = re.split(r"[._+\-]", local_part)
+    return [token for token in tokens if token]
+
+
+def _keyword_match(local_part: str, keyword: str) -> bool:
+    if local_part.startswith(keyword) or local_part.endswith(keyword):
+        return True
+    return keyword in _split_local_part(local_part)
+
+
+def assess_mailbox(email: str) -> tuple[bool, int]:
+    """Return (allowed, score) for an email address based on heuristics."""
+
+    try:
+        local_part, _ = email.rsplit("@", 1)
+    except ValueError:
+        return False, 0
+
+    local_part = local_part.lower()
+
+    for keyword in _DENY_KEYWORDS:
+        if _keyword_match(local_part, keyword):
+            return False, 0
+
+    for literal in _DENY_LITERAL:
+        if literal in local_part:
+            return False, 0
+
+    for pattern in _DENY_PATTERNS:
+        if pattern.search(local_part):
+            return False, 0
+
+    score = 0
+    condensed = local_part.replace(" ", "")
+    tokens = _split_local_part(condensed)
+    for keyword in _PREFERRED_KEYWORDS:
+        simplified = keyword.replace("-", "")
+        if condensed.startswith(simplified) or simplified in tokens:
+            score += 1
+
+    if "customer" in tokens and ("care" in tokens or "service" in tokens):
+        score += 1
+
+    return True, score
+
+
 def derive_paths(input_csv: Path, output_csv: Path | None, invalid_report: Path | None) -> Tuple[Path, Path | None]:
     if output_csv is None:
         output_csv = input_csv.with_name(
@@ -106,12 +187,14 @@ def derive_paths(input_csv: Path, output_csv: Path | None, invalid_report: Path 
     return output_csv, invalid_report
 
 
-def clean_rows(rows: Iterable[dict]) -> Tuple[list[dict], list[dict]]:
+def clean_rows(rows: Iterable[dict]) -> Tuple[list[dict], list[dict], int]:
     seen: set[Tuple[str, str]] = set()
-    cleaned: list[dict] = []
+    cleaned_with_scores: list[tuple[int, dict]] = []
     rejected: list[dict] = []
+    total_rows = 0
 
     for row in rows:
+        total_rows += 1
         company = normalise(row.get("company_name", ""))
         website = normalise(row.get("website", ""))
         email = normalise(row.get("email", ""))
@@ -120,20 +203,37 @@ def clean_rows(rows: Iterable[dict]) -> Tuple[list[dict], list[dict]]:
             rejected.append({"company_name": company, "website": website, "email": email})
             continue
 
+        allowed, score = assess_mailbox(email)
+        if not allowed:
+            rejected.append({"company_name": company, "website": website, "email": email})
+            continue
+
         key = (website.lower(), email.lower())
         if key in seen:
             continue
         seen.add(key)
 
-        cleaned.append(
-            {
-                "company_name": company,
-                "website": website,
-                "email": email,
-            }
+        cleaned_with_scores.append(
+            (
+                score,
+                {
+                    "company_name": company,
+                    "website": website,
+                    "email": email,
+                },
+            )
         )
 
-    return cleaned, rejected
+    cleaned_with_scores.sort(
+        key=lambda item: (
+            -item[0],
+            item[1]["company_name"].lower(),
+            item[1]["email"].lower(),
+        )
+    )
+    cleaned = [entry for _, entry in cleaned_with_scores]
+
+    return cleaned, rejected, total_rows
 
 
 def write_csv(path: Path, rows: Iterable[dict]) -> None:
@@ -151,7 +251,10 @@ def main() -> None:
 
     with args.input_csv.open(newline="") as handle:
         reader = csv.DictReader(handle)
-        cleaned, rejected = clean_rows(reader)
+        cleaned, rejected, total_rows = clean_rows(reader)
+
+    invalid_count = len(rejected)
+    ratio = (invalid_count / total_rows) if total_rows else 0
 
     write_csv(output_csv, cleaned)
 
@@ -167,6 +270,10 @@ def main() -> None:
             f"Wrote {len(cleaned)} cleaned rows to {output_csv} and"
             f" {len(rejected)} rejected rows to {invalid_report}"
         )
+
+    if ratio > INVALID_RATIO_THRESHOLD:
+        print("::error:: High invalid rate – manual review required.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

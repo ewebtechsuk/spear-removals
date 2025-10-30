@@ -87,6 +87,23 @@ ensure all preparation, processing, and follow-up steps are covered.
       them for future review, capturing notes in the archived
       `invalid_review.md` file for audit purposes.
 
+## Mailbox policy
+
+The cleaning pipeline applies mailbox heuristics so that only outreach-ready
+contacts make it into the cleaned CSV:
+
+- **Denied mailboxes:** local parts containing `press`, `media`, `recruitment`,
+  `careers`, `jobs`, `privacy`, `background`, `replytoaddress`, or any
+  variation of `no-reply` / `donotreply` are rejected outright. They will
+  appear in the invalid report for manual review if needed.
+- **Preferred mailboxes:** addresses that start with or contain `info`,
+  `contact`, `enquiry` / `enquiries`, `sales`, `lettings`, `customercare`,
+  `customerservice`, `office`, or `hello` receive a score boost so they surface
+  to the top of the cleaned output.
+- **Quality gate:** if more than 30 % of the processed rows are rejected, the
+  cleaner exits with `::error:: High invalid rate – manual review required.` so
+  that CRM imports can be paused until the results are triaged.
+
 ### 📥 CRM import / sync
 
 - [ ] Verify that the CRM import script (e.g., `scraper_to_fluentcrm.py`) is

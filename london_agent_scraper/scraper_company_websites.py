@@ -13,7 +13,10 @@ from typing import Dict, List, Optional
 import requests
 from bs4 import BeautifulSoup
 
+from clean_company_websites_csv import assess_mailbox, email_is_valid
+
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", re.I)
+ZERO_WIDTH_RE = re.compile(r"[\u200b-\u200d\ufeff]")
 CONTACT_HINTS = ("contact", "get-in-touch", "enquiries", "enquiry", "office", "team")
 REQUIRED_CONFIG_KEYS = (
     "company_websites",
@@ -90,6 +93,33 @@ def sleep_delay(delay: float) -> None:
     time.sleep(delay + random.uniform(0, delay * 0.35))
 
 
+def _pick_best_email(candidates: set[str]) -> Optional[str]:
+    if not candidates:
+        return None
+
+    best_allowed: Optional[tuple[int, str]] = None
+    best_valid: Optional[tuple[int, str]] = None
+
+    for candidate in sorted({c.lower() for c in candidates}):
+        if not email_is_valid(candidate):
+            continue
+
+        allowed, score = assess_mailbox(candidate)
+        current = (score, candidate)
+
+        if allowed and (best_allowed is None or current > best_allowed):
+            best_allowed = current
+
+        if best_valid is None or current > best_valid:
+            best_valid = current
+
+    if best_allowed is not None:
+        return best_allowed[1]
+    if best_valid is not None:
+        return best_valid[1]
+    return None
+
+
 def extract_email_from_url(session: requests.Session, url: str, timeout: float) -> Optional[str]:
     try:
         response = session.get(url, timeout=timeout)
@@ -99,7 +129,7 @@ def extract_email_from_url(session: requests.Session, url: str, timeout: float) 
         return None
     html = response.text
     emails = set(re.findall(EMAIL_RE, html))
-    return next(iter(emails), None)
+    return _pick_best_email(emails)
 
 
 def find_contact_page(
@@ -128,12 +158,35 @@ def find_contact_page(
     return None
 
 
+def _clean_text(value: str) -> str:
+    return ZERO_WIDTH_RE.sub("", value).strip()
+
+
 def get_company_name_from_page(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
-    title = soup.title.string.strip() if soup.title and soup.title.string else ""
-    if "|" in title:
-        return title.split("|")[0].strip()
-    return title
+
+    og_site = soup.find("meta", attrs={"property": "og:site_name"})
+    if og_site and og_site.get("content"):
+        content = _clean_text(og_site["content"])
+        if content:
+            return content
+
+    h1 = soup.find("h1")
+    if h1:
+        heading = _clean_text(h1.get_text(" ", strip=True))
+        if heading:
+            return heading
+
+    if soup.title and soup.title.string:
+        title = _clean_text(soup.title.string)
+        for separator in ("|", "-", "–", "•"):
+            if separator in title:
+                candidate = _clean_text(title.split(separator)[0])
+                if candidate:
+                    return candidate
+        return title
+
+    return ""
 
 
 def write_results(path: str, rows: List[Dict[str, str]]) -> None:
