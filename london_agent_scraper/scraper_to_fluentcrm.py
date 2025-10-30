@@ -72,6 +72,23 @@ def parse_args() -> argparse.Namespace:
     return args
 
 
+def resolve_password(config: dict) -> None:
+    env_key = config.get("fluentcrm_api_pass_env")
+    if env_key:
+        env_value = os.getenv(env_key)
+        if env_value:
+            config["fluentcrm_api_pass"] = env_value
+    if not config.get("fluentcrm_api_pass"):
+        if env_key:
+            raise SystemExit(
+                "Config missing CRM password. Set environment variable "
+                f"{env_key} or populate fluentcrm_api_pass."
+            )
+        raise SystemExit(
+            "Config missing CRM password. Populate fluentcrm_api_pass in the configuration file."
+        )
+
+
 def load_config(config_path: Path) -> dict:
     if not config_path.exists():
         raise SystemExit(f"Config file not found: {config_path}")
@@ -84,6 +101,8 @@ def load_config(config_path: Path) -> dict:
     missing = [key for key in REQUIRED_CONFIG_KEYS if key not in config]
     if missing:
         raise SystemExit(f"Config missing required keys: {', '.join(missing)}")
+
+    resolve_password(config)
 
     return config
 
@@ -155,11 +174,12 @@ def push_contacts(
     config: dict,
     limit: Optional[int] = None,
     dry_run: bool = False,
-) -> None:
+) -> bool:
     api_url = config["fluentcrm_api_url"]
     auth = (config["fluentcrm_api_user"], config["fluentcrm_api_pass"])
 
     processed = 0
+    failures = 0
     for contact in contacts:
         if limit is not None and processed >= limit:
             break
@@ -185,11 +205,14 @@ def push_contacts(
             response.raise_for_status()
         except requests.RequestException as exc:
             print(f"[ERROR] Failed to import {email}: {exc}")
+            failures += 1
         else:
             print(f"Imported {email} → FluentCRM (status={response.status_code})")
         processed += 1
 
     print(f"Processed {processed} contacts{' (dry-run)' if dry_run else ''}.")
+
+    return failures == 0
 
 
 def main() -> int:
@@ -216,9 +239,9 @@ def main() -> int:
     else:
         print(f"Importing contacts from {csv_path}")
 
-    push_contacts(contacts, config, limit=args.limit, dry_run=args.dry_run)
+    success = push_contacts(contacts, config, limit=args.limit, dry_run=args.dry_run)
 
-    return 0
+    return 0 if success or args.dry_run else 1
 
 
 if __name__ == "__main__":

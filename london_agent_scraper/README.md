@@ -4,11 +4,24 @@ Utilities for scraping estate agent contact details and syncing them with Fluent
 `london_agent_scraper/` directory. The scripts expect to be run from this folder (or with explicit
 paths) so that the default configuration file can be located correctly.
 
+## Run checklist (quick reference)
+
+1. Validate configuration and credentials with `python test_setup.py`.
+2. Scrape company websites via `python scraper_company_websites.py`.
+3. Clean the output with `python clean_company_websites_csv.py` and review the
+   generated invalid report.
+4. Spot-check invalid reasons, prioritising rows marked `missing-email`.
+5. Import a sample of cleaned contacts into FluentCRM (use `--dry-run` first).
+6. Archive the run with `python archive_run.py --run-date $(date +%F)` to log
+   metrics and rotate old archives.
+
 ## Live run workflow
 
 1. **Validate configuration** – confirm API credentials and local setup with
    `python test_setup.py` (add `--skip-api-test` when running from a network
-   without outbound access).
+   without outbound access). Set the FluentCRM password in the
+   `FLUENTCRM_API_PASS` environment variable (or whichever variable is defined
+   by `fluentcrm_api_pass_env` in `config.json`) before running the validation.
 2. **Scrape company sites** – launch `python scraper_company_websites.py` to
    collect fresh contact data once connectivity to the allow-listed domains has
    been confirmed.
@@ -42,7 +55,9 @@ ensure all preparation, processing, and follow-up steps are covered.
   ```
 
 - [ ] Run the setup test (add `--skip-api-test` when outbound access is
-      restricted):
+      restricted). Ensure the `FLUENTCRM_API_PASS` environment variable is
+      exported so both the validator and import script can resolve the CRM
+      password.
 
   ```bash
   python test_setup.py
@@ -79,10 +94,14 @@ ensure all preparation, processing, and follow-up steps are covered.
 - [ ] The cleaner strips common noise (`mailto:` prefixes, stray `u00xx`
       escape fragments, surrounding angle brackets) before validating email
       syntax and rejecting obvious placeholders such as `@example.com` or
-      image filenames.
+      image filenames. The invalid report now includes an `invalid_reason`
+      column so that missing emails can be triaged separately from malformed
+      addresses or rejected mailboxes.
 - [ ] Review `london_agents_companies_cleaned.csv` for valid contact rows and
       `london_agents_companies_invalid.csv` for entries that require manual
-      follow-up.
+      follow-up. Rows without an email are excluded from the high-invalid-rate
+      safeguard but still surface in the invalid report with reason
+      `missing-email` so they can be routed into manual research queues.
 - [ ] Manually investigate domains with missing or unusable emails and flag
       them for future review, capturing notes in the archived
       `invalid_review.md` file for audit purposes.
@@ -106,14 +125,19 @@ contacts make it into the cleaned CSV:
 - **Denied mailboxes:** local parts containing `press`, `media`, `recruitment`,
   `careers`, `jobs`, `privacy`, `background`, `replytoaddress`, or any
   variation of `no-reply` / `donotreply` are rejected outright. They will
-  appear in the invalid report for manual review if needed.
+  appear in the invalid report for manual review if needed, tagged with the
+  `mailbox-denied` reason code.
 - **Preferred mailboxes:** addresses that start with or contain `info`,
   `contact`, `enquiry` / `enquiries`, `sales`, `lettings`, `customercare`,
   `customerservice`, `office`, or `hello` receive a score boost so they surface
   to the top of the cleaned output.
-- **Quality gate:** if more than 30 % of the processed rows are rejected, the
-  cleaner exits with `::error:: High invalid rate – manual review required.` so
-  that CRM imports can be paused until the results are triaged.
+- **Quality gate:** if more than 30 % of the processed rows (excluding
+  `missing-email` entries) are rejected, the cleaner exits with
+  `::error:: High invalid rate – manual review required.` so that CRM imports
+  can be paused until the results are triaged.
+- **Reason codes:** the invalid report exposes an `invalid_reason` column with
+  `missing-email`, `invalid-format`, or `mailbox-denied`. Use it to decide
+  which rows should be escalated for manual research.
 
 ### 📥 CRM import / sync
 
@@ -123,6 +147,11 @@ contacts make it into the cleaned CSV:
       - Combine `--csv` with `--dry-run` to review the payload without calling
         the API.
       - Use `--limit <n>` to stage a 5–10 row sample before the full import.
+      - The script exits with a non-zero code when an API request fails, so it
+        can be wired into alerting.
+- [ ] Ensure `FLUENTCRM_API_PASS` (or the configured environment variable) is
+      exported in the session that runs the import. Plain-text passwords in
+      `config.json` are no longer required.
 - [ ] Confirm that the cleaned CSV still exposes the expected columns
       (`company_name`, `website`, `email`) so CRM mappings remain valid.
 - [ ] Import a small sample (5–10 rows) to confirm tags, lists, and custom
@@ -140,9 +169,25 @@ contacts make it into the cleaned CSV:
   python archive_run.py --run-date "$(date +%F)"
   ```
 - [ ] Record run metadata, including the date, script/configuration versions,
-      and the counts of valid versus invalid rows.
+      and the counts of valid versus invalid rows. `archive_run.py` now writes
+      a cumulative `run_history.csv` alongside the archive to capture row
+      counts, invalid ratios, and notes for each run.
 - [ ] Apply your retention policy (e.g., keep the most recent 12 months of
-      archives) by pruning older runs as required.
+      archives) by pruning older runs as required. Pass
+      `--prune-older-than-months 12` (default) to `archive_run.py` to
+      automatically remove dated folders.
+
+## Metrics & monitoring
+
+- Each archive run appends to `run_history.csv` with the raw, cleaned, and
+  invalid counts plus the `invalid_ratio_ex_missing` metric. Use this file to
+  build dashboards or quick CSV pivots when monitoring scrape health.
+- The invalid report includes an `invalid_reason` column; focus manual research
+  on `missing-email` rows and investigate spikes in `invalid-format` or
+  `mailbox-denied` counts.
+- High invalid rates trigger a non-zero exit code from the cleaner, while CRM
+  import failures return a non-zero exit code from `scraper_to_fluentcrm.py`.
+  Feed both into your alerting destination (email, Slack, etc.).
 
 ### 🔁 Automation & scheduling
 
@@ -155,7 +200,12 @@ contacts make it into the cleaned CSV:
   ```
 
 - [ ] Ensure alerting/notiﬁcation is configured for failed runs or unusually
-      high invalid counts.
+      high invalid counts. Monitor the cleaner’s exit code (non-zero when the
+      invalid ratio breaches 30 %) and the CRM import exit code (non-zero when
+      the FluentCRM API rejects a contact). Send notifications to the agreed
+      Slack channel or mailbox when either check fails.
+- [ ] Review the `run_history.csv` metrics after each automated run and spot
+      anomalies in the `invalid_ratio_ex_missing` column.
 - [ ] Review the process for updating the domain list (for example, a quarterly
       audit) and schedule the next review.
 

@@ -7,6 +7,7 @@ import argparse
 import csv
 import re
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Tuple
 
@@ -56,6 +57,19 @@ _PREFERRED_KEYWORDS = (
     "hello",
 )
 INVALID_RATIO_THRESHOLD = 0.30
+
+MISSING_EMAIL_REASON = "missing-email"
+INVALID_FORMAT_REASON = "invalid-format"
+MAILBOX_DENIED_REASON = "mailbox-denied"
+
+
+@dataclass
+class CleaningStats:
+    total_rows: int = 0
+    missing_email: int = 0
+    invalid_email: int = 0
+    mailbox_denied: int = 0
+    duplicates_dropped: int = 0
 
 
 def parse_args() -> argparse.Namespace:
@@ -187,29 +201,58 @@ def derive_paths(input_csv: Path, output_csv: Path | None, invalid_report: Path 
     return output_csv, invalid_report
 
 
-def clean_rows(rows: Iterable[dict]) -> Tuple[list[dict], list[dict], int]:
+def clean_rows(rows: Iterable[dict]) -> Tuple[list[dict], list[dict], CleaningStats]:
     seen: set[Tuple[str, str]] = set()
     cleaned_with_scores: list[tuple[int, dict]] = []
     rejected: list[dict] = []
-    total_rows = 0
+    stats = CleaningStats()
 
     for row in rows:
-        total_rows += 1
+        stats.total_rows += 1
         company = normalise(row.get("company_name", ""))
         website = normalise(row.get("website", ""))
         email = normalise(row.get("email", ""))
 
+        if not email:
+            stats.missing_email += 1
+            rejected.append(
+                {
+                    "company_name": company,
+                    "website": website,
+                    "email": email,
+                    "invalid_reason": MISSING_EMAIL_REASON,
+                }
+            )
+            continue
+
         if not email_is_valid(email):
-            rejected.append({"company_name": company, "website": website, "email": email})
+            stats.invalid_email += 1
+            rejected.append(
+                {
+                    "company_name": company,
+                    "website": website,
+                    "email": email,
+                    "invalid_reason": INVALID_FORMAT_REASON,
+                }
+            )
             continue
 
         allowed, score = assess_mailbox(email)
         if not allowed:
-            rejected.append({"company_name": company, "website": website, "email": email})
+            stats.mailbox_denied += 1
+            rejected.append(
+                {
+                    "company_name": company,
+                    "website": website,
+                    "email": email,
+                    "invalid_reason": MAILBOX_DENIED_REASON,
+                }
+            )
             continue
 
         key = (website.lower(), email.lower())
         if key in seen:
+            stats.duplicates_dropped += 1
             continue
         seen.add(key)
 
@@ -233,13 +276,24 @@ def clean_rows(rows: Iterable[dict]) -> Tuple[list[dict], list[dict], int]:
     )
     cleaned = [entry for _, entry in cleaned_with_scores]
 
-    return cleaned, rejected, total_rows
+    return cleaned, rejected, stats
 
 
 def write_csv(path: Path, rows: Iterable[dict]) -> None:
+    rows = list(rows)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["company_name", "website", "email"])
+        base_fields = ["company_name", "website", "email"]
+        extra_fields = sorted(
+            {
+                field
+                for row in rows
+                for field in row.keys()
+                if field not in base_fields
+            }
+        )
+        fieldnames = base_fields + extra_fields
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
@@ -251,25 +305,41 @@ def main() -> None:
 
     with args.input_csv.open(newline="") as handle:
         reader = csv.DictReader(handle)
-        cleaned, rejected, total_rows = clean_rows(reader)
+        cleaned, rejected, stats = clean_rows(reader)
 
     invalid_count = len(rejected)
-    ratio = (invalid_count / total_rows) if total_rows else 0
+    considered_rows = stats.total_rows - stats.missing_email
+    invalid_with_email = stats.invalid_email + stats.mailbox_denied
+    ratio = (invalid_with_email / considered_rows) if considered_rows else 0
 
     write_csv(output_csv, cleaned)
 
     if invalid_report is not None and rejected:
         write_csv(invalid_report, rejected)
 
+    rejection_summary = []
+    if stats.missing_email:
+        rejection_summary.append(f"missing-email={stats.missing_email}")
+    if stats.invalid_email:
+        rejection_summary.append(f"invalid-format={stats.invalid_email}")
+    if stats.mailbox_denied:
+        rejection_summary.append(f"mailbox-denied={stats.mailbox_denied}")
+
     if invalid_report is None:
         if rejected:
-            print(f"Discarded {len(rejected)} rows with invalid/blank emails.")
+            summary = ", ".join(rejection_summary) if rejection_summary else str(len(rejected))
+            print(f"Discarded {len(rejected)} rows ({summary}).")
         print(f"Wrote {len(cleaned)} cleaned rows to {output_csv}")
     else:
         print(
             f"Wrote {len(cleaned)} cleaned rows to {output_csv} and"
             f" {len(rejected)} rejected rows to {invalid_report}"
         )
+        if rejection_summary:
+            print("Rejection breakdown: " + ", ".join(rejection_summary))
+
+    if stats.duplicates_dropped:
+        print(f"Skipped {stats.duplicates_dropped} duplicate rows based on website/email pairs.")
 
     if ratio > INVALID_RATIO_THRESHOLD:
         print("::error:: High invalid rate – manual review required.")
