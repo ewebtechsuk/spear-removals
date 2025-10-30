@@ -1,0 +1,19 @@
+{
+  "start_urls": [
+    "https://www.rightmove.co.uk/estate-agents/London.html",
+    "https://www.home.co.uk/letting_agents/greater-london/",
+    "https://www.allinlondon.co.uk/directory/letting-agents"
+  ],
+  "user_agent": "Mozilla/5.0 (compatible; london-agent-scraper/1.0; +your-email@example.com)",
+  "request_delay_seconds": 1.3,
+  "timeout_seconds": 15,
+  "max_pages": 400,
+  "max_emails": 500,
+  "stop_when_emails_reach": 200,
+  "output_csv": "london_letting_agents_full.csv",
+  "fluentcrm_api_url": "https://spearremovals.co.uk/wp-json/fluent-crm/v2/subscribers",
+  "fluentcrm_api_user": "YOUR_CRM_API_USER",
+  "fluentcrm_api_pass": "YOUR_CRM_API_PASS",
+  "crm_tag": "london-letting-agent",
+  "crm_list": "London Agents"
+}
