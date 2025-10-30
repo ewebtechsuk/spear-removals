@@ -1,4 +1,7 @@
+import argparse
 import json
+import os
+import sys
 import time
 import random
 import re
@@ -12,9 +15,49 @@ EMAIL_RE = re.compile(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', re.I)
 CONTACT_HINTS = ("contact", "get-in-touch", "enquiry", "enquiries", "branch", "office")
 AGENT_HINTS   = ("estate", "agent", "letting", "agents", "property", "branch")
 
-def load_config():
-    with open("config.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+REQUIRED_CONFIG_KEYS = (
+    "start_urls",
+    "fluentcrm_api_url",
+    "fluentcrm_api_user",
+    "fluentcrm_api_pass",
+    "crm_tag",
+    "crm_list",
+)
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Scrape agent emails and push to FluentCRM")
+    parser.add_argument(
+        "--config",
+        default="./config.json",
+        help="Path to configuration JSON file (default: ./config.json)",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Skip network requests and API pushes; print planned actions instead",
+    )
+    return parser.parse_args()
+
+
+def load_config(config_path):
+    if not os.path.isfile(config_path):
+        print(f"Config file not found: {config_path}")
+        sys.exit(1)
+
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+    except json.JSONDecodeError as exc:
+        print(f"Error parsing config file: {exc}")
+        sys.exit(1)
+
+    missing = [key for key in REQUIRED_CONFIG_KEYS if key not in cfg]
+    if missing:
+        print(f"Config missing required keys: {', '.join(missing)}")
+        sys.exit(1)
+
+    return cfg
 
 def build_session(user_agent):
     s = requests.Session()
@@ -84,7 +127,19 @@ def push_to_fluentcrm(api_url, auth, contact_data):
     return response.json()
 
 def main():
-    cfg        = load_config()
+    args = parse_args()
+    config_path = os.path.abspath(os.path.expanduser(args.config))
+    print(f"Using config file: {config_path}")
+
+    cfg = load_config(config_path)
+
+    if args.dry_run:
+        print("Dry run mode enabled: no web requests or FluentCRM pushes will occur.")
+        for url in cfg["start_urls"]:
+            print(f"[DRY-RUN] Would fetch: {url}")
+        print("[DRY-RUN] Skipping scraping and CRM push.")
+        return
+
     session    = build_session(cfg["user_agent"])
     rp_cache   = {}
     visited    = set()
