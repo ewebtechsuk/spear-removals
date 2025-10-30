@@ -17,7 +17,7 @@
     "https://www.benhamandreeves.co.uk",
     "https://www.portico.com"
   ],
-  "user_agent": "Mozilla/5.0 (compatible; london-agent-scraper/1.0; +your-email@example.com)",
+  "user_agent": "Mozilla/5.0 (compatible; london-agent-scraper/1.1; +outreach@aktonz.com)",
   "request_delay_seconds": 1.5,
   "timeout_seconds": 15,
   "output_csv": "london_agents_companies.csv"
