@@ -40,11 +40,37 @@ def load_config(path):
         sys.exit(1)
 
 def validate_config(cfg):
-    missing = [k for k in REQUIRED_KEYS if k not in cfg or not cfg[k]]
+    missing = []
+    for key in REQUIRED_KEYS:
+        if key == "fluentcrm_api_pass":
+            if not cfg.get(key) and not cfg.get("fluentcrm_api_pass_env"):
+                missing.append(key)
+        elif key not in cfg or not cfg.get(key):
+            missing.append(key)
     if missing:
         print(f"[ERROR] Missing required config keys: {missing}")
         sys.exit(2)
     print("[OK] Config file contains all required keys.")
+
+
+def resolve_password(cfg):
+    env_key = cfg.get("fluentcrm_api_pass_env")
+    if env_key:
+        env_value = os.getenv(env_key)
+        if env_value:
+            cfg["fluentcrm_api_pass"] = env_value
+
+    if not cfg.get("fluentcrm_api_pass"):
+        hint = (
+            f"environment variable '{env_key}'"
+            if env_key
+            else "config key 'fluentcrm_api_pass'"
+        )
+        print(
+            "[ERROR] FluentCRM password missing. Set "
+            f"{hint} before running the pipeline."
+        )
+        sys.exit(2)
 
 def test_fluentcrm_api(cfg):
     url = cfg["fluentcrm_api_url"].rstrip("/") + "/subscribers"
@@ -66,6 +92,7 @@ def main():
     print(f"[INFO] Using config file: {config_path}")
     cfg = load_config(config_path)
     validate_config(cfg)
+    resolve_password(cfg)
     if args.skip_api_test:
         print("[INFO] Skipping FluentCRM API connectivity test.")
     else:
