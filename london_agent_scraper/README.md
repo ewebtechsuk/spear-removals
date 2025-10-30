@@ -4,6 +4,24 @@ Utilities for scraping estate agent contact details and syncing them with Fluent
 `london_agent_scraper/` directory. The scripts expect to be run from this folder (or with explicit
 paths) so that the default configuration file can be located correctly.
 
+## Live run workflow
+
+1. **Validate configuration** – confirm API credentials and local setup with
+   `python test_setup.py` (add `--skip-api-test` when running from a network
+   without outbound access).
+2. **Scrape company sites** – launch `python scraper_company_websites.py` to
+   collect fresh contact data once connectivity to the allow-listed domains has
+   been confirmed.
+3. **Clean the output** – run `python clean_company_websites_csv.py` to remove
+   placeholder addresses and split invalid rows to
+   `london_agents_companies_invalid.csv` for manual inspection.
+4. **Import or sync** – feed `london_agents_companies_cleaned.csv` into your CRM
+   pipeline (e.g., FluentCRM via `scraper_to_fluentcrm.py`) and archive both the
+   raw and cleaned CSV files along with the generated invalid report.
+
+Record the scrape date, configuration version, and any follow-up actions so the
+run remains auditable.
+
 ## Setup validation
 
 Before running the scraper, validate your configuration and environment:
@@ -56,12 +74,12 @@ websites to crawl (or supply an alternate config via `--config`). The script wil
 
 ### Connectivity requirements
 
-The company website scraper must be able to reach each target domain directly. If
-you are running behind a restrictive proxy or VPN, ensure the domains listed in
-`config_company_websites.json` are allow-listed and that outbound HTTPS traffic
-is permitted. When the script cannot reach a site you will typically see
-messages such as `Tunnel connection failed: 403 Forbidden`. Resolve the
-connectivity issue before re-running the live scrape.
+The company website scraper must be able to reach each target domain directly.
+Confirm the environment provides unrestricted outbound HTTPS access or add the
+domains in `config_company_websites.json` to your organisation's allow list. If
+you are running behind a restrictive proxy or VPN, connectivity issues usually
+surface as errors such as `Tunnel connection failed: 403 Forbidden`. Resolve the
+network block before re-running the live scrape.
 
 Run a dry run to confirm the URLs that will be processed:
 
@@ -75,9 +93,9 @@ When you're ready to fetch data, run without `--dry-run`:
 python scraper_company_websites.py
 ```
 
-Results are written to the CSV specified by `output_csv`. Each row contains the detected company
-name (derived from the page title), the original website URL, and the first email address discovered
-on the site (or blank if none was found).
+Results are written to the CSV specified by `output_csv`. Each row contains the
+detected company name (derived from the page title), the original website URL,
+and the first email address discovered on the site (or blank if none was found).
 
 ### Cleaning scraped results
 
@@ -91,12 +109,14 @@ python clean_company_websites_csv.py london_agents_companies.csv \
 
 The script writes a new `<original>_cleaned.csv` file with valid contacts and, if
 `--invalid-report` is supplied, a companion file listing rows that were
-discarded for further manual review.
+discarded for further manual review. Use this invalid report to identify domains
+that require manual follow-up or alternative data sources.
 
 ### Scheduling and record keeping
 
 For regular runs, schedule the scraper via cron (example below) and archive the
-generated CSV files so you can audit historical outreach lists:
+generated CSV files (raw, cleaned, and invalid) together with scraper logs so
+you can audit historical outreach lists and monitor retention policies:
 
 ```bash
 30 1 * * * cd /path/to/london_agent_scraper && /usr/bin/python3 scraper_company_websites.py >> /var/log/london_agents_scraper.log 2>&1
