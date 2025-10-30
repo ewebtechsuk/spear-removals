@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import sys
@@ -12,6 +13,23 @@ REQUIRED_KEYS = [
     "crm_list",
     "output_csv"
 ]
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Validate configuration and connectivity for the London agent scraper."
+    )
+    parser.add_argument(
+        "--config",
+        default=os.path.join(os.path.dirname(__file__), "config.json"),
+        help="Path to the scraper configuration file (default: london_agent_scraper/config.json)",
+    )
+    parser.add_argument(
+        "--skip-api-test",
+        action="store_true",
+        help="Skip the FluentCRM connectivity check (useful in restricted environments).",
+    )
+    return parser.parse_args()
 
 def load_config(path):
     try:
@@ -43,12 +61,14 @@ def test_fluentcrm_api(cfg):
         sys.exit(4)
 
 def main():
-    config_path = os.path.expanduser(sys.argv[1]) if len(sys.argv) > 1 else "config.json"
+    args = parse_args()
+    config_path = os.path.abspath(os.path.expanduser(args.config))
     print(f"[INFO] Using config file: {config_path}")
     cfg = load_config(config_path)
     validate_config(cfg)
-    # only test API if not explicitly skipping
-    if "--skip-api-test" not in sys.argv:
+    if args.skip_api_test:
+        print("[INFO] Skipping FluentCRM API connectivity test.")
+    else:
         test_fluentcrm_api(cfg)
     print("[SUCCESS] Environment validated. You’re ready for the full scraping run.")
     sys.exit(0)
