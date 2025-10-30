@@ -12,8 +12,8 @@
   "stop_when_emails_reach": 200,
   "output_csv": "london_letting_agents_full.csv",
   "fluentcrm_api_url": "https://spearremovals.co.uk/wp-json/fluent-crm/v2/subscribers",
-  "fluentcrm_api_user": "YOUR_CRM_API_USER",
-  "fluentcrm_api_pass": "YOUR_CRM_API_PASS",
+  "fluentcrm_api_user": "s.ahmed",
+  "fluentcrm_api_pass": "tZ8D RPQ5 WQe4 NSMy 3rpz HJ7m",
   "crm_tag": "london-letting-agent",
   "crm_list": "London Agents"
 }
