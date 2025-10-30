@@ -16,8 +16,8 @@ paths) so that the default configuration file can be located correctly.
    placeholder addresses and split invalid rows to
    `london_agents_companies_invalid.csv` for manual inspection.
 4. **Import or sync** – feed `london_agents_companies_cleaned.csv` into your CRM
-   pipeline (e.g., FluentCRM via `scraper_to_fluentcrm.py`) and archive both the
-   raw and cleaned CSV files along with the generated invalid report.
+   pipeline (e.g., FluentCRM via `scraper_to_fluentcrm.py --csv london_agents_companies_cleaned.csv`)
+   and archive both the raw and cleaned CSV files along with the generated invalid report.
 
 Record the scrape date, configuration version, and any follow-up actions so the
 run remains auditable.
@@ -87,6 +87,17 @@ ensure all preparation, processing, and follow-up steps are covered.
       them for future review, capturing notes in the archived
       `invalid_review.md` file for audit purposes.
 
+### 📝 Manual triage of invalids
+
+- [ ] Export the rows needing research from `london_agents_companies_invalid.csv`
+      into `invalid_needing_research.csv` (keep it alongside the cleaned CSV).
+- [ ] Assign a reviewer (see `invalid_review.md`) to inspect the domains for
+      each invalid entry and determine whether a usable contact exists.
+- [ ] Categorise the findings using the shared criteria: broken website,
+      placeholder email, contact form only, recruitment/careers inbox, or other.
+- [ ] Update the review log with actions taken and whether the record should be
+      retried in a future scrape cycle.
+
 ## Mailbox policy
 
 The cleaning pipeline applies mailbox heuristics so that only outreach-ready
@@ -106,8 +117,12 @@ contacts make it into the cleaned CSV:
 
 ### 📥 CRM import / sync
 
-- [ ] Verify that the CRM import script (e.g., `scraper_to_fluentcrm.py`) is
-      configured correctly for the cleaned CSV.
+- [ ] Verify that the CRM import script (`scraper_to_fluentcrm.py`) is
+      configured correctly:
+      - Use `--csv <cleaned_csv_path>` when performing a real import.
+      - Combine `--csv` with `--dry-run` to review the payload without calling
+        the API.
+      - Use `--limit <n>` to stage a 5–10 row sample before the full import.
 - [ ] Confirm that the cleaned CSV still exposes the expected columns
       (`company_name`, `website`, `email`) so CRM mappings remain valid.
 - [ ] Import a small sample (5–10 rows) to confirm tags, lists, and custom
@@ -116,9 +131,10 @@ contacts make it into the cleaned CSV:
 
 ### 🗂 Archiving & logging
 
-- [ ] Create an archive folder such as `archives/YYYY-MM-DD/` and move the raw,
-      cleaned, and invalid CSV files along with any log output into it. The
-      helper below copies the current run and writes a manifest:
+- [ ] Create an archive folder such as `archives/YYYY-MM-DD/` (relative to the
+      scraper directory) and move the raw, cleaned, and invalid CSV files along
+      with any log output into it. The helper below copies the current run and
+      writes a manifest:
 
   ```bash
   python archive_run.py --run-date "$(date +%F)"
@@ -185,18 +201,19 @@ After the setup test succeeds, run the scraper from the same directory. By defau
 `--config` option. The command below is the one used for live runs:
 
 ```bash
-python scraper_to_fluentcrm.py
+python scraper_to_fluentcrm.py --csv london_agents_companies_cleaned.csv
 ```
 
-For a dry run that skips all HTTP requests and FluentCRM pushes (useful for smoke tests), include
-`--dry-run`:
+To inspect the first few contacts without sending them to FluentCRM, pair `--dry-run`
+with `--limit`:
 
 ```bash
-python scraper_to_fluentcrm.py --dry-run
+python scraper_to_fluentcrm.py --csv london_agents_companies_cleaned.csv --dry-run --limit 10
 ```
 
-Scraped contacts are saved to the CSV path defined in your configuration file, and any successfully
-pushed contacts will appear in FluentCRM with the specified list and tag assignments.
+When a cleaned CSV lives outside of the scraper directory, provide the explicit
+path. Relative paths are resolved from the configuration file location so that
+per-environment configs can keep their own output directories.
 
 ## Scraping direct company websites
 

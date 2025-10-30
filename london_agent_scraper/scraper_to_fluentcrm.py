@@ -1,22 +1,19 @@
+#!/usr/bin/env python3
+"""Import cleaned agent data into FluentCRM."""
+
+from __future__ import annotations
+
 import argparse
+import csv
 import json
 import os
 import sys
-import time
-import random
-import re
-import urllib.parse
-import urllib.robotparser
-import requests
-import csv
-from bs4 import BeautifulSoup
+from pathlib import Path
+from typing import Iterable, Optional
 
-EMAIL_RE = re.compile(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', re.I)
-CONTACT_HINTS = ("contact", "get-in-touch", "enquiry", "enquiries", "branch", "office")
-AGENT_HINTS   = ("estate", "agent", "letting", "agents", "property", "branch")
+import requests
 
 REQUIRED_CONFIG_KEYS = (
-    "start_urls",
     "fluentcrm_api_url",
     "fluentcrm_api_user",
     "fluentcrm_api_pass",
@@ -24,210 +21,205 @@ REQUIRED_CONFIG_KEYS = (
     "crm_list",
 )
 
+EXPECTED_CSV_COLUMNS = ("company_name", "website", "email")
+DEFAULT_CLEANED_NAME = "london_agents_companies_cleaned.csv"
 
-SCRIPT_DIR = os.path.dirname(__file__)
 
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Scrape agent emails and push to FluentCRM")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Import a cleaned companies CSV into FluentCRM. Provide --csv for a live run "
+            "or combine it with --dry-run to preview without pushing."
+        )
+    )
     parser.add_argument(
         "--config",
-        default=os.path.join(SCRIPT_DIR, "config.json"),
-        help="Path to configuration JSON file (default: london_agent_scraper/config.json)",
+        default=os.path.join(Path(__file__).parent, "config.json"),
+        help=(
+            "Path to configuration JSON file (default: london_agent_scraper/config.json). "
+            "The CRM credentials and tags are loaded from here."
+        ),
+    )
+    parser.add_argument(
+        "--csv",
+        type=Path,
+        required=False,
+        help=(
+            "Path to the cleaned CSV to import. When omitted, the script falls back to the "
+            "config-relative cleaned CSV location. Required unless --dry-run is provided."
+        ),
     )
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Skip network requests and API pushes; print planned actions instead",
+        help="Show which contacts would be imported without calling the FluentCRM API.",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Optional maximum number of contacts to process (useful for sampling).",
+    )
+
+    args = parser.parse_args()
+
+    if not args.dry_run and args.csv is None:
+        parser.error("--csv is required for a live import. Add --dry-run to preview without importing.")
+
+    if args.limit is not None and args.limit < 1:
+        parser.error("--limit must be a positive integer if supplied.")
+
+    return args
 
 
-def load_config(config_path):
-    if not os.path.isfile(config_path):
-        print(f"Config file not found: {config_path}")
-        sys.exit(1)
+def load_config(config_path: Path) -> dict:
+    if not config_path.exists():
+        raise SystemExit(f"Config file not found: {config_path}")
 
     try:
-        with open(config_path, "r", encoding="utf-8") as f:
-            cfg = json.load(f)
+        config = json.loads(config_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
-        print(f"Error parsing config file: {exc}")
-        sys.exit(1)
+        raise SystemExit(f"Error parsing config file: {exc}") from exc
 
-    missing = [key for key in REQUIRED_CONFIG_KEYS if key not in cfg]
+    missing = [key for key in REQUIRED_CONFIG_KEYS if key not in config]
     if missing:
-        print(f"Config missing required keys: {', '.join(missing)}")
-        sys.exit(1)
+        raise SystemExit(f"Config missing required keys: {', '.join(missing)}")
 
-    return cfg
+    return config
 
-def build_session(user_agent):
-    s = requests.Session()
-    s.headers.update({"User-Agent": user_agent})
-    return s
 
-def can_fetch(rp_cache, ua, url):
-    try:
-        parsed = urllib.parse.urlparse(url)
-        base   = f"{parsed.scheme}://{parsed.netloc}"
-        if base not in rp_cache:
-            rp = urllib.robotparser.RobotFileParser()
-            rp.set_url(urllib.parse.urljoin(base, "/robots.txt"))
-            try:
-                rp.read()
-            except:
-                rp = None
-            rp_cache[base] = rp
-        rp = rp_cache[base]
-        if rp is None:
-            return True
-        return rp.can_fetch(ua, url)
-    except Exception:
-        return True
+def resolve_csv_path(
+    csv_arg: Optional[Path],
+    config_path: Path,
+    config: dict,
+) -> Path:
+    """Return the CSV path interpreted relative to the configuration location."""
 
-def sleep_delay(delay):
-    time.sleep(delay + random.uniform(0, delay*0.35))
+    if csv_arg is not None:
+        candidate = Path(csv_arg)
+        if candidate.is_absolute():
+            return candidate
+        return (Path.cwd() / candidate).resolve()
 
-def fetch_html(session, url, timeout):
-    r = session.get(url, timeout=timeout)
-    r.raise_for_status()
-    return r.text
+    default_name = config.get("cleaned_csv_path") or DEFAULT_CLEANED_NAME
+    candidate = Path(default_name)
+    if candidate.is_absolute():
+        return candidate
 
-def extract_emails(html):
-    emails = set()
-    soup = BeautifulSoup(html, "html.parser")
-    for a in soup.select('a[href^="mailto:"]'):
-        m = EMAIL_RE.search(a.get("href", ""))
-        if m:
-            emails.add(m.group(0).lower())
-    text = soup.get_text(" ", strip=True)
-    for m in EMAIL_RE.findall(text):
-        emails.add(m.lower())
-    return emails
+    base_dir = config_path.parent
+    resolved = (base_dir / candidate).resolve()
+    return resolved
 
-def find_links(html, base_url, hints):
-    links = set()
-    soup  = BeautifulSoup(html, "html.parser")
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if href.startswith("#") or href.lower().startswith("javascript:"):
-            continue
-        full = href if href.startswith("http") else urllib.parse.urljoin(base_url, href)
-        low  = full.lower()
-        if any(h in low for h in hints):
-            links.add(full)
-    return links
 
-def sanitize_domain(url):
-    parsed = urllib.parse.urlparse(url)
-    return parsed.netloc.lower()
+def load_contacts(csv_path: Path) -> list[dict[str, str]]:
+    if not csv_path.exists():
+        raise SystemExit(f"CSV file not found: {csv_path}")
 
-def push_to_fluentcrm(api_url, auth, contact_data):
-    headers  = {"Content-Type": "application/json"}
-    response = requests.post(api_url, auth=auth, headers=headers, json=contact_data, timeout=20)
-    response.raise_for_status()
-    return response.json()
+    with csv_path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        fieldnames = reader.fieldnames or []
+        missing_columns = [column for column in EXPECTED_CSV_COLUMNS if column not in fieldnames]
+        if missing_columns:
+            raise SystemExit(
+                "CSV is missing required columns: " + ", ".join(sorted(missing_columns))
+            )
+        contacts = [row for row in reader]
 
-def main():
-    args = parse_args()
-    config_path = os.path.abspath(os.path.expanduser(args.config))
-    print(f"Using config file: {config_path}")
+    return contacts
 
-    cfg = load_config(config_path)
 
-    if args.dry_run:
-        print("Dry run mode enabled: no web requests or FluentCRM pushes will occur.")
-        for url in cfg["start_urls"]:
-            print(f"[DRY-RUN] Would fetch: {url}")
-        print("[DRY-RUN] Skipping scraping and CRM push.")
-        return
+def build_contact_payload(contact: dict[str, str], config: dict) -> dict:
+    email = contact.get("email", "").strip()
+    company = contact.get("company_name", "").strip()
+    website = contact.get("website", "").strip()
 
-    session    = build_session(cfg["user_agent"])
-    rp_cache   = {}
-    visited    = set()
-    queue      = list(cfg["start_urls"])
+    custom_values = {
+        "agent_company": company,
+        "website": website,
+    }
 
-    found      = {}  # email → data dict
-    pages_seen = 0
+    payload = {
+        "email": email,
+        "first_name": "",
+        "last_name": "",
+        "status": "subscribed",
+        "tags": [config["crm_tag"]],
+        "lists": [config["crm_list"]],
+        "custom_values": custom_values,
+    }
+    return payload
 
-    crm_api_url = cfg["fluentcrm_api_url"]
-    crm_auth    = (cfg["fluentcrm_api_user"], cfg["fluentcrm_api_pass"])
 
-    while queue and pages_seen < cfg["max_pages"] and len(found) < cfg["max_emails"]:
-        url = queue.pop(0)
-        if url in visited:
-            continue
-        visited.add(url)
+def push_contacts(
+    contacts: Iterable[dict[str, str]],
+    config: dict,
+    limit: Optional[int] = None,
+    dry_run: bool = False,
+) -> None:
+    api_url = config["fluentcrm_api_url"]
+    auth = (config["fluentcrm_api_user"], config["fluentcrm_api_pass"])
 
-        if not can_fetch(rp_cache, cfg["user_agent"], url):
+    processed = 0
+    for contact in contacts:
+        if limit is not None and processed >= limit:
+            break
+
+        payload = build_contact_payload(contact, config)
+        email = payload["email"]
+
+        if dry_run:
+            company = contact.get("company_name", "")
+            website = contact.get("website", "")
+            print(f"[DRY-RUN] Would import {email} (company={company}, website={website})")
+            processed += 1
             continue
 
         try:
-            html = fetch_html(session, url, cfg["timeout_seconds"])
-        except Exception as e:
-            print(f"Error fetching {url}: {e}")
-            sleep_delay(cfg["request_delay_seconds"])
-            continue
+            response = requests.post(
+                api_url,
+                auth=auth,
+                headers={"Content-Type": "application/json"},
+                json=payload,
+                timeout=20,
+            )
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            print(f"[ERROR] Failed to import {email}: {exc}")
+        else:
+            print(f"Imported {email} → FluentCRM (status={response.status_code})")
+        processed += 1
 
-        pages_seen += 1
+    print(f"Processed {processed} contacts{' (dry-run)' if dry_run else ''}.")
 
-        emails  = extract_emails(html)
-        domain  = sanitize_domain(url)
-        soup    = BeautifulSoup(html, "html.parser")
-        title   = soup.title.string.strip() if soup.title else ""
-        agent_name = title.split("|")[0].strip() if "|" in title else title.strip()
 
-        for em in emails:
-            if em not in found:
-                found[em] = {
-                    "agent_name": agent_name,
-                    "website": url,
-                    "domain": domain,
-                    "source": url
-                }
-                contact_payload = {
-                    "email": em,
-                    "first_name": "",
-                    "last_name": "",
-                    "status": "subscribed",
-                    "tags": [ cfg["crm_tag"] ],
-                    "lists": [ cfg["crm_list"] ],
-                    "custom_values": {
-                        "agent_name": agent_name,
-                        "website": url,
-                        "domain": domain,
-                        "source_url": url
-                    }
-                }
-                try:
-                    resp = push_to_fluentcrm(crm_api_url, crm_auth, contact_payload)
-                    print(f"Pushed {em} → FluentCRM: {resp.get('message','')}")
-                except Exception as e:
-                    print(f"Error pushing {em}: {e}")
+def main() -> int:
+    args = parse_args()
 
-        contact_links = find_links(html, url, CONTACT_HINTS)
-        for cl in contact_links:
-            if cl not in visited:
-                queue.append(cl)
-        agent_links = find_links(html, url, AGENT_HINTS)
-        for al in agent_links:
-            if al not in visited:
-                queue.append(al)
+    config_path = Path(args.config).expanduser().resolve()
+    config = load_config(config_path)
 
-        if len(found) >= cfg["stop_when_emails_reach"]:
-            break
+    csv_path: Optional[Path]
+    if args.csv is None and args.dry_run:
+        csv_path = resolve_csv_path(None, config_path, config)
+        if not csv_path.exists():
+            print(
+                "Dry run requested but no CSV path found. Provide --csv to preview a specific file."
+            )
+            return 0
+    else:
+        csv_path = resolve_csv_path(args.csv, config_path, config)
 
-        sleep_delay(cfg["request_delay_seconds"])
+    contacts = load_contacts(csv_path)
 
-    # Write CSV backup
-    with open(cfg["output_csv"], "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["email","agent_name","website","domain","source_url"])
-        for em, data in sorted(found.items()):
-            writer.writerow([em, data["agent_name"], data["website"], data["domain"], data["source"]])
+    if args.limit is not None:
+        print(f"Limiting to first {args.limit} contacts from {csv_path}")
+    else:
+        print(f"Importing contacts from {csv_path}")
 
-    print(f"Scraping complete: {len(found)} unique emails. CSV saved: {cfg['output_csv']}")
+    push_contacts(contacts, config, limit=args.limit, dry_run=args.dry_run)
+
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
