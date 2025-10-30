@@ -1,12 +1,12 @@
 {
   "scrape_date": "2025-10-30",
-  "archived_at_utc": "2025-10-30T02:27:43Z",
+  "archived_at_utc": "2025-10-30T02:46:26Z",
   "config_company_websites_sha256": "8f22e39841fc1965633d4814318d53ee9098c827a01e6382487ebc39e4b29c4a",
   "raw_csv_path": "/workspace/spear-removals/london_agent_scraper/archives/2025-10-30/london_agents_companies.csv",
   "cleaned_csv_path": "/workspace/spear-removals/london_agent_scraper/archives/2025-10-30/london_agents_companies_cleaned.csv",
   "invalid_csv_path": "/workspace/spear-removals/london_agent_scraper/archives/2025-10-30/london_agents_companies_invalid.csv",
   "raw_row_count": 13,
-  "cleaned_row_count": 5,
-  "invalid_row_count": 8,
-  "notes": "Post-heuristics re-clean; mailbox scoring & name extraction fixes"
+  "cleaned_row_count": 8,
+  "invalid_row_count": 5,
+  "notes": "Post-fix rerun; ready for CRM import"
 }
