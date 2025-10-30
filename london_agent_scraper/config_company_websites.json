@@ -1,7 +1,21 @@
 {
   "company_websites": [
-    "https://www.agentA.co.uk",
-    "https://www.agentB.co.uk"
+    "https://www.dexters.co.uk",
+    "https://www.acorngroup.co.uk",
+    "https://www.foxtons.co.uk",
+    "https://www.chestertons.co.uk",
+    "https://www.winkworth.co.uk",
+    "https://www.williamhbrown.co.uk",
+    "https://www.hamptons.co.uk",
+    "https://www.savills.co.uk",
+    "https://www.knightfrank.co.uk",
+    "https://www.kfh.co.uk",
+    "https://www.marshandparsons.co.uk",
+    "https://www.stirlingackroyd.com",
+    "https://www.currell.com",
+    "https://www.johnsand.co",
+    "https://www.benhamandreeves.co.uk",
+    "https://www.portico.com"
   ],
   "user_agent": "Mozilla/5.0 (compatible; london-agent-scraper/1.0; +your-email@example.com)",
   "request_delay_seconds": 1.5,
