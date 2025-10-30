@@ -31,7 +31,7 @@ python test_setup.py --config /path/to/custom_config.json
 
 After the setup test succeeds, run the scraper from the same directory. By default it uses
 `config.json` located alongside the script, but you can point to any configuration file with the
-`--config` option.
+`--config` option. The command below is the one used for live runs:
 
 ```bash
 python scraper_to_fluentcrm.py
