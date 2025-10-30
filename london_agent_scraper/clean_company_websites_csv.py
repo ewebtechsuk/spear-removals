@@ -59,7 +59,21 @@ def parse_args() -> argparse.Namespace:
 
 
 def normalise(value: str) -> str:
-    return value.strip()
+    """Trim whitespace and strip common noise from scraped values."""
+
+    cleaned = value.strip().strip("\"'")
+    if not cleaned:
+        return ""
+
+    cleaned = re.sub(r"(?i)^mailto:", "", cleaned)
+
+    # Remove stray unicode escape fragments that sometimes leak from inline scripts
+    cleaned = re.sub(r"u00[0-9a-fA-F]{2}", "", cleaned)
+
+    # Angle brackets occasionally wrap mailto links – drop them for validation
+    cleaned = cleaned.strip("<>")
+
+    return cleaned
 
 
 def email_is_valid(email: str) -> bool:
