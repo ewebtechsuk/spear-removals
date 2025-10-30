@@ -22,6 +22,107 @@ paths) so that the default configuration file can be located correctly.
 Record the scrape date, configuration version, and any follow-up actions so the
 run remains auditable.
 
+## Full scrape & import checklist
+
+Use this checklist for each end-to-end run of the company-website scraper to
+ensure all preparation, processing, and follow-up steps are covered.
+
+### ✅ Pre-run: environment & configuration
+
+- [ ] Confirm outbound HTTPS connectivity to all domains listed in
+      `config_company_websites.json`, updating the allow list or proxy settings
+      if necessary.
+- [ ] Verify that `config_company_websites.json` itself is current and contains
+      the full domain list for the upcoming scrape.
+- [ ] Activate the Python virtual environment (if applicable) and install
+      dependencies:
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+- [ ] Run the setup test (add `--skip-api-test` when outbound access is
+      restricted):
+
+  ```bash
+  python test_setup.py
+  ```
+
+- [ ] (Optional) Perform a dry run of the company scraper and confirm that the
+      reported domains match expectations:
+
+  ```bash
+  python scraper_company_websites.py --dry-run
+  ```
+
+### 🕵️ Live scrape
+
+- [ ] Execute the live scrape and monitor for proxy errors, blocked domains, or
+      robots.txt restrictions:
+
+  ```bash
+  python scraper_company_websites.py
+  ```
+
+- [ ] Confirm that the configured output CSV (default
+      `london_agents_companies.csv`) is generated successfully.
+
+### 🧹 Post-scrape cleaning
+
+- [ ] Clean the raw CSV and generate the invalid-report companion file:
+
+  ```bash
+  python clean_company_websites_csv.py london_agents_companies.csv \
+    --invalid-report london_agents_companies_invalid.csv
+  ```
+
+- [ ] Review `london_agents_companies_cleaned.csv` for valid contact rows and
+      `london_agents_companies_invalid.csv` for entries that require manual
+      follow-up.
+- [ ] Manually investigate domains with missing or unusable emails and flag
+      them for future review.
+
+### 📥 CRM import / sync
+
+- [ ] Verify that the CRM import script (e.g., `scraper_to_fluentcrm.py`) is
+      configured correctly for the cleaned CSV.
+- [ ] Import a small sample (5–10 rows) to confirm tags, lists, and custom
+      fields behave as expected.
+- [ ] Import the full cleaned list and check the CRM for duplicates or errors.
+
+### 🗂 Archiving & logging
+
+- [ ] Create an archive folder such as `archives/YYYY-MM-DD/` and move the raw,
+      cleaned, and invalid CSV files along with any log output into it.
+- [ ] Record run metadata, including the date, script/configuration versions,
+      and the counts of valid versus invalid rows.
+- [ ] Apply your retention policy (e.g., keep the most recent 12 months of
+      archives) by pruning older runs as required.
+
+### 🔁 Automation & scheduling
+
+- [ ] If the scraper is scheduled, confirm the cron (or equivalent) entry is in
+      place and the log location is correct:
+
+  ```bash
+  30 1 * * * cd /path/to/london_agent_scraper && /usr/bin/python3 \
+    scraper_company_websites.py >> /var/log/london_agents_scraper.log 2>&1
+  ```
+
+- [ ] Ensure alerting/notiﬁcation is configured for failed runs or unusually
+      high invalid counts.
+- [ ] Review the process for updating the domain list (for example, a quarterly
+      audit) and schedule the next review.
+
+### 🛡 Compliance & audit
+
+- [ ] Store metadata for each run: source domain, scrape date, and processing
+      steps applied (cleaning, filtering, imports).
+- [ ] Confirm that opt-out and unsubscribe procedures are documented and easily
+      accessible.
+- [ ] Maintain an audit trail covering list generation, cleaning actions, and
+      CRM imports.
+
 ## Setup validation
 
 Before running the scraper, validate your configuration and environment:
