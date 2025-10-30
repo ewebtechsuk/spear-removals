@@ -46,3 +46,7 @@ pnpm-lock.yaml
 .vscode/
 .idea/
 wp-content/debug.log
+
+# Python helper artefacts
+__pycache__/
+london_agent_scraper/venv/

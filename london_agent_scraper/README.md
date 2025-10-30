@@ -76,16 +76,23 @@ ensure all preparation, processing, and follow-up steps are covered.
     --invalid-report london_agents_companies_invalid.csv
   ```
 
+- [ ] The cleaner strips common noise (`mailto:` prefixes, stray `u00xx`
+      escape fragments, surrounding angle brackets) before validating email
+      syntax and rejecting obvious placeholders such as `@example.com` or
+      image filenames.
 - [ ] Review `london_agents_companies_cleaned.csv` for valid contact rows and
       `london_agents_companies_invalid.csv` for entries that require manual
       follow-up.
 - [ ] Manually investigate domains with missing or unusable emails and flag
-      them for future review.
+      them for future review, capturing notes in the archived
+      `invalid_review.md` file for audit purposes.
 
 ### 📥 CRM import / sync
 
 - [ ] Verify that the CRM import script (e.g., `scraper_to_fluentcrm.py`) is
       configured correctly for the cleaned CSV.
+- [ ] Confirm that the cleaned CSV still exposes the expected columns
+      (`company_name`, `website`, `email`) so CRM mappings remain valid.
 - [ ] Import a small sample (5–10 rows) to confirm tags, lists, and custom
       fields behave as expected.
 - [ ] Import the full cleaned list and check the CRM for duplicates or errors.
@@ -93,7 +100,12 @@ ensure all preparation, processing, and follow-up steps are covered.
 ### 🗂 Archiving & logging
 
 - [ ] Create an archive folder such as `archives/YYYY-MM-DD/` and move the raw,
-      cleaned, and invalid CSV files along with any log output into it.
+      cleaned, and invalid CSV files along with any log output into it. The
+      helper below copies the current run and writes a manifest:
+
+  ```bash
+  python archive_run.py --run-date "$(date +%F)"
+  ```
 - [ ] Record run metadata, including the date, script/configuration versions,
       and the counts of valid versus invalid rows.
 - [ ] Apply your retention policy (e.g., keep the most recent 12 months of
@@ -118,6 +130,9 @@ ensure all preparation, processing, and follow-up steps are covered.
 
 - [ ] Store metadata for each run: source domain, scrape date, and processing
       steps applied (cleaning, filtering, imports).
+- [ ] Keep written notes of manual invalid-row triage (see
+      `archives/<date>/invalid_review.md`) together with the manifest for audit
+      readiness.
 - [ ] Confirm that opt-out and unsubscribe procedures are documented and easily
       accessible.
 - [ ] Maintain an audit trail covering list generation, cleaning actions, and

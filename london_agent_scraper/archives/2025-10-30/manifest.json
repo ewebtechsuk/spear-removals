@@ -1,0 +1,12 @@
+{
+  "scrape_date": "2025-10-30",
+  "archived_at_utc": "2025-10-30T02:08:30Z",
+  "config_company_websites_sha256": "ca80507e82e1306b07a8f334c57b6bad4fe3552d71f2366f2bd830b87488b345",
+  "raw_csv_path": "/workspace/spear-removals/london_agent_scraper/archives/2025-10-30/london_agents_companies.csv",
+  "cleaned_csv_path": "/workspace/spear-removals/london_agent_scraper/archives/2025-10-30/london_agents_companies_cleaned.csv",
+  "invalid_csv_path": "/workspace/spear-removals/london_agent_scraper/archives/2025-10-30/london_agents_companies_invalid.csv",
+  "raw_row_count": 13,
+  "cleaned_row_count": 7,
+  "invalid_row_count": 6,
+  "notes": "Robots.txt blocks on Savills, Currell, Benham & Reeves"
+}
