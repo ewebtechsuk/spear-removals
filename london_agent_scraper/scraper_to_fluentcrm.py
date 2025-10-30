@@ -25,12 +25,15 @@ REQUIRED_CONFIG_KEYS = (
 )
 
 
+SCRIPT_DIR = os.path.dirname(__file__)
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Scrape agent emails and push to FluentCRM")
     parser.add_argument(
         "--config",
-        default="./config.json",
-        help="Path to configuration JSON file (default: ./config.json)",
+        default=os.path.join(SCRIPT_DIR, "config.json"),
+        help="Path to configuration JSON file (default: london_agent_scraper/config.json)",
     )
     parser.add_argument(
         "--dry-run",
