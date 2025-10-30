@@ -13,10 +13,12 @@ from pathlib import Path
 from typing import Optional
 
 
+SCRIPT_DIR = Path(__file__).parent
+
 DEFAULT_FILES = {
-    "raw": Path("london_agents_companies.csv"),
-    "cleaned": Path("london_agents_companies_cleaned.csv"),
-    "invalid": Path("london_agents_companies_invalid.csv"),
+    "raw": SCRIPT_DIR / "london_agents_companies.csv",
+    "cleaned": SCRIPT_DIR / "london_agents_companies_cleaned.csv",
+    "invalid": SCRIPT_DIR / "london_agents_companies_invalid.csv",
 }
 
 
@@ -107,7 +109,7 @@ def main() -> None:
         "scrape_date": run_date,
         "archived_at_utc": archived_at.isoformat().replace("+00:00", "Z"),
         "config_company_websites_sha256": file_sha256(
-            Path("config_company_websites.json")
+            SCRIPT_DIR / "config_company_websites.json"
         ),
         "raw_csv_path": copied_files.get("raw"),
         "cleaned_csv_path": copied_files.get("cleaned"),

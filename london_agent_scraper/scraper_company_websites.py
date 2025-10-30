@@ -8,6 +8,7 @@ import sys
 import time
 import urllib.parse
 import urllib.robotparser
+from pathlib import Path
 from typing import Dict, List, Optional
 
 import requests
@@ -190,8 +191,10 @@ def get_company_name_from_page(html: str) -> str:
 
 
 def write_results(path: str, rows: List[Dict[str, str]]) -> None:
+    destination = Path(path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
     keys = ["company_name", "website", "email"]
-    with open(path, "w", newline="", encoding="utf-8") as handle:
+    with destination.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=keys)
         writer.writeheader()
         for row in rows:
@@ -204,6 +207,10 @@ def main() -> None:
     print(f"[INFO] Using config file: {config_path}")
 
     config = load_config(config_path)
+    config_dir = os.path.dirname(config_path)
+    output_target = config["output_csv"]
+    if not os.path.isabs(output_target):
+        output_target = os.path.join(config_dir, output_target)
 
     if args.dry_run:
         print("[DRY-RUN] No network requests will be made.")
@@ -247,9 +254,9 @@ def main() -> None:
 
         sleep_delay(config["request_delay_seconds"])
 
-    write_results(config["output_csv"], results)
+    write_results(output_target, results)
 
-    print(f"[INFO] Completed. {len(results)} records written to {config['output_csv']}")
+    print(f"[INFO] Completed. {len(results)} records written to {output_target}")
 
 
 if __name__ == "__main__":
