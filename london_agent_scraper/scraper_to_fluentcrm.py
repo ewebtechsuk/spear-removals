@@ -1,59 +1,20 @@
-import argparse
 import json
 import time
 import random
 import re
-from pathlib import Path
 import urllib.parse
 import urllib.robotparser
 import requests
 import csv
 from bs4 import BeautifulSoup
 
-DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "config.json"
 EMAIL_RE = re.compile(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', re.I)
 CONTACT_HINTS = ("contact", "get-in-touch", "enquiry", "enquiries", "branch", "office")
 AGENT_HINTS   = ("estate", "agent", "letting", "agents", "property", "branch")
 
-def parse_args(argv=None):
-    parser = argparse.ArgumentParser(description="Scrape London letting/estate agent contact information.")
-    parser.add_argument(
-        "--config",
-        default=str(DEFAULT_CONFIG_PATH),
-        help=f"Path to the scraper configuration file (default: {DEFAULT_CONFIG_PATH.name})",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Load and validate configuration without performing any network requests.",
-    )
-    return parser.parse_args(argv)
-
-
-def load_config(config_path):
-    with open(config_path, "r", encoding="utf-8") as f:
+def load_config():
+    with open("config.json", "r", encoding="utf-8") as f:
         return json.load(f)
-
-
-def validate_config(cfg):
-    required_keys = (
-        "start_urls",
-        "user_agent",
-        "request_delay_seconds",
-        "timeout_seconds",
-        "max_pages",
-        "max_emails",
-        "stop_when_emails_reach",
-        "output_csv",
-        "fluentcrm_api_url",
-        "fluentcrm_api_user",
-        "fluentcrm_api_pass",
-        "crm_tag",
-        "crm_list",
-    )
-    missing = [k for k in required_keys if k not in cfg]
-    if missing:
-        raise ValueError(f"Missing configuration keys: {', '.join(missing)}")
 
 def build_session(user_agent):
     s = requests.Session()
@@ -122,18 +83,8 @@ def push_to_fluentcrm(api_url, auth, contact_data):
     response.raise_for_status()
     return response.json()
 
-def main(argv=None):
-    args = parse_args(argv)
-    cfg  = load_config(args.config)
-    validate_config(cfg)
-
-    if args.dry_run:
-        print("Dry run successful — configuration loaded and validated.")
-        print(f"Start URLs: {len(cfg['start_urls'])}")
-        print(f"Output CSV: {cfg['output_csv']}")
-        print("Use without --dry-run to begin scraping.")
-        return 0
-
+def main():
+    cfg        = load_config()
     session    = build_session(cfg["user_agent"])
     rp_cache   = {}
     visited    = set()
@@ -219,7 +170,6 @@ def main(argv=None):
             writer.writerow([em, data["agent_name"], data["website"], data["domain"], data["source"]])
 
     print(f"Scraping complete: {len(found)} unique emails. CSV saved: {cfg['output_csv']}")
-    return 0
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
