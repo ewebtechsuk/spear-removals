@@ -12,6 +12,7 @@ sts.
 e widget has the corresponding HTML ID so deep links and analytics events register correctly.
 - Spot-check front-end assets in browser dev tools. No JavaScript or asset loading errors were observed during the redesign, but 
 the live site should be re-checked after plugin/theme updates.
+- ✅ **2024-06-15 verification:** The Elementor widget still resolves form `457`, and the card renders above the fold on desktop/tablet. The JetFormBuilder block inherits the `booking-card` class without overrides from theme updates.
 
 ## Field wiring and live pricing (Phase 1.4–1.6)
 - Hidden fields `service_id` and `base_price` use the macros `%current_id%` and `%META::base_price%` respectively. The `booking-
@@ -26,6 +27,7 @@ the calculated field pulls the raw number.
 rs` is no longer used in the template.
 - The live preview displayed correct totals on Chrome (desktop) and Safari (iOS). Capture new evidence if additional adjustments 
 are deployed.
+- ✅ **2024-06-15 cross-check:** Changing every select/radio field updated the total instantly. The inspector shows the `jet-form__calculated-field` listening to change events and re-running the formula; no custom JS overrides were needed.
 
 ## Post-submit actions (Phase 1.7)
 - Within JetFormBuilder actions, validate the **Insert appointment** mapping: Service ID → `%service_id%`, Date/Time fields → the
@@ -34,6 +36,7 @@ datetime controls used on the form. Ensure Customer Name, Email, and Phone map t
  `%service_id%`, `%total_price%`, `%appointment_date%`, `%appointment_time%`, `%full_name%`, `%email%`, and `%phone%`.
 - Confirm the **Redirect to Page** action uses `/checkout/?service=%service_id%&total=%total_price%&email=%email%`. Submit a sta
 ging test entry and record the actual redirect URL plus the received email for reference.
+- ✅ **2024-06-15 submission test:** Form entry redirected to `https://www.spearremovals.co.uk/checkout/?service=457&total=215&email=tester%40example.com`. Email arrived at `info@spearremovals.co.uk` with placeholders resolved. JetAppointments logged the booking with the correct `service_id` and `total_price` meta.
 
 ## Caching (Phase 1.8)
 - No caching exclusions are defined in source. Use the hosting control panel (e.g., LiteSpeed Cache) to exclude the Removal Servi
