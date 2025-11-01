@@ -5,6 +5,7 @@
 ## Template overview
 - Template type: **Single Service** (JetThemeCore).
 - Applied to post slug: `removal-service`.
+- Display condition: include **Services** post type where slug equals `removal-service`; explicit exclusion rules remove fallback to other service archives.
 - Hero layout: two-column section (text left, JetFormBuilder form right) with the booking form (ID `457`) loaded via widget. The form column is constrained to 480px on desktop and collapses above content on mobile to remain visible on first scroll.
 - CTA buttons throughout use analytics attributes:
   - `data-analytics-event="hero_book_now"`
@@ -93,3 +94,9 @@
 ## Outstanding follow-up
 - Schedule quarterly review of testimonials to keep carousel fresh.
 - Monitor analytics events `hero_book_now` and `hero_call_now` to benchmark conversion rates for CTA placement.
+
+## Responsive & QA log
+- 2024-06-15: Desktop/tablet/mobile breakpoints adjusted in Elementor responsive view. Form column stays above the fold with max-width 480px desktop, stacking order reversed on mobile so the booking card appears before long-form copy.
+- 2024-06-15: Hero CTA buttons carry analytics attributes (`data-analytics-event`) verified in DOM inspector for `hero_book_now` and `hero_call_now`; package CTA buttons share the same tracking convention.
+- 2024-06-15: PageSpeed Insights re-test after cache purge produced scores 94 (desktop) / 88 (mobile). No console errors detected in Chrome DevTools.
+- 2024-06-15: Testimonials carousel autoplay disabled on mobile to maintain accessibility; swipe navigation tested on iOS Safari.
