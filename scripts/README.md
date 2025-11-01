@@ -40,3 +40,7 @@ alternative way to override defaults.
 > **Note:** The script expects WP-CLI to be in the `PATH` when maintenance mode
 > or cache flush commands should be run. When WP-CLI is missing, it falls back
 > to creating/removing the `.maintenance` file only.
+
+For a step-by-step checklist that matches the operations run on Hostinger
+(including cron, GitHub Actions, rollbacks, and troubleshooting commands), see
+[`../docs/hostinger-deployment.md`](../docs/hostinger-deployment.md).
