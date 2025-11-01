@@ -58,16 +58,28 @@ add_action( 'jet-form-builder/action/after-post-insert', function( $handler ) {
     }
     update_post_meta( $booking_post_id, 'distance_km', $distance );
 
-    $floors_raw = isset( $request['num_floors'] ) && is_scalar( $request['num_floors'] ) ? trim( (string) $request['num_floors'] ) : '';
+    $floors_source_key = '';
+    if ( isset( $request['floors'] ) && is_scalar( $request['floors'] ) ) {
+        $floors_source_key = 'floors';
+    } elseif ( isset( $request['num_floors'] ) && is_scalar( $request['num_floors'] ) ) {
+        // Backward compatibility with earlier form field naming.
+        $floors_source_key = 'num_floors';
+    }
+
+    $floors_raw = $floors_source_key ? trim( (string) $request[ $floors_source_key ] ) : '';
     $floors     = is_numeric( $floors_raw ) ? (int) $floors_raw : null;
-    if ( null === $floors || $floors < 1 ) {
+    if ( null === $floors || $floors < 0 ) {
         error_log( sprintf(
-            'Booking post ID %d – num_floors invalid (value: %s). Defaulted to 1.',
+            'Booking post ID %d – floors invalid (value: %s). Defaulted to 0.',
             $booking_post_id,
             $floors_raw
         ) );
-        $floors = 1;
+        $floors = 0;
     }
+
+    update_post_meta( $booking_post_id, 'floors', $floors );
+
+    // Persist the legacy meta key to avoid breaking any downstream dependencies.
     update_post_meta( $booking_post_id, 'num_floors', $floors );
 
     if ( ! metadata_exists( 'post', $booking_post_id, '_booking_initial_submission_date' ) ) {
