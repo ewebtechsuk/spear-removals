@@ -12,7 +12,7 @@ define( 'WP_CACHE', true );
 // ** Database settings ** //
 define( 'DB_NAME',     'u753768407_KbJ65' );
 define( 'DB_USER',     'u753768407_K0EQh' );
-define( 'DB_PASSWORD', 'nSSs1J2X3C' );
+define( 'DB_PASSWORD', 'eqa3X9YNXmnAEW9Y' );
 define( 'DB_HOST',     '127.0.0.1' );
 define( 'DB_CHARSET',  'utf8' );
 define( 'DB_COLLATE',  '' );
