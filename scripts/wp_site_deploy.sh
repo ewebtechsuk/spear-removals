@@ -93,6 +93,57 @@ run_cmd() {
     "$@"
 }
 
+log_status() {
+    local status="$1"
+    local db_state="$2"
+    local files_state="$3"
+    local note="${4:-}"
+    [[ -z ${STATUS_LOG:-} ]] && return 0
+    printf '%s\t%s\tDB:%s\tFiles:%s\t%s\n' "$(date -Iseconds)" "$status" "$db_state" "$files_state" "$note" >>"$STATUS_LOG"
+}
+
+send_alert() {
+    local message="$1"
+    local sent=0
+
+    if [[ -n ${SLACK_WEBHOOK_URL:-} ]] && command -v curl >/dev/null 2>&1; then
+        local payload escaped quote
+        quote='"'
+        escaped=${message//${quote}/\${quote}}
+        payload="{\"text\":\"$escaped\"}"
+        if curl -fsS -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL" >/dev/null; then
+            sent=1
+        fi
+    fi
+
+    if [[ -n ${ALERT_EMAIL:-} ]] && command -v mail >/dev/null 2>&1; then
+        if printf '%s\n' "$message" | mail -s "Spear Removals backup warning" "$ALERT_EMAIL"; then
+            sent=1
+        fi
+    fi
+
+    if [[ $sent -eq 0 ]]; then
+        echo "ALERT: $message" >&2
+    fi
+}
+
+check_disk_space() {
+    local min_free_kb=${MIN_FREE_KB:-1048576} # ~1 GiB
+    local free_kb
+    free_kb=$(df -Pk "$BACKUP_DIR" 2>/dev/null | awk 'NR==2 {print $4}')
+    if [[ -n $free_kb && $free_kb -lt $min_free_kb ]]; then
+        local human_free fallback
+        human_free=$(df -Ph "$BACKUP_DIR" 2>/dev/null | awk 'NR==2 {print $4}')
+        if [[ -n $human_free ]]; then
+            fallback="$human_free"
+        else
+            fallback="${free_kb}K"
+        fi
+        log_status "WARN" "pending" "pending" "Low free space in $BACKUP_DIR - available $fallback"
+        send_alert "Low free space in $BACKUP_DIR - available $fallback."
+    fi
+}
+
 ensure_wp_cli_disabled=0
 
 activate_maintenance() {
@@ -141,6 +192,18 @@ BACKUP_DIR=${BACKUP_DIR:-"$HOME/backups"}
 SQL_FILE="$BACKUP_DIR/db-$date_tag.sql"
 FILES_FILE="$BACKUP_DIR/files-$date_tag.tgz"
 run_cmd mkdir -p "$BACKUP_DIR"
+STATUS_LOG="$BACKUP_DIR/backup-status.log"
+EXPORT_FAIL_LOG="$BACKUP_DIR/export-fail.log"
+touch "$STATUS_LOG" "$EXPORT_FAIL_LOG"
+
+if [[ ! -w $BACKUP_DIR ]]; then
+    log_status "ERROR" "n/a" "n/a" "Backup directory $BACKUP_DIR is not writable"
+    send_alert "Backup directory $BACKUP_DIR is not writable."
+    echo "ERROR: Backup directory $BACKUP_DIR is not writable" >&2
+    exit 1
+fi
+
+check_disk_space
 
 echo "== Checking git repo =="
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -153,13 +216,24 @@ if [[ $SKIP_BACKUPS -eq 0 ]]; then
     echo "== Saving quick backup =="
     activate_maintenance
 
+    db_status="failed"
+    files_status="failed"
+    db_note=""
+    files_note=""
+    new_fail_entries=""
+    fail_log_before=0
+    if [[ -f $EXPORT_FAIL_LOG ]]; then
+        fail_log_before=$(wc -l <"$EXPORT_FAIL_LOG")
+    fi
+
     DB_NAME=${DB_NAME:-$(php -r "include 'wp-config.php'; echo DB_NAME;" 2>/dev/null || true)}
     DB_USER=${DB_USER:-$(php -r "include 'wp-config.php'; echo DB_USER;" 2>/dev/null || true)}
     DB_PASSWORD=${DB_PASSWORD:-$(php -r "include 'wp-config.php'; echo DB_PASSWORD;" 2>/dev/null || true)}
     DB_HOST=${DB_HOST:-$(php -r "include 'wp-config.php'; echo DB_HOST;" 2>/dev/null || echo localhost)}
 
     if [[ -z $DB_NAME || -z $DB_USER || -z $DB_PASSWORD ]]; then
-        echo "WARNING: Database credentials unavailable; skipping DB export." >>"$BACKUP_DIR/export-fail.log"
+        echo "WARNING: Database credentials unavailable; skipping DB export." >>"$EXPORT_FAIL_LOG"
+        db_note="Credentials unavailable"
     else
         if command -v wp >/dev/null 2>&1; then
             if [[ $VERBOSE -eq 1 ]]; then
@@ -167,17 +241,30 @@ if [[ $SKIP_BACKUPS -eq 0 ]]; then
             fi
             if ! wp --path="$SITE_DIR" db export "$SQL_FILE" --add-drop-table --no-tablespaces --dbhost="$DB_HOST" --dbuser="$DB_USER" --dbpass="$DB_PASSWORD"; then
                 echo "DB export failed via WP-CLI. Falling back to mysqldump."
+                db_note="WP-CLI export failed"
             fi
         fi
 
         if [[ ! -s $SQL_FILE ]]; then
             if ! mysqldump -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" --no-tablespaces >"$SQL_FILE"; then
-                echo "ERROR: DB export failed at $date_tag" >>"$BACKUP_DIR/export-fail.log"
+                echo "ERROR: DB export failed at $date_tag" >>"$EXPORT_FAIL_LOG"
+                if [[ -n $db_note ]]; then
+                    db_note="$db_note; mysqldump unavailable or failed"
+                else
+                    db_note="mysqldump unavailable or failed"
+                fi
             fi
         fi
 
         if [[ ! -s $SQL_FILE ]]; then
-            echo "ERROR: DB export failed at $date_tag" >>"$BACKUP_DIR/export-fail.log"
+            echo "ERROR: DB export failed at $date_tag" >>"$EXPORT_FAIL_LOG"
+            if [[ -n $db_note ]]; then
+                db_note="$db_note; export file empty"
+            else
+                db_note="export file empty"
+            fi
+        else
+            db_status="success"
         fi
     fi
 
@@ -186,12 +273,19 @@ if [[ $SKIP_BACKUPS -eq 0 ]]; then
         wp-content/themes \
         wp-content/plugins 2>/dev/null; then
         echo "Files snapshot skipped."
+        files_note="tar command failed"
     fi
 
     if [[ -s $FILES_FILE ]]; then
         echo "Files backup stored at $FILES_FILE"
+        files_status="success"
     else
-        echo "WARNING: Files backup appears empty" >>"$BACKUP_DIR/export-fail.log"
+        echo "WARNING: Files backup appears empty" >>"$EXPORT_FAIL_LOG"
+        if [[ -n $files_note ]]; then
+            files_note="$files_note; archive empty"
+        else
+            files_note="archive empty"
+        fi
     fi
 
     if [[ -s $SQL_FILE ]]; then
@@ -200,8 +294,27 @@ if [[ $SKIP_BACKUPS -eq 0 ]]; then
 
     echo "== Pruning backups older than 7 days =="
     find "$BACKUP_DIR" -type f \( -name '*.sql' -o -name '*.tgz' \) -mtime +7 -delete
+
+    fail_log_after=$(wc -l <"$EXPORT_FAIL_LOG" 2>/dev/null || echo 0)
+    if (( fail_log_after > fail_log_before )); then
+        new_fail_entries=$(tail -n $((fail_log_after - fail_log_before)) "$EXPORT_FAIL_LOG" | tr '\n' '; ')
+    fi
+
+    note_parts=()
+    [[ -n $db_note ]] && note_parts+=("DB: $db_note")
+    [[ -n $files_note ]] && note_parts+=("Files: $files_note")
+    [[ -n $new_fail_entries ]] && note_parts+=("export-fail.log updated: $new_fail_entries")
+    note="${note_parts[*]}"
+
+    if [[ $db_status == "success" && $files_status == "success" && -z $new_fail_entries ]]; then
+        log_status "OK" "$db_status" "$files_status" "${note:-Backups completed}"
+    else
+        log_status "FAIL" "$db_status" "$files_status" "${note:-See $EXPORT_FAIL_LOG}"
+        send_alert "WordPress backup failed at $date_tag: ${note:-See $EXPORT_FAIL_LOG}."
+    fi
 else
     echo "== Skipping backups (per flag) =="
+    log_status "SKIPPED" "skipped" "skipped" "Backups disabled by flag"
 fi
 
 echo "== Ensuring correct remote & branch =="
@@ -242,4 +355,4 @@ fi
 
 echo "== DONE =="
 echo "Backups:"
-run_cmd ls -lh "$HOME/backups"
+run_cmd ls -lh "$BACKUP_DIR"
