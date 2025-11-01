@@ -137,7 +137,10 @@ fi
 run_cmd cd "$SITE_DIR"
 
 date_tag="$(date +%Y%m%d-%H%M%S)"
-run_cmd mkdir -p "$HOME/backups"
+BACKUP_DIR=${BACKUP_DIR:-"$HOME/backups"}
+SQL_FILE="$BACKUP_DIR/db-$date_tag.sql"
+FILES_FILE="$BACKUP_DIR/files-$date_tag.tgz"
+run_cmd mkdir -p "$BACKUP_DIR"
 
 echo "== Checking git repo =="
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -149,15 +152,54 @@ fi
 if [[ $SKIP_BACKUPS -eq 0 ]]; then
     echo "== Saving quick backup =="
     activate_maintenance
-    if command -v wp >/dev/null 2>&1; then
-        run_cmd wp --path="$SITE_DIR" db export "$HOME/backups/db-$date_tag.sql" --add-drop-table || echo "DB export skipped."
+
+    DB_NAME=${DB_NAME:-$(php -r "include 'wp-config.php'; echo DB_NAME;" 2>/dev/null || true)}
+    DB_USER=${DB_USER:-$(php -r "include 'wp-config.php'; echo DB_USER;" 2>/dev/null || true)}
+    DB_PASSWORD=${DB_PASSWORD:-$(php -r "include 'wp-config.php'; echo DB_PASSWORD;" 2>/dev/null || true)}
+    DB_HOST=${DB_HOST:-$(php -r "include 'wp-config.php'; echo DB_HOST;" 2>/dev/null || echo localhost)}
+
+    if [[ -z $DB_NAME || -z $DB_USER || -z $DB_PASSWORD ]]; then
+        echo "WARNING: Database credentials unavailable; skipping DB export." >>"$BACKUP_DIR/export-fail.log"
+    else
+        if command -v wp >/dev/null 2>&1; then
+            if [[ $VERBOSE -eq 1 ]]; then
+                echo "+ wp --path=\"$SITE_DIR\" db export \"$SQL_FILE\" --add-drop-table --no-tablespaces --dbhost=\"$DB_HOST\" --dbuser=\"$DB_USER\" --dbpass=***"
+            fi
+            if ! wp --path="$SITE_DIR" db export "$SQL_FILE" --add-drop-table --no-tablespaces --dbhost="$DB_HOST" --dbuser="$DB_USER" --dbpass="$DB_PASSWORD"; then
+                echo "DB export failed via WP-CLI. Falling back to mysqldump."
+            fi
+        fi
+
+        if [[ ! -s $SQL_FILE ]]; then
+            if ! mysqldump -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" --no-tablespaces >"$SQL_FILE"; then
+                echo "ERROR: DB export failed at $date_tag" >>"$BACKUP_DIR/export-fail.log"
+            fi
+        fi
+
+        if [[ ! -s $SQL_FILE ]]; then
+            echo "ERROR: DB export failed at $date_tag" >>"$BACKUP_DIR/export-fail.log"
+        fi
     fi
-    if ! tar -czf "$HOME/backups/files-$date_tag.tgz" \
+
+    if ! tar -czf "$FILES_FILE" \
         wp-config.php \
         wp-content/themes \
         wp-content/plugins 2>/dev/null; then
         echo "Files snapshot skipped."
     fi
+
+    if [[ -s $FILES_FILE ]]; then
+        echo "Files backup stored at $FILES_FILE"
+    else
+        echo "WARNING: Files backup appears empty" >>"$BACKUP_DIR/export-fail.log"
+    fi
+
+    if [[ -s $SQL_FILE ]]; then
+        echo "Database backup stored at $SQL_FILE"
+    fi
+
+    echo "== Pruning backups older than 7 days =="
+    find "$BACKUP_DIR" -type f \( -name '*.sql' -o -name '*.tgz' \) -mtime +7 -delete
 else
     echo "== Skipping backups (per flag) =="
 fi
