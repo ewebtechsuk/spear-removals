@@ -29,6 +29,12 @@ The installer rewrites any existing entry for `wp_site_deploy.sh` and stores cro
 crontab -l | grep wp_site_deploy.sh
 ```
 
+If you prefer to manage the crontab manually, replicate the installer output using:
+
+```cron
+0 3 * * * SITE_USER=u753768407 BACKUP_DIR=$HOME/backups VERBOSE=0 /home/u753768407/domains/spearremovals.co.uk/public_html/scripts/wp_site_deploy.sh >> $HOME/backups/wp-site-backup-cron.log 2>&1
+```
+
 ## Monitoring & Alerts
 - `backup-status.log` contains a timestamped status with the database and file snapshot results (`OK`, `FAIL`, or `SKIPPED`).
 - `export-fail.log` captures the detailed reason whenever a backup component fails.
